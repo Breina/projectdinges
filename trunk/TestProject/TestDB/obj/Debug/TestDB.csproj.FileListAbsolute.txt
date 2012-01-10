@@ -1,0 +1,6 @@
+c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\bin\Debug\TestDB.dll
+c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\bin\Debug\TestDB.pdb
+c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\bin\Debug\EPPlus.dll
+c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\obj\Debug\ResolveAssemblyReference.cache
+c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\obj\Debug\TestDB.dll
+c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\obj\Debug\TestDB.pdb
