@@ -4,3 +4,8 @@ c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\bin\De
 c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\obj\Debug\ResolveAssemblyReference.cache
 c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\obj\Debug\TestDB.dll
 c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\obj\Debug\TestDB.pdb
+C:\Users\student\Desktop\Folder\TestProject\TestDB\bin\Debug\TestDB.dll
+C:\Users\student\Desktop\Folder\TestProject\TestDB\bin\Debug\TestDB.pdb
+C:\Users\student\Desktop\Folder\TestProject\TestDB\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\student\Desktop\Folder\TestProject\TestDB\obj\Debug\TestDB.dll
+C:\Users\student\Desktop\Folder\TestProject\TestDB\obj\Debug\TestDB.pdb

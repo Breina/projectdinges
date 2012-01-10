@@ -32,12 +32,9 @@ namespace TestDB
                         list.Add(worksheet.Cells[i, j].Value.ToString()+ " " + aantal);
                         aantal++;
                         j++;
-                       
-                   
-                    
-
                     }
                 }
+
                 return list;
             }
         }
