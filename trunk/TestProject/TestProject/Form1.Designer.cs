@@ -40,6 +40,7 @@
             this.sqlToExcelButton.TabIndex = 0;
             this.sqlToExcelButton.Text = "SQL to Excel";
             this.sqlToExcelButton.UseVisualStyleBackColor = true;
+            this.sqlToExcelButton.Click += new System.EventHandler(this.sqlToExcelButton_Click);
             // 
             // excelToSqlButton
             // 

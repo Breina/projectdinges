@@ -21,5 +21,11 @@ namespace TestProject
             ExcelToSqlForm form = new ExcelToSqlForm();
             form.Show();
         }
+
+        private void sqlToExcelButton_Click(object sender, EventArgs e)
+        {
+            SqlToExcelForm form = new SqlToExcelForm();
+            form.Show();
+        }
     }
 }

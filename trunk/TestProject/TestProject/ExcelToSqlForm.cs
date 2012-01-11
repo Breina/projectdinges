@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using TestDB;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace TestProject
 {
@@ -18,6 +19,7 @@ namespace TestProject
         public ExcelToSqlForm()
         {
             InitializeComponent();
+            zetOmButton.Enabled = false;
         }
 
         private void kiesExcelButton_Click(object sender, EventArgs e)
@@ -27,14 +29,22 @@ namespace TestProject
             {
                 fileName = openFileDialog1.FileName;
                 fileTextBox.Text = openFileDialog1.FileName;
+                zetOmButton.Enabled = true;
             }
         }
 
         private void zetOmButton_Click(object sender, EventArgs e)
         {
-            test = new TestDB1();
-           List<string> list =  test.excelToSql(openFileDialog1.FileName);
-           listBox1.DataSource = list;
+            try
+            {
+                test = new TestDB1();
+                List<string> list = test.excelToSql(openFileDialog1.FileName);
+                listBox1.DataSource = list;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.StackTrace, ex.Message);
+            }
         }
 
         private void cancelButton_Click(object sender, EventArgs e)

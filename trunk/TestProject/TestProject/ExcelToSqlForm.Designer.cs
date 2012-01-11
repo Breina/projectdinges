@@ -43,7 +43,7 @@
             // 
             // kiesExcelButton
             // 
-            this.kiesExcelButton.Location = new System.Drawing.Point(112, 12);
+            this.kiesExcelButton.Location = new System.Drawing.Point(111, 12);
             this.kiesExcelButton.Name = "kiesExcelButton";
             this.kiesExcelButton.Size = new System.Drawing.Size(113, 36);
             this.kiesExcelButton.TabIndex = 0;
@@ -92,7 +92,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(67, 238);
+            this.listBox1.Location = new System.Drawing.Point(111, 195);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 95);
             this.listBox1.TabIndex = 5;
