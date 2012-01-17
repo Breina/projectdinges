@@ -49,29 +49,30 @@ namespace TestDB
 
                 SqlConnection conn = new SqlConnection(connectionString);
 
-                string h = "hallo";
+                string bestand = newFile.Name.Remove(newFile.Name.IndexOf('.'));
+
                 string insertStatement = "INSERT INTO Bestanden " +
                     "(Bestand) " +
                     "VALUES (@Bestand)";
 
                 SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
-                insertCommand.Parameters.AddWithValue("@Bestand", h);
+                insertCommand.Parameters.AddWithValue("@Bestand", bestand);
                 try
                 {
                     conn.Open();
                     insertCommand.ExecuteNonQuery();
                     string selectStatement = "SELECT IDENT_CURRENT('Bestanden') FROM Bestanden";
                     SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-                    int id = Convert.ToInt32(selectCommand.ExecuteScalar());
+                    int bestandID = Convert.ToInt32(selectCommand.ExecuteScalar());
 
 
                     foreach (var item in list)
                     {
                         insertStatement = "INSERT INTO DataGegevens " +
-                        "(ID,Gegevens) " +
-                        "VALUES(@ID, @Gegevens)";
+                        "(BestandID,Gegevens) " +
+                        "VALUES (@BestandID, @Gegevens)";
                         insertCommand = new SqlCommand(insertStatement, conn);
-                        insertCommand.Parameters.AddWithValue("@ID", id);
+                        insertCommand.Parameters.AddWithValue("@BestandID", bestandID);
                         insertCommand.Parameters.AddWithValue("@Gegevens", item);
                         insertCommand.ExecuteNonQuery();
                     }
@@ -99,9 +100,9 @@ namespace TestDB
 
             string selectStatement = "SELECT Gegevens " +
                 "FROM DataGegevens " +
-                "WHERE ID=@ID ";
+                "WHERE BestandID=@BestandID ";
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@ID", nummer);
+            selectCommand.Parameters.AddWithValue("@BestandID", nummer);
 
             string selectStatement2 = "SELECT Bestand " +
                 "FROM Bestanden " +
@@ -131,7 +132,15 @@ namespace TestDB
                     int j = 1;
                     foreach (var item in list)
                     {
-                        worksheet.Cells[i, j].Value = Convert.ToDouble(item);
+                        if (item != "NaN")
+                        {
+                            worksheet.Cells[i, j].Value = Convert.ToDouble(item);
+                        }
+                        else
+                        {
+                            worksheet.Cells[i, j].Value = item;
+
+                        }
                         j++;
                     }
                     package.Save();
