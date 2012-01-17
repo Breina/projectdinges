@@ -11,44 +11,21 @@ namespace TestDB
 {
     public class TestDB1
     {
-        public List<string> excelToSql(string file)
+        public void excelToSql(string file)
         {
 
             FileInfo newFile = new FileInfo(file);
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                List<string> list = new List<string>();
-                ExcelWorksheet worksheet = package.Workbook.Worksheets[1];
+
+                ExcelWorksheet worksheetToerental = package.Workbook.Worksheets["n_vast"];
+                ExcelWorksheet worksheet = package.Workbook.Worksheets[5];
                 int i = 1;
                 int j = 1;
                 bool leeg = false;
-
-                while (!leeg)
-                {
-
-                    if (worksheet.Cells[i, 1].Value == null)
-                    {
-                        leeg = true;
-                    }
-                    else if (worksheet.Cells[i, j].Value == null)
-                    {
-                        i++;
-                        j = 1;
-                    }
-                    else
-                    {
-                        list.Add(worksheet.Cells[i, j].Value.ToString());
-
-                        j++;
-
-                    }
-                }
-
-
                 string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
 
                 SqlConnection conn = new SqlConnection(connectionString);
-
                 string bestand = newFile.Name.Remove(newFile.Name.IndexOf('.'));
 
                 string insertStatement = "INSERT INTO Bestanden " +
@@ -57,6 +34,7 @@ namespace TestDB
 
                 SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
                 insertCommand.Parameters.AddWithValue("@Bestand", bestand);
+
                 try
                 {
                     conn.Open();
@@ -65,16 +43,35 @@ namespace TestDB
                     SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
                     int bestandID = Convert.ToInt32(selectCommand.ExecuteScalar());
 
-
-                    foreach (var item in list)
+                    while (!leeg)
                     {
-                        insertStatement = "INSERT INTO DataGegevens " +
-                        "(BestandID,Gegevens) " +
-                        "VALUES (@BestandID, @Gegevens)";
-                        insertCommand = new SqlCommand(insertStatement, conn);
-                        insertCommand.Parameters.AddWithValue("@BestandID", bestandID);
-                        insertCommand.Parameters.AddWithValue("@Gegevens", item);
-                        insertCommand.ExecuteNonQuery();
+
+                        if (worksheet.Cells[i, 1].Value == null)
+                        {
+                            leeg = true;
+                        }
+                        else if (worksheet.Cells[i, j].Value == null)
+                        {
+                            i++;
+                            j = 1;
+                        }
+                        else
+                        {
+                            decimal waarde = Convert.ToDecimal(worksheetToerental.Cells[i, j].Value) * 1500;
+                            string item = worksheet.Cells[i, j].Value.ToString();
+                            insertStatement = "INSERT INTO DataGegevens " +
+                           "(BestandID,Gegevens,Toerental) " +
+                           "VALUES (@BestandID, @Gegevens,@Toerental)";
+                            insertCommand = new SqlCommand(insertStatement, conn);
+                            insertCommand.Parameters.AddWithValue("@BestandID", bestandID);
+                            insertCommand.Parameters.AddWithValue("@Gegevens", item);
+                            insertCommand.Parameters.AddWithValue("@Toerental", waarde);
+                            insertCommand.ExecuteNonQuery();
+                            
+                            j++;
+
+
+                        }
                     }
                 }
                 catch (SqlException ex)
@@ -82,11 +79,9 @@ namespace TestDB
                     throw ex;
                 }
                 finally
-                {
+                {                    
                     conn.Close();
-                }
-
-                return list;
+                }                
             }
         }
 

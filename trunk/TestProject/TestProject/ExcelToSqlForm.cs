@@ -38,8 +38,8 @@ namespace TestProject
             try
             {
                 test = new TestDB1();
-                List<string> list = test.excelToSql(openFileDialog1.FileName);
-                listBox1.DataSource = list;
+            test.excelToSql(openFileDialog1.FileName);
+              
             }
             catch (SqlException ex)
             {
