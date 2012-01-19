@@ -19,7 +19,9 @@ namespace TestDB
             {
 
                 ExcelWorksheet worksheetToerental = package.Workbook.Worksheets["n_vast"];
+                ExcelWorksheet worksheetKoppel = package.Workbook.Worksheets["m_vast"];
                 ExcelWorksheet worksheet = package.Workbook.Worksheets[5];
+                string name = worksheet.Name;
                 int i = 1;
                 int j = 1;
                 bool leeg = false;
@@ -33,7 +35,7 @@ namespace TestDB
                     "VALUES (@Bestand)";
 
                 SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
-                insertCommand.Parameters.AddWithValue("@Bestand", bestand);
+                insertCommand.Parameters.AddWithValue("@Bestand", name);
 
                 try
                 {
@@ -46,29 +48,40 @@ namespace TestDB
                     while (!leeg)
                     {
 
-                        if (worksheet.Cells[i, 1].Value == null)
+                        if (worksheet.Cells[1, j].Value == null)
                         {
                             leeg = true;
                         }
                         else if (worksheet.Cells[i, j].Value == null)
                         {
-                            i++;
-                            j = 1;
+                            j++;
+                            i = 1;
                         }
                         else
                         {
-                            decimal waarde = Convert.ToDecimal(worksheetToerental.Cells[i, j].Value) * 1500;
-                            string item = worksheet.Cells[i, j].Value.ToString();
+                            decimal waardeToerental = Convert.ToDecimal(worksheetToerental.Cells[i, j].Value);
+                            decimal waardeKoppel = Convert.ToDecimal(worksheetKoppel.Cells[i, j].Value);
+                            decimal item;
+                            if (worksheet.Cells[i, j].Value.Equals("NaN"))
+                            {
+                                item = 0;
+                            }
+                            else
+                            {
+                                item = Convert.ToDecimal(worksheet.Cells[i, j].Value);
+                            }
+
                             insertStatement = "INSERT INTO DataGegevens " +
-                           "(BestandID,Gegevens,Toerental) " +
-                           "VALUES (@BestandID, @Gegevens,@Toerental)";
+                           "(BestandID,Gegevens,Toerental,Koppel) " +
+                           "VALUES (@BestandID, @Gegevens, @Toerental, @Koppel)";
                             insertCommand = new SqlCommand(insertStatement, conn);
                             insertCommand.Parameters.AddWithValue("@BestandID", bestandID);
                             insertCommand.Parameters.AddWithValue("@Gegevens", item);
-                            insertCommand.Parameters.AddWithValue("@Toerental", waarde);
+                            insertCommand.Parameters.AddWithValue("@Toerental", waardeToerental);
+                            insertCommand.Parameters.AddWithValue("@Koppel", waardeKoppel);
                             insertCommand.ExecuteNonQuery();
-                            
-                            j++;
+
+                            i++;
 
 
                         }
