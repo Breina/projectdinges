@@ -167,5 +167,21 @@ namespace TestDB
             }
             return list;
         }
+
+        public double[,] getData()
+        {
+            double[,] d = new double[42, 42];
+
+            string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            string selectStatement = "SELECT Gegevens " +
+                "FROM DataGegevens " +
+                "WHERE BestandID=@BestandID ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            selectCommand.Parameters.AddWithValue("@BestandID", 12);
+        }
     }
 }
