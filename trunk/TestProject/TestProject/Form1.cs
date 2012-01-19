@@ -33,31 +33,8 @@ namespace TestProject
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int width = 50;
-            int height = 50;
-
-            double[,] data = new double[width, height];
-
-            // Hier moet ik de dingskes van de database krijge
-
-            Point[,] gridData = new Point[width, height];
-
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    gridData[y, x] = new Point(y, x);   // Kan zijn da ge de x en y moet spiegele hier, ge ziet maar
-                }
-            }
-
-            // As ik dit hier in ne .xaml krijg denk ik da het wel gaat werke
-            WarpedDataSource2D<double> dataSource = new WarpedDataSource2D<double>(data, gridData);
-
-            isolineGraph.DataSource = dataSource;
-            trackingGraph.DataSource = dataSource;
-
-            Rect visible = dataSource.GetGridBounds();
-            plotter.Viewport.Visible = visible;
+            IntensityChart.Window1 g = new IntensityChart.Window1();
+            g.Show();
         }
     }
 }
