@@ -42,3 +42,6 @@ C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\DynamicDataDis
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\TestProject.Graph.resources
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\IntensityChart.exe
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\IntensityChart.pdb
+C:\Users\student\Documents\projectdinges\TestProject2\TestProject\bin\Debug\TestProject.exe.config
+C:\Users\student\Documents\projectdinges\TestProject2\TestProject\obj\x86\Debug\TestProject.exe
+C:\Users\student\Documents\projectdinges\TestProject2\TestProject\obj\x86\Debug\TestProject.pdb
