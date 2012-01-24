@@ -15,3 +15,6 @@ C:\Users\student\documents\visual studio 2010\Projects\TestProject\TestProject\b
 C:\Users\student\documents\visual studio 2010\Projects\TestProject\TestProject\obj\x86\Debug\TestProject.SqlToExcelForm.resources
 C:\Users\student\Documents\Visual Studio 2010\Projects\TestProject\TestProject\bin\Debug\DataTEST_log.ldf
 C:\Users\student\Documents\Visual Studio 2010\Projects\TestProject\TestProject\bin\Debug\TestProject.exe.config
+C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\TestProject.exe.config
+C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\TestProject.exe
+C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\TestProject.pdb
