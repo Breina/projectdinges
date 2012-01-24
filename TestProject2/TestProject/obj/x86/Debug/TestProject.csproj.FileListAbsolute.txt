@@ -45,3 +45,14 @@ C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\IntensityChart
 C:\Users\student\Documents\projectdinges\TestProject2\TestProject\bin\Debug\TestProject.exe.config
 C:\Users\student\Documents\projectdinges\TestProject2\TestProject\obj\x86\Debug\TestProject.exe
 C:\Users\student\Documents\projectdinges\TestProject2\TestProject\obj\x86\Debug\TestProject.pdb
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\bin\Debug\TestProject.exe.config
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\TestProject.exe
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\TestProject.pdb
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\TestProject.ExcelToSqlForm.resources
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\TestProject.HoofdScherm.resources
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\TestProject.Graph.resources
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\TestProject.Properties.Resources.resources
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\TestProject.SqlToExcelForm.resources
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\student\Desktop\Folder\TestProject2\TestProject\obj\x86\Debug\GenerateResource.write.1.tlog

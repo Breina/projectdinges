@@ -12,29 +12,29 @@ using Microsoft.Research.DynamicDataDisplay.Charts;
 
 namespace TestProject
 {
-    public partial class Form1 : Form
+    public partial class HoofdScherm : Form
     {
-        public Form1()
+        public HoofdScherm()
         {
             InitializeComponent();
         }
 
-        private void excelToSqlButton_Click(object sender, EventArgs e)
+        private void knopImporteren_Click(object sender, EventArgs e)
         {
             ExcelToSqlForm form = new ExcelToSqlForm();
             form.Show();
         }
 
-        private void sqlToExcelButton_Click(object sender, EventArgs e)
-        {
-            SqlToExcelForm form = new SqlToExcelForm();
-            form.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void knopVisualizeren_Click(object sender, EventArgs e)
         {
             IntensityChart.Window1 g = new IntensityChart.Window1();
             g.Show();
+        }
+
+        private void knopExporteren_Click(object sender, EventArgs e)
+        {
+            SqlToExcelForm form = new SqlToExcelForm();
+            form.Show();
         }
     }
 }
