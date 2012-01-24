@@ -6,9 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Microsoft.Research.DynamicDataDisplay.DataSources.MultiDimensional;
-using Microsoft.Research.DynamicDataDisplay.Common.Auxiliary;
-using Microsoft.Research.DynamicDataDisplay.Charts;
 
 namespace TestProject
 {
@@ -29,12 +26,6 @@ namespace TestProject
         {
             SqlToExcelForm form = new SqlToExcelForm();
             form.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            IntensityChart.Window1 g = new IntensityChart.Window1();
-            g.Show();
         }
     }
 }
