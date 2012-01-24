@@ -7,3 +7,11 @@ c:\users\student\documents\visual studio 2010\Projects\TestProject\TestDB\obj\De
 C:\Users\student\documents\visual studio 2010\Projects\TestProject\TestDB\bin\Debug\TestDB.dll.config
 C:\Users\student\Documents\Visual Studio 2010\Projects\TestProject\TestDB\bin\Debug\DataTEST.mdf
 C:\Users\student\Documents\Visual Studio 2010\Projects\TestProject\TestDB\bin\Debug\DataTEST_log.ldf
+C:\Users\student\Desktop\Folder\TestProject2\TestDB\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\student\Desktop\Folder\TestProject2\TestDB\obj\Debug\TestDB.dll
+C:\Users\student\Desktop\Folder\TestProject2\TestDB\bin\Debug\DataTEST.mdf
+C:\Users\student\Desktop\Folder\TestProject2\TestDB\bin\Debug\DataTEST_log.ldf
+C:\Users\student\Desktop\Folder\TestProject2\TestDB\bin\Debug\TestDB.dll.config
+C:\Users\student\Desktop\Folder\TestProject2\TestDB\bin\Debug\TestDB.dll
+C:\Users\student\Desktop\Folder\TestProject2\TestDB\bin\Debug\TestDB.pdb
+C:\Users\student\Desktop\Folder\TestProject2\TestDB\obj\Debug\TestDB.pdb
