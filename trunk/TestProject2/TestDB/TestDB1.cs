@@ -181,7 +181,7 @@ namespace TestDB
                 "WHERE BestandID=@BestandID ";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@BestandID", 12); // Bestand aanpassen hier!!!!
+            selectCommand.Parameters.AddWithValue("@BestandID", 14); // Bestand aanpassen hier!!!!
              SqlDataReader reader;
              try
              {
@@ -190,18 +190,11 @@ namespace TestDB
 
                  for (int y = 0; y < 42; y++)
                  {
-                     for (int x = 0; x < 42; x++)
+                     for (int x = 41; x > -1; x--)
                      {
                          reader.Read();
-                         string s = reader["Gegevens"].ToString();
-                         if (s.Equals("NaN"))
-                         {
-                             d[x, y] = 0;
-                         }
-                         else
-                         {
+                         string s = reader["Gegevens"].ToString();                        
                              d[x, y] = Convert.ToDouble(s);
-                         }
                      }
                  }
                  
