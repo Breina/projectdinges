@@ -27,13 +27,10 @@ C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\EPPlus.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\TestDB.pdb
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\TestProject.ExcelToSqlForm.resources
-C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\TestProject.Form1.resources
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\TestProject.Properties.Resources.resources
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\TestProject.SqlToExcelForm.resources
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\DynamicDataDisplay.Coastline.dll
-C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\DynamicDataDisplay.Controls.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\DynamicDataDisplay.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\DynamicDataDisplay.Maps.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\System.Threading.dll
@@ -72,3 +69,4 @@ C:\Users\student\Desktop\Folder\TestProject2\TestProject\bin\Debug\IntensityChar
 C:\Users\student\Desktop\Folder\TestProject2\TestProject\bin\Debug\TestDB.pdb
 C:\Users\student\Desktop\Folder\TestProject2\TestProject\bin\Debug\DynamicDataDisplay.Coastline.xml
 C:\Users\student\Desktop\Folder\TestProject2\TestProject\bin\Debug\DynamicDataDisplay.Controls.xml
+C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\TestProject.HoofdScherm.resources
