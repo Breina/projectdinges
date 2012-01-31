@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoofdScherm));
             this.knopImporteren = new System.Windows.Forms.Button();
             this.knopVisualizeren = new System.Windows.Forms.Button();
             this.knopExporteren = new System.Windows.Forms.Button();
@@ -36,10 +37,10 @@
             this.importerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.visualizerenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exporterenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.uitloggenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -49,31 +50,31 @@
             // 
             // knopImporteren
             // 
+            this.knopImporteren.Image = ((System.Drawing.Image)(resources.GetObject("knopImporteren.Image")));
             this.knopImporteren.Location = new System.Drawing.Point(508, 28);
             this.knopImporteren.Name = "knopImporteren";
             this.knopImporteren.Size = new System.Drawing.Size(120, 120);
             this.knopImporteren.TabIndex = 0;
-            this.knopImporteren.Text = "Importeren";
             this.knopImporteren.UseVisualStyleBackColor = true;
             this.knopImporteren.Click += new System.EventHandler(this.knopImporteren_Click);
             // 
             // knopVisualizeren
             // 
+            this.knopVisualizeren.Image = ((System.Drawing.Image)(resources.GetObject("knopVisualizeren.Image")));
             this.knopVisualizeren.Location = new System.Drawing.Point(508, 155);
             this.knopVisualizeren.Name = "knopVisualizeren";
             this.knopVisualizeren.Size = new System.Drawing.Size(120, 120);
             this.knopVisualizeren.TabIndex = 1;
-            this.knopVisualizeren.Text = "Visualizeren";
             this.knopVisualizeren.UseVisualStyleBackColor = true;
             this.knopVisualizeren.Click += new System.EventHandler(this.knopVisualizeren_Click);
             // 
             // knopExporteren
             // 
+            this.knopExporteren.Image = ((System.Drawing.Image)(resources.GetObject("knopExporteren.Image")));
             this.knopExporteren.Location = new System.Drawing.Point(508, 282);
             this.knopExporteren.Name = "knopExporteren";
             this.knopExporteren.Size = new System.Drawing.Size(120, 120);
             this.knopExporteren.TabIndex = 2;
-            this.knopExporteren.Text = "Exporteren";
             this.knopExporteren.UseVisualStyleBackColor = true;
             this.knopExporteren.Click += new System.EventHandler(this.knopExporteren_Click);
             // 
@@ -105,42 +106,42 @@
             // importerenToolStripMenuItem
             // 
             this.importerenToolStripMenuItem.Name = "importerenToolStripMenuItem";
-            this.importerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.importerenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.importerenToolStripMenuItem.Text = "&Importeren...";
             // 
             // visualizerenToolStripMenuItem
             // 
             this.visualizerenToolStripMenuItem.Name = "visualizerenToolStripMenuItem";
-            this.visualizerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.visualizerenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.visualizerenToolStripMenuItem.Text = "&Visualizeren";
             // 
             // exporterenToolStripMenuItem
             // 
             this.exporterenToolStripMenuItem.Name = "exporterenToolStripMenuItem";
-            this.exporterenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exporterenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.exporterenToolStripMenuItem.Text = "&Exporteren...";
-            // 
-            // uitloggenToolStripMenuItem
-            // 
-            this.uitloggenToolStripMenuItem.Name = "uitloggenToolStripMenuItem";
-            this.uitloggenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.uitloggenToolStripMenuItem.Text = "&Uitloggen";
-            // 
-            // afsluitenToolStripMenuItem
-            // 
-            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.afsluitenToolStripMenuItem.Text = "&Afsluiten";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
+            // 
+            // uitloggenToolStripMenuItem
+            // 
+            this.uitloggenToolStripMenuItem.Name = "uitloggenToolStripMenuItem";
+            this.uitloggenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.uitloggenToolStripMenuItem.Text = "&Uitloggen";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
+            // 
+            // afsluitenToolStripMenuItem
+            // 
+            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.afsluitenToolStripMenuItem.Text = "&Afsluiten";
             // 
             // helpToolStripMenuItem
             // 
@@ -153,7 +154,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // listBox1
