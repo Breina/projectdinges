@@ -1,0 +1,5 @@
+We hebben gekozen voor Dynamic Data Display (D3).
+
+Het is dynamisch en flexibel, de data kan on-the-fly worden aangepast en de grafiek zal up-to-date blijven. Het is ook gratis en kan zonder veel extra moeite worden geïmplementeerd in ons programma. De gebruiksvriendelijke interface maakt het ons gemakkelijk met enkele codes al een mooie grafiek tevoorschijn te toveren, zonder zorgen te moeten maken over wat er achter de schermen gebeurd.
+
+Het pallet aan grafiek-keuzemogelijkheden is vrijwel onbeperkt. Elke stijl is zeer aanpasbaar om net dié grafiek te tekenen die je zelf wilt. We hadden al reeds enkele grafiekken in ons achterhoofd, Dynamic Data Display komt niet aan onze eisen tekort. Bij andere opties ontbraken een of meer van de voorgaande argumenten, dus het is ook evident dat we deze keuze hebben gemaakt .

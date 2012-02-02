@@ -1,0 +1,57 @@
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\App.g.cs
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\IntensityChart_MarkupCompile.cache
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\DynamicDataDisplay.Maps.Readme.txt
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\DynamicDataDisplay.Readme.txt
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\DynamicDataDisplay.License.txt
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\IntensityChart.exe
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\IntensityChart.pdb
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\DynamicDataDisplay.dll
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\DynamicDataDisplay.Maps.dll
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\System.Threading.dll
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\DynamicDataDisplay.Maps.pdb
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\DynamicDataDisplay.pdb
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\System.Threading.xml
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\bin\Debug\ru-ru\DynamicDataDisplay.resources.dll
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\Window1.baml
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\Window1.g.cs
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\IntensityChart.g.resources
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\IntensityChart.Properties.Resources.resources
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\ResGen.read.1.tlog
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\ResGen.write.1.tlog
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\IntensityChart.exe
+C:\Users\KennyV\Desktop\DynamicDataDisplay Sources v0.3.4703.0\Nightly\src\DevSamples\IntensityChart\obj\Debug\IntensityChart.pdb
+C:\Users\student\Desktop\IntensityChart\obj\Debug\IntensityChart.exe
+C:\Users\student\Desktop\IntensityChart\obj\Debug\IntensityChart.pdb
+C:\Users\student\Desktop\IntensityChart\bin\Debug\IntensityChart.exe
+C:\Users\student\Desktop\IntensityChart\bin\Debug\IntensityChart.pdb
+C:\Users\student\Desktop\IntensityChart\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\student\Desktop\IntensityChart\obj\Debug\Window1.baml
+C:\Users\student\Desktop\IntensityChart\obj\Debug\Window1.g.cs
+C:\Users\student\Desktop\IntensityChart\obj\Debug\App.g.cs
+C:\Users\student\Desktop\IntensityChart\obj\Debug\IntensityChart_MarkupCompile.cache
+C:\Users\student\Desktop\IntensityChart\obj\Debug\IntensityChart.g.resources
+C:\Users\student\Desktop\IntensityChart\obj\Debug\IntensityChart.Properties.Resources.resources
+C:\Users\student\Desktop\IntensityChart\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\student\Desktop\IntensityChart\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\Window1.baml
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\Window1.g.cs
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\App.g.cs
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\IntensityChart_MarkupCompile.cache
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\IntensityChart.g.resources
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\IntensityChart.Properties.Resources.resources
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\IntensityChart.exe
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\bin\Debug\DataTEST.mdf
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\bin\Debug\DataTEST_log.ldf
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\bin\Debug\IntensityChart.exe.config
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\bin\Debug\IntensityChart.exe
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\bin\Debug\IntensityChart.pdb
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\bin\Debug\TestDB.dll
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\bin\Debug\EPPlus.dll
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\bin\Debug\TestDB.pdb
+C:\Users\student\Desktop\ProjectBeter\TestProject\IntensityChart\obj\Debug\IntensityChart.pdb
