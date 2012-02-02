@@ -26,24 +26,39 @@ namespace TestDB
                 int j = 1;
                 bool leeg = false;
                 string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
+                string selectStatement;
+                SqlCommand insertCommand;
+                SqlCommand selectCommand;
 
                 SqlConnection conn = new SqlConnection(connectionString);
                 string bestand = newFile.Name.Remove(newFile.Name.IndexOf('.'));
 
                 string insertStatement = "INSERT INTO Bestanden " +
-                    "(Bestand) " +
-                    "VALUES (@Bestand)";
+                    "(BestandNaam) " +
+                    "VALUES (@BestandNaam)";
 
-                SqlCommand insertCommand = new SqlCommand(insertStatement, conn);
-                insertCommand.Parameters.AddWithValue("@Bestand", name);
-
+                insertCommand = new SqlCommand(insertStatement, conn);
+                insertCommand.Parameters.AddWithValue("@BestandNaam", name);
                 try
                 {
+
                     conn.Open();
                     insertCommand.ExecuteNonQuery();
-                    string selectStatement = "SELECT IDENT_CURRENT('Bestanden') FROM Bestanden";
-                    SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+                    selectStatement = "SELECT IDENT_CURRENT('ID') FROM Bestanden";
+                    selectCommand = new SqlCommand(selectStatement, conn);
                     int bestandID = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                    insertStatement = "INSERT INTO Gegevens " +
+                        "(BestandID) " +
+                        "VALUES (@BestandID)";
+
+                    insertCommand = new SqlCommand(insertStatement, conn);
+                    insertCommand.Parameters.AddWithValue("@BestandID", bestandID);
+                    insertCommand.ExecuteNonQuery();
+
+                    selectStatement = "SELECT IDENT_CURRENT('GegevenID') FROM Gegevens";
+                    selectCommand = new SqlCommand(selectStatement, conn);
+                    int gegevenID = Convert.ToInt32(selectCommand.ExecuteScalar());
 
                     while (!leeg)
                     {
@@ -74,18 +89,16 @@ namespace TestDB
                             }
 
                             insertStatement = "INSERT INTO DataGegevens " +
-                           "(BestandID,Gegevens,Toerental,Koppel) " +
-                           "VALUES (@BestandID, @Gegevens, @Toerental, @Koppel)";
+                            "(GegevensID,Rendament,Toerental,Koppel) " +
+                            "VALUES (@GegevensID, @Rendament, @Toerental, @Koppel)";
                             insertCommand = new SqlCommand(insertStatement, conn);
-                            insertCommand.Parameters.AddWithValue("@BestandID", bestandID);
-                            insertCommand.Parameters.AddWithValue("@Gegevens", item);
+                            insertCommand.Parameters.AddWithValue("@GegevensID", gegevenID);
+                            insertCommand.Parameters.AddWithValue("@Rendament", item);
                             insertCommand.Parameters.AddWithValue("@Toerental", waardeToerental);
                             insertCommand.Parameters.AddWithValue("@Koppel", waardeKoppel);
                             insertCommand.ExecuteNonQuery();
 
                             i++;
-
-
                         }
                     }
                 }
@@ -95,7 +108,7 @@ namespace TestDB
                 }
                 finally
                 {
-                    conn.Close();
+
                 }
             }
         }
@@ -233,34 +246,34 @@ namespace TestDB
 
         public Points[,] getValues()
         {
-           Points[,] d = new Points[42, 42];
+            Points[,] d = new Points[42, 42];
 
-           string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
+            string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
 
-           SqlConnection conn = new SqlConnection(connectionString);
+            SqlConnection conn = new SqlConnection(connectionString);
 
-           string selectStatement = "SELECT Toerental, Koppel " +
-                "FROM DataGegevens " +
-                "WHERE BestandID=@BestandID ";
+            string selectStatement = "SELECT Toerental, Koppel " +
+                 "FROM DataGegevens " +
+                 "WHERE BestandID=@BestandID ";
 
-           SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-           selectCommand.Parameters.AddWithValue("@BestandID", 14); // Bestand aanpassen hier!!!!
-           SqlDataReader reader;
-           try
-           {
-               conn.Open();
-               reader = selectCommand.ExecuteReader();
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            selectCommand.Parameters.AddWithValue("@BestandID", 14); // Bestand aanpassen hier!!!!
+            SqlDataReader reader;
+            try
+            {
+                conn.Open();
+                reader = selectCommand.ExecuteReader();
 
-               for (int y = 0; y < 42; y++)
-               {
-                   for (int x = 41; x >= 0; x--)
-                   {
-                       reader.Read();
-                       double t = Convert.ToDouble(reader["Toerental"]);
-                       double k = Convert.ToDouble(reader["Koppel"]);
+                for (int y = 0; y < 42; y++)
+                {
+                    for (int x = 41; x >= 0; x--)
+                    {
+                        reader.Read();
+                        double t = Convert.ToDouble(reader["Toerental"]);
+                        double k = Convert.ToDouble(reader["Koppel"]);
 
-                       d[x, y] = new Points(t, k);
-                   }
+                        d[x, y] = new Points(t, k);
+                    }
                 }
 
 
