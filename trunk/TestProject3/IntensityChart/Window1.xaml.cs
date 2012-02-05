@@ -38,6 +38,7 @@ namespace IntensityChart
 		private void Window1_Loaded(object sender, RoutedEventArgs e)
 		{
 			data = BuildSampleData(imageSize);
+           
 
 			NaiveColorMap map = new NaiveColorMap { Data = data, Palette = LinearPalettes.RedGreenBluePalette};
 			var bmp = map.BuildImage();

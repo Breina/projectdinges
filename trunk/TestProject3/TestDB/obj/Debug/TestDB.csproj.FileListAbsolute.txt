@@ -31,3 +31,11 @@ C:\Users\student\Desktop\Folder\TestProject3\TestDB\bin\Debug\TestDB.pdb
 C:\Users\student\Desktop\Folder\TestProject3\TestDB\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\student\Desktop\Folder\TestProject3\TestDB\obj\Debug\TestDB.dll
 C:\Users\student\Desktop\Folder\TestProject3\TestDB\obj\Debug\TestDB.pdb
+C:\Users\student\Desktop\Project\TestProject3\TestDB\bin\Debug\TestDB.dll.config
+C:\Users\student\Desktop\Project\TestProject3\TestDB\bin\Debug\TestDB.dll
+C:\Users\student\Desktop\Project\TestProject3\TestDB\bin\Debug\TestDB.pdb
+C:\Users\student\Desktop\Project\TestProject3\TestDB\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\student\Desktop\Project\TestProject3\TestDB\obj\Debug\TestDB.dll
+C:\Users\student\Desktop\Project\TestProject3\TestDB\obj\Debug\TestDB.pdb
+C:\Users\student\Desktop\Project\TestProject3\TestDB\bin\Debug\DataTEST.mdf
+C:\Users\student\Desktop\Project\TestProject3\TestDB\bin\Debug\DataTEST_log.ldf
