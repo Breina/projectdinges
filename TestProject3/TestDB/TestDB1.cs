@@ -44,7 +44,7 @@ namespace TestDB
 
                     conn.Open();
                     insertCommand.ExecuteNonQuery();
-                    selectStatement = "SELECT IDENT_CURRENT('ID') FROM Bestanden";
+                    selectStatement = "SELECT IDENT_CURRENT('Bestanden') FROM Bestanden";
                     selectCommand = new SqlCommand(selectStatement, conn);
                     int bestandID = Convert.ToInt32(selectCommand.ExecuteScalar());
 
@@ -56,9 +56,9 @@ namespace TestDB
                     insertCommand.Parameters.AddWithValue("@BestandID", bestandID);
                     insertCommand.ExecuteNonQuery();
 
-                    selectStatement = "SELECT IDENT_CURRENT('GegevenID') FROM Gegevens";
+                    selectStatement = "SELECT IDENT_CURRENT('Gegevens') FROM Gegevens";
                     selectCommand = new SqlCommand(selectStatement, conn);
-                    int gegevenID = Convert.ToInt32(selectCommand.ExecuteScalar());
+                    int gegevensID = Convert.ToInt32(selectCommand.ExecuteScalar());
 
                     while (!leeg)
                     {
@@ -92,7 +92,7 @@ namespace TestDB
                             "(GegevensID,Rendament,Toerental,Koppel) " +
                             "VALUES (@GegevensID, @Rendament, @Toerental, @Koppel)";
                             insertCommand = new SqlCommand(insertStatement, conn);
-                            insertCommand.Parameters.AddWithValue("@GegevensID", gegevenID);
+                            insertCommand.Parameters.AddWithValue("@GegevensID", gegevensID);
                             insertCommand.Parameters.AddWithValue("@Rendament", item);
                             insertCommand.Parameters.AddWithValue("@Toerental", waardeToerental);
                             insertCommand.Parameters.AddWithValue("@Koppel", waardeKoppel);
@@ -191,16 +191,26 @@ namespace TestDB
 
             SqlConnection conn = new SqlConnection(connectionString);
 
-            string selectStatement = "SELECT Gegevens " +
-                "FROM DataGegevens " +
-                "WHERE BestandID=@BestandID ";
+            string selectStatement = "SELECT GegevenID " +
+                "FROM Gegevens " +
+                "WHERE BestandID=@BestandID";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@BestandID", 14); // Bestand aanpassen hier!!!!
+            selectCommand.Parameters.AddWithValue("@BestandID", 18); // Bestand aanpassen hier!!!!
             SqlDataReader reader;
             try
             {
                 conn.Open();
+                reader = selectCommand.ExecuteReader();
+                reader.Read();
+
+                int gegevensID = Convert.ToInt32(reader["GegevenID"]);
+                reader.Close();
+                selectStatement = "SELECT Rendament " +
+                "FROM DataGegevens " +
+                "WHERE GegevensID=@GegevensID";
+                selectCommand = new SqlCommand(selectStatement, conn);
+                selectCommand.Parameters.AddWithValue("@GegevensID", gegevensID);
                 reader = selectCommand.ExecuteReader();
 
                 for (int y = 0; y < 42; y++)
@@ -208,7 +218,7 @@ namespace TestDB
                     for (int x = 41; x >= 0; x--)
                     {
                         reader.Read();
-                        double s = Convert.ToDouble(reader["Gegevens"]);
+                        double s = Convert.ToDouble(reader["Rendament"]);
 
                         d[x, y] = s;
 
@@ -252,16 +262,26 @@ namespace TestDB
 
             SqlConnection conn = new SqlConnection(connectionString);
 
-            string selectStatement = "SELECT Toerental, Koppel " +
-                 "FROM DataGegevens " +
-                 "WHERE BestandID=@BestandID ";
+            string selectStatement = "SELECT GegevenID " +
+                "FROM Gegevens " +
+                "WHERE BestandID=@BestandID";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@BestandID", 14); // Bestand aanpassen hier!!!!
+            selectCommand.Parameters.AddWithValue("@BestandID", 18); // Bestand aanpassen hier!!!!
             SqlDataReader reader;
             try
             {
                 conn.Open();
+                reader = selectCommand.ExecuteReader();
+                reader.Read();
+
+                int gegevensID = Convert.ToInt32(reader["GegevenID"]);
+                reader.Close();
+                selectStatement = "SELECT Toerental, Koppel " +
+                "FROM DataGegevens " +
+                "WHERE GegevensID=@GegevensID";
+                selectCommand = new SqlCommand(selectStatement, conn);
+                selectCommand.Parameters.AddWithValue("@GegevensID", gegevensID);
                 reader = selectCommand.ExecuteReader();
 
                 for (int y = 0; y < 42; y++)
@@ -303,6 +323,58 @@ namespace TestDB
 
             return d;
 
+        }
+
+        public bool inloggen(string login, string password)
+        {
+            bool inloggen = false ;
+            string wachtwoord;
+            string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
+
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            string selectStatement = "SELECT Login,Password " +
+                "FROM Users " +
+                "WHERE Login=@Login";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            selectCommand.Parameters.AddWithValue("@Login", login); // Bestand aanpassen hier!!!!
+            SqlDataReader reader;
+
+            try
+            {
+                conn.Open();
+                reader = selectCommand.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    reader.Read();
+                    wachtwoord = reader["Password"].ToString();
+                    if (wachtwoord.Equals(password))
+                    {
+                        inloggen = true;
+                    }
+                    else
+                    {
+                        throw new Exception("Wachtwoord niet correct! Probeer opnieuw.");
+                    }
+
+                }
+                else
+                {
+                    throw new Exception("Login naam bestaat niet! Probeer opnieuw.");
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+            finally
+            {
+               
+                conn.Close();
+            }
+            return inloggen;
         }
     }
 }
