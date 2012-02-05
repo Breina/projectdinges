@@ -17,10 +17,7 @@ namespace TestDB
             FileInfo newFile = new FileInfo(file);
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-
-                ExcelWorksheet worksheetToerental = package.Workbook.Worksheets["n_vast"];
-                ExcelWorksheet worksheetKoppel = package.Workbook.Worksheets["m_vast"];
-                ExcelWorksheet worksheet = package.Workbook.Worksheets[5];
+                ExcelWorksheet worksheet = package.Workbook.Worksheets[6];
                 string name = worksheet.Name;
                 int i = 1;
                 int j = 1;
@@ -41,7 +38,6 @@ namespace TestDB
                 insertCommand.Parameters.AddWithValue("@BestandNaam", name);
                 try
                 {
-
                     conn.Open();
                     insertCommand.ExecuteNonQuery();
                     selectStatement = "SELECT IDENT_CURRENT('Bestanden') FROM Bestanden";
@@ -73,11 +69,7 @@ namespace TestDB
                             i = 1;
                         }
                         else
-                        {
-
-                            double waardeToerental = Convert.ToDouble(worksheetToerental.Cells[i, j].Value);
-                            double waardeKoppel = Convert.ToDouble(worksheetKoppel.Cells[i, j].Value);
-
+                        {                           
                             double item;
                             if (worksheet.Cells[i, j].Value.Equals("NaN"))
                             {
@@ -86,18 +78,15 @@ namespace TestDB
                             else
                             {
                                 item = Convert.ToDouble(worksheet.Cells[i, j].Value);
-                            }
-
+                            }                          
                             insertStatement = "INSERT INTO DataGegevens " +
-                            "(GegevensID,Rendament,Toerental,Koppel) " +
-                            "VALUES (@GegevensID, @Rendament, @Toerental, @Koppel)";
+                            "(GegevensID,Rendament) " +
+                            "VALUES (@GegevensID, @Rendament)";
+                          
                             insertCommand = new SqlCommand(insertStatement, conn);
                             insertCommand.Parameters.AddWithValue("@GegevensID", gegevensID);
-                            insertCommand.Parameters.AddWithValue("@Rendament", item);
-                            insertCommand.Parameters.AddWithValue("@Toerental", waardeToerental);
-                            insertCommand.Parameters.AddWithValue("@Koppel", waardeKoppel);
-                            insertCommand.ExecuteNonQuery();
-
+                            insertCommand.Parameters.AddWithValue("@Rendament", item);                           
+                            insertCommand.ExecuteNonQuery();                        
                             i++;
                         }
                     }
@@ -108,7 +97,7 @@ namespace TestDB
                 }
                 finally
                 {
-
+                    conn.Close();
                 }
             }
         }
@@ -196,7 +185,7 @@ namespace TestDB
                 "WHERE BestandID=@BestandID";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@BestandID", 18); // Bestand aanpassen hier!!!!
+            selectCommand.Parameters.AddWithValue("@BestandID", 20); // Bestand aanpassen hier!!!!
             SqlDataReader reader;
             try
             {
@@ -223,21 +212,7 @@ namespace TestDB
                         d[x, y] = s;
 
                     }
-                }
-
-
-                /*int i = 0;
-                int j = 0;
-                while (reader.Read())
-                {
-                    d[i, j] = Convert.ToDouble(reader["Gegegevens"]);
-                    i++;
-                    if (i == 41)
-                    {
-                        i = 0;
-                        j++;
-                    }
-                }*/
+                }               
                 reader.Close();
             }
             catch (Exception e)
@@ -262,26 +237,15 @@ namespace TestDB
 
             SqlConnection conn = new SqlConnection(connectionString);
 
-            string selectStatement = "SELECT GegevenID " +
-                "FROM Gegevens " +
-                "WHERE BestandID=@BestandID";
-
+            string selectStatement = "SELECT Toerental, Koppel " +
+                "FROM NominaleWaarden";
+                
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@BestandID", 18); // Bestand aanpassen hier!!!!
             SqlDataReader reader;
             try
             {
                 conn.Open();
-                reader = selectCommand.ExecuteReader();
-                reader.Read();
-
-                int gegevensID = Convert.ToInt32(reader["GegevenID"]);
-                reader.Close();
-                selectStatement = "SELECT Toerental, Koppel " +
-                "FROM DataGegevens " +
-                "WHERE GegevensID=@GegevensID";
-                selectCommand = new SqlCommand(selectStatement, conn);
-                selectCommand.Parameters.AddWithValue("@GegevensID", gegevensID);
+                
                 reader = selectCommand.ExecuteReader();
 
                 for (int y = 0; y < 42; y++)
@@ -294,21 +258,7 @@ namespace TestDB
 
                         d[x, y] = new Points(t, k);
                     }
-                }
-
-
-                /*int i = 0;
-                int j = 0;
-                while (reader.Read())
-                {
-                    d[i, j] = Convert.ToDouble(reader["Gegegevens"]);
-                    i++;
-                    if (i == 41)
-                    {
-                        i = 0;
-                        j++;
-                    }
-                }*/
+                }               
                 reader.Close();
             }
             catch (Exception e)
