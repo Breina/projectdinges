@@ -142,3 +142,4 @@ C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\System.Threa
 C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\DynamicDataDisplay.Coastline.xml
 C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\DynamicDataDisplay.Controls.xml
 C:\Users\student\Desktop\Project\TestProject3\TestProject\obj\x86\Debug\TestProject.Inloggen.resources
+C:\Users\student\Desktop\Folder\TestProject3\TestProject\obj\x86\Debug\TestProject.Inloggen.resources

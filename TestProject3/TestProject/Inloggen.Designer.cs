@@ -37,7 +37,7 @@
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(132, 96);
+            this.loginButton.Location = new System.Drawing.Point(132, 79);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
             this.loginButton.TabIndex = 0;
@@ -82,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 131);
+            this.ClientSize = new System.Drawing.Size(239, 112);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.loginTextBox);
             this.Controls.Add(this.passwordLabel);

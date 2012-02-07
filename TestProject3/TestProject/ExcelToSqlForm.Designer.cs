@@ -30,11 +30,17 @@
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.kiesExcelButton = new System.Windows.Forms.Button();
-            this.fileLabel = new System.Windows.Forms.Label();
-            this.zetOmButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
             this.fileTextBox = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ColNaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomToer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomKopp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductieMachineNaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnProductiemachines = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -43,73 +49,106 @@
             // 
             // kiesExcelButton
             // 
-            this.kiesExcelButton.Location = new System.Drawing.Point(111, 12);
+            this.kiesExcelButton.Location = new System.Drawing.Point(484, 11);
             this.kiesExcelButton.Name = "kiesExcelButton";
-            this.kiesExcelButton.Size = new System.Drawing.Size(113, 36);
-            this.kiesExcelButton.TabIndex = 0;
-            this.kiesExcelButton.Text = "Kies excelbestand";
+            this.kiesExcelButton.Size = new System.Drawing.Size(75, 23);
+            this.kiesExcelButton.TabIndex = 1;
+            this.kiesExcelButton.Text = "Bladeren...";
             this.kiesExcelButton.UseVisualStyleBackColor = true;
             this.kiesExcelButton.Click += new System.EventHandler(this.kiesExcelButton_Click);
             // 
-            // fileLabel
-            // 
-            this.fileLabel.AutoSize = true;
-            this.fileLabel.Location = new System.Drawing.Point(12, 81);
-            this.fileLabel.Name = "fileLabel";
-            this.fileLabel.Size = new System.Drawing.Size(49, 13);
-            this.fileLabel.TabIndex = 1;
-            this.fileLabel.Text = "Bestand:";
-            // 
-            // zetOmButton
-            // 
-            this.zetOmButton.Location = new System.Drawing.Point(67, 166);
-            this.zetOmButton.Name = "zetOmButton";
-            this.zetOmButton.Size = new System.Drawing.Size(75, 23);
-            this.zetOmButton.TabIndex = 2;
-            this.zetOmButton.Text = "Zet om";
-            this.zetOmButton.UseVisualStyleBackColor = true;
-            this.zetOmButton.Click += new System.EventHandler(this.zetOmButton_Click);
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(197, 166);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 3;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
             // fileTextBox
             // 
-            this.fileTextBox.Location = new System.Drawing.Point(67, 78);
-            this.fileTextBox.Multiline = true;
+            this.fileTextBox.Location = new System.Drawing.Point(13, 13);
             this.fileTextBox.Name = "fileTextBox";
-            this.fileTextBox.ReadOnly = true;
-            this.fileTextBox.Size = new System.Drawing.Size(205, 82);
-            this.fileTextBox.TabIndex = 4;
+            this.fileTextBox.Size = new System.Drawing.Size(465, 20);
+            this.fileTextBox.TabIndex = 0;
+            this.fileTextBox.TabStop = false;
+            this.fileTextBox.Click += new System.EventHandler(this.textBox1_Click);
             // 
-            // listBox1
+            // dataGridView
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(111, 195);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 5;
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColNaam,
+            this.Type,
+            this.NomToer,
+            this.NomKopp,
+            this.ProductieMachineNaam});
+            this.dataGridView.Location = new System.Drawing.Point(13, 39);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(546, 309);
+            this.dataGridView.TabIndex = 2;
+            // 
+            // ColNaam
+            // 
+            this.ColNaam.HeaderText = "Naam";
+            this.ColNaam.Name = "ColNaam";
+            this.ColNaam.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            // 
+            // NomToer
+            // 
+            this.NomToer.HeaderText = "Toerental";
+            this.NomToer.Name = "NomToer";
+            // 
+            // NomKopp
+            // 
+            this.NomKopp.HeaderText = "Koppel";
+            this.NomKopp.Name = "NomKopp";
+            // 
+            // ProductieMachineNaam
+            // 
+            this.ProductieMachineNaam.HeaderText = "Productiemachine";
+            this.ProductieMachineNaam.Name = "ProductieMachineNaam";
+            // 
+            // btnOK
+            // 
+            this.btnOK.Enabled = false;
+            this.btnOK.Location = new System.Drawing.Point(484, 354);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 3;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(403, 354);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Annuleren";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnProductiemachines
+            // 
+            this.btnProductiemachines.Location = new System.Drawing.Point(13, 353);
+            this.btnProductiemachines.Name = "btnProductiemachines";
+            this.btnProductiemachines.Size = new System.Drawing.Size(128, 23);
+            this.btnProductiemachines.TabIndex = 5;
+            this.btnProductiemachines.Text = "Productiemachines";
+            this.btnProductiemachines.UseVisualStyleBackColor = true;
             // 
             // ExcelToSqlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 402);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(572, 389);
+            this.Controls.Add(this.btnProductiemachines);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.fileTextBox);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.zetOmButton);
-            this.Controls.Add(this.fileLabel);
             this.Controls.Add(this.kiesExcelButton);
             this.Name = "ExcelToSqlForm";
             this.Text = "ExcelToSqlForm";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,10 +158,15 @@
 
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button kiesExcelButton;
-        private System.Windows.Forms.Label fileLabel;
-        private System.Windows.Forms.Button zetOmButton;
-        private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.TextBox fileTextBox;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnProductiemachines;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNaam;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomToer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomKopp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductieMachineNaam;
     }
 }
