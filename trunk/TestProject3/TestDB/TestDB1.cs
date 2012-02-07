@@ -13,7 +13,6 @@ namespace TestDB
     {
         public void excelToSql(string file)
         {
-
             FileInfo newFile = new FileInfo(file);
             using (ExcelPackage package = new ExcelPackage(newFile))
             {

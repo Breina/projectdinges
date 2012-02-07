@@ -19,18 +19,12 @@ namespace TestProject
         public ExcelToSqlForm()
         {
             InitializeComponent();
-            zetOmButton.Enabled = false;
+            //zetOmButton.Enabled = false;
         }
 
         private void kiesExcelButton_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "Excelbestanden(*.xlsx)|*.xlsx";
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                fileName = openFileDialog1.FileName;
-                fileTextBox.Text = openFileDialog1.FileName;
-                zetOmButton.Enabled = true;
-            }
+            loadExcel();
         }
 
         private void zetOmButton_Click(object sender, EventArgs e)
@@ -51,5 +45,30 @@ namespace TestProject
         {
             this.Close();
         }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+            loadExcel();
+        }
+
+        private void loadExcel()
+        {
+            openFileDialog1.Filter = "Excelbestanden(*.xlsx)|*.xlsx";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                fileName = openFileDialog1.FileName;
+                fileTextBox.Text = openFileDialog1.FileName;
+
+                test = new TestDB1();
+                test.excelToSql(openFileDialog1.FileName);
+
+
+
+                btnOK.Enabled = true;
+                btnOK.Focus();
+            }
+        }
+
     }
 }
