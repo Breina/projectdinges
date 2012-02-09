@@ -115,6 +115,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "SqlToExcelForm";
             this.Text = "SqlToExcelForm";
+            this.Load += new System.EventHandler(this.SqlToExcelForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -130,5 +131,7 @@
         private System.Windows.Forms.TextBox mapTextBox;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+
+        public System.EventHandler SqlToExcelForm_Load { get; set; }
     }
 }

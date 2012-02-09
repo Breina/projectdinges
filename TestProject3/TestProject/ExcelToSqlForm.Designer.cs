@@ -142,6 +142,7 @@
             this.btnProductiemachines.TabIndex = 5;
             this.btnProductiemachines.Text = "Productiemachines";
             this.btnProductiemachines.UseVisualStyleBackColor = true;
+            this.btnProductiemachines.Click += new System.EventHandler(this.btnProductiemachines_Click);
             // 
             // ExcelToSqlForm
             // 
