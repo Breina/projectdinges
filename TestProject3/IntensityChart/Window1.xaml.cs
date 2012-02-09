@@ -46,9 +46,7 @@ namespace IntensityChart
 
             Point[,] gridData = new Point[42, 42];
 
-            TestDB1 test = new TestDB1();
-
-            Points[,] pts = test.getValues();
+            Points[,] pts = TestDB1.getValues();
 
             for (int y = 0; y < 42; y++)
             {
@@ -75,8 +73,7 @@ namespace IntensityChart
 		private double[,] BuildSampleData(int size)
 		{
             double[,] d = new double[42, 42];
-            TestDB1 test = new TestDB1();
-            d = test.getData();           
+            d = TestDB1.getData();           
             return d;
         }
 

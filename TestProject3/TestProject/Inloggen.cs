@@ -13,7 +13,6 @@ namespace TestProject
     public partial class Inloggen : Form
     {
 
-        private TestDB1 test = new TestDB1();
         public Inloggen()
         {
             InitializeComponent();
@@ -23,7 +22,7 @@ namespace TestProject
         {
             try
             {
-                test.inloggen(loginTextBox.Text, passwordTextBox.Text);
+                TestDB1.inloggen(loginTextBox.Text, passwordTextBox.Text);
                 HoofdScherm form = new HoofdScherm();
                 form.Show();
             }

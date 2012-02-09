@@ -17,79 +17,90 @@ namespace TestDB
         {
             FileInfo newFile = new FileInfo(file);
             using (ExcelPackage package = new ExcelPackage(newFile))
-            {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets[4];
-                string name = worksheet.Name;
+            {         
                 int i = 1;
                 int j = 1;
                 bool leeg = false;
                 string selectStatement;
                 SqlCommand insertCommand;
                 SqlCommand selectCommand;
+                String insertStatement;
 
                 SqlConnection conn = DataTestDB.getConnection();
-                string bestand = newFile.Name.Remove(newFile.Name.IndexOf('.'));
 
-                string insertStatement = "INSERT INTO Bestanden " +
-                    "(BestandNaam) " +
-                    "VALUES (@BestandNaam)";
-
-                insertCommand = new SqlCommand(insertStatement, conn);
-                insertCommand.Parameters.AddWithValue("@BestandNaam", name);
                 try
-                {
+                {                    
+                    int length = package.Workbook.Worksheets.Count;
+                    ExcelWorksheet[] worksheets = new ExcelWorksheet[length];
+                    string name;
+                    int id;
                     conn.Open();
-                    insertCommand.ExecuteNonQuery();
-                    selectStatement = "SELECT IDENT_CURRENT('Bestanden') FROM Bestanden";
-                    selectCommand = new SqlCommand(selectStatement, conn);
-                    int bestandID = Convert.ToInt32(selectCommand.ExecuteScalar());
 
-                    
 
-                    insertStatement = "INSERT INTO Gegevens " +
-                        "(BestandID) " +
-                        "VALUES (@BestandID)";
-
-                    insertCommand = new SqlCommand(insertStatement, conn);
-                    insertCommand.Parameters.AddWithValue("@BestandID", bestandID);
-                    insertCommand.ExecuteNonQuery();
-
-                    selectStatement = "SELECT IDENT_CURRENT('Gegevens') FROM Gegevens";
-                    selectCommand = new SqlCommand(selectStatement, conn);
-                    int gegevensID = Convert.ToInt32(selectCommand.ExecuteScalar());
-
-                    while (!leeg)
+                    for (int k = 4; k <= length; k++)
                     {
+                        ExcelWorksheet worksheet = package.Workbook.Worksheets[k];
 
-                        if (worksheet.Cells[1, j].Value == null)
+                        name = worksheet.Name;
+
+                        insertStatement = "INSERT INTO Machine " +
+                            "(Naam) " +
+                            "VALUES (@Naam)";
+
+                        insertCommand = new SqlCommand(insertStatement, conn);
+                        insertCommand.Parameters.AddWithValue("@Naam", name);
+                        insertCommand.ExecuteNonQuery();
+
+                        selectStatement = "SELECT IDENT_CURRENT('Machine') FROM Machine";
+                        selectCommand = new SqlCommand(selectStatement, conn);
+                        id = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                        insertStatement = "INSERT INTO Gegevens " +
+                            "(BestandPad, MachineID) " +
+                            "VALUES (@BestandPad, @MachineID)";
+
+                        insertCommand = new SqlCommand(insertStatement, conn);
+                        insertCommand.Parameters.AddWithValue("@BestandPad", file);
+                        insertCommand.Parameters.AddWithValue("@MachineID", id);
+                        insertCommand.ExecuteNonQuery();
+
+                        selectStatement = "SELECT IDENT_CURRENT('Gegevens') FROM Gegevens";
+                        selectCommand = new SqlCommand(selectStatement, conn);
+                        id = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                        while (!leeg)
                         {
-                            leeg = true;
-                        }
-                        else if (worksheet.Cells[i, j].Value == null)
-                        {
-                            j++;
-                            i = 1;
-                        }
-                        else
-                        {                           
-                            double item;
-                            if (worksheet.Cells[i, j].Value.Equals("NaN"))
+
+                            if (worksheet.Cells[1, j].Value == null)
                             {
-                                item = 0;
+                                leeg = true;
+                            }
+                            else if (worksheet.Cells[i, j].Value == null)
+                            {
+                                j++;
+                                i = 1;
                             }
                             else
                             {
-                                item = Convert.ToDouble(worksheet.Cells[i, j].Value);
-                            }                          
-                            insertStatement = "INSERT INTO DataGegevens " +
-                            "(GegevensID,Rendament) " +
-                            "VALUES (@GegevensID, @Rendament)";
-                          
-                            insertCommand = new SqlCommand(insertStatement, conn);
-                            insertCommand.Parameters.AddWithValue("@GegevensID", gegevensID);
-                            insertCommand.Parameters.AddWithValue("@Rendament", item);                           
-                            insertCommand.ExecuteNonQuery();                        
-                            i++;
+                                double item;
+                                if (worksheet.Cells[i, j].Value.Equals("NaN"))
+                                {
+                                    item = 0;
+                                }
+                                else
+                                {
+                                    item = Convert.ToDouble(worksheet.Cells[i, j].Value);
+                                }
+                                insertStatement = "INSERT INTO DataGegevens " +
+                                "(GegevensID,Rendament) " +
+                                "VALUES (@GegevensID, @Rendament)";
+
+                                insertCommand = new SqlCommand(insertStatement, conn);
+                                insertCommand.Parameters.AddWithValue("@GegevensID", id);
+                                insertCommand.Parameters.AddWithValue("@Rendament", item);
+                                insertCommand.ExecuteNonQuery();
+                                i++;
+                            }
                         }
                     }
                 }

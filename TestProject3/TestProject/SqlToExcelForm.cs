@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using TestDB;
 
 namespace TestProject
 {
@@ -25,9 +26,7 @@ namespace TestProject
         {
             try
             {
-                TestDB.TestDB1 test = new TestDB.TestDB1();
-
-                listBox1.DataSource = test.sqlToExcel(textBox1.Text, map);
+                listBox1.DataSource = TestDB1.sqlToExcel(textBox1.Text, map);
             }
             catch (SqlException ex)
             {
