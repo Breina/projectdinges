@@ -15,7 +15,6 @@ namespace TestProject
     public partial class ExcelToSqlForm : Form
     {
         private string fileName;
-        private TestDB1 test;
         public ExcelToSqlForm()
         {
             InitializeComponent();
@@ -25,21 +24,7 @@ namespace TestProject
         private void kiesExcelButton_Click(object sender, EventArgs e)
         {
             loadExcel();
-        }
-
-        private void zetOmButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                test = new TestDB1();
-            test.excelToSql(openFileDialog1.FileName);
-              
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show(ex.StackTrace, ex.Message);
-            }
-        }
+        }        
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
@@ -59,15 +44,18 @@ namespace TestProject
             {
                 fileName = openFileDialog1.FileName;
                 fileTextBox.Text = openFileDialog1.FileName;
-
-                test = new TestDB1();
-                test.excelToSql(openFileDialog1.FileName);
-
-
+                
+               
+                TestDB1.excelToSql(openFileDialog1.FileName);
 
                 btnOK.Enabled = true;
                 btnOK.Focus();
             }
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

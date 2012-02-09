@@ -9,24 +9,25 @@ using System.Data.SqlClient;
 
 namespace TestDB
 {
-    public class TestDB1
+    public static class TestDB1
     {
-        public void excelToSql(string file)
+        
+
+        public static void excelToSql(string file)
         {
             FileInfo newFile = new FileInfo(file);
             using (ExcelPackage package = new ExcelPackage(newFile))
             {
-                ExcelWorksheet worksheet = package.Workbook.Worksheets[6];
+                ExcelWorksheet worksheet = package.Workbook.Worksheets[4];
                 string name = worksheet.Name;
                 int i = 1;
                 int j = 1;
                 bool leeg = false;
-                string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
                 string selectStatement;
                 SqlCommand insertCommand;
                 SqlCommand selectCommand;
 
-                SqlConnection conn = new SqlConnection(connectionString);
+                SqlConnection conn = DataTestDB.getConnection();
                 string bestand = newFile.Name.Remove(newFile.Name.IndexOf('.'));
 
                 string insertStatement = "INSERT INTO Bestanden " +
@@ -42,6 +43,8 @@ namespace TestDB
                     selectStatement = "SELECT IDENT_CURRENT('Bestanden') FROM Bestanden";
                     selectCommand = new SqlCommand(selectStatement, conn);
                     int bestandID = Convert.ToInt32(selectCommand.ExecuteScalar());
+
+                    
 
                     insertStatement = "INSERT INTO Gegevens " +
                         "(BestandID) " +
@@ -101,13 +104,12 @@ namespace TestDB
             }
         }
 
-        public List<string> sqlToExcel(string nummer, string adres)
+        public static List<string> sqlToExcel(string nummer, string adres)
         {
             List<string> list = new List<string>();
 
-            string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
 
-            SqlConnection conn = new SqlConnection(connectionString);
+            SqlConnection conn = DataTestDB.getConnection();
 
             string selectStatement = "SELECT Gegevens " +
                 "FROM DataGegevens " +
@@ -171,13 +173,11 @@ namespace TestDB
             return list;
         }
 
-        public double[,] getData()
+        public static double[,] getData()
         {
             double[,] d = new double[42, 42];
 
-            string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
-
-            SqlConnection conn = new SqlConnection(connectionString);
+            SqlConnection conn = DataTestDB.getConnection();
 
             string selectStatement = "SELECT GegevenID " +
                 "FROM Gegevens " +
@@ -228,13 +228,11 @@ namespace TestDB
 
         }
 
-        public Points[,] getValues()
+        public static Points[,] getValues()
         {
             Points[,] d = new Points[42, 42];
 
-            string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
-
-            SqlConnection conn = new SqlConnection(connectionString);
+            SqlConnection conn = DataTestDB.getConnection();
 
             string selectStatement = "SELECT Toerental, Koppel " +
                 "FROM NominaleWaarden";
@@ -274,13 +272,12 @@ namespace TestDB
 
         }
 
-        public bool inloggen(string login, string password)
+        public static bool inloggen(string login, string password)
         {
             bool inloggen = false ;
             string wachtwoord;
-            string connectionString = ConfigurationManager.ConnectionStrings["dataTESTConnectionString"].ConnectionString;
 
-            SqlConnection conn = new SqlConnection(connectionString);
+            SqlConnection conn = DataTestDB.getConnection();
 
             string selectStatement = "SELECT Login,Password " +
                 "FROM Users " +
