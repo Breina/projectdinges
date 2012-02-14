@@ -11,10 +11,12 @@ namespace TestDB
 {
     public static class TestDB1
     {
-        
 
-        public static void excelToSql(string file)
+
+        public static Machine[] excelToSql(string file)
         {
+            Machine[] machines;
+
             FileInfo newFile = new FileInfo(file);
             using (ExcelPackage package = new ExcelPackage(newFile))
             {         
@@ -25,35 +27,35 @@ namespace TestDB
                 SqlCommand insertCommand;
                 SqlCommand selectCommand;
                 String insertStatement;
-
                 SqlConnection conn = DataTestDB.getConnection();
 
                 try
                 {                    
                     int length = package.Workbook.Worksheets.Count;
                     ExcelWorksheet[] worksheets = new ExcelWorksheet[length];
-                    string name;
+                    string naam;
                     int id;
                     conn.Open();
-
+                    machines = new Machine[length - 3];
 
                     for (int k = 4; k <= length; k++)
                     {
                         ExcelWorksheet worksheet = package.Workbook.Worksheets[k];
 
-                        name = worksheet.Name;
+                        naam = worksheet.Name;
 
                         insertStatement = "INSERT INTO Machine " +
                             "(Naam) " +
                             "VALUES (@Naam)";
 
                         insertCommand = new SqlCommand(insertStatement, conn);
-                        insertCommand.Parameters.AddWithValue("@Naam", name);
+                        insertCommand.Parameters.AddWithValue("@Naam", naam);
                         insertCommand.ExecuteNonQuery();
 
                         selectStatement = "SELECT IDENT_CURRENT('Machine') FROM Machine";
                         selectCommand = new SqlCommand(selectStatement, conn);
                         id = Convert.ToInt32(selectCommand.ExecuteScalar());
+                        machines[k - 4] = new Machine(naam, id);
 
                         insertStatement = "INSERT INTO Gegevens " +
                             "(BestandPad, MachineID) " +
@@ -113,6 +115,8 @@ namespace TestDB
                     conn.Close();
                 }
             }
+
+            return machines;
         }
 
         public static List<string> sqlToExcel(string nummer, string adres)
@@ -332,6 +336,46 @@ namespace TestDB
                 conn.Close();
             }
             return inloggen;
+        }
+
+        public static void writeMachineData(Machine[] machines)
+        {
+            SqlCommand updateCommand;
+            String updateStatement;
+            SqlConnection conn = DataTestDB.getConnection();
+
+            try
+            {
+                conn.Open();
+
+                foreach (Machine m in machines)
+                {
+                    updateStatement = "UPDATE Machine " +
+                                    "SET TypeId = @TypeID, " +
+                                    "Label = @Label, " +
+                                    "Vermogen = @Vermogen, " +
+                                    "Tnom = @Tnom, " +
+                                    "Nnom = @Nnom " +
+                                    "WHERE MachineID = @MachineID";
+                    updateCommand = new SqlCommand(updateStatement, conn);
+                    updateCommand.Parameters.AddWithValue("@TypeID", m.getType());
+                    updateCommand.Parameters.AddWithValue("@Label", m.getLabel());
+                    updateCommand.Parameters.AddWithValue("@Vermogen", m.getVermogen());
+                    updateCommand.Parameters.AddWithValue("@Tnom", m.getKoppel());
+                    updateCommand.Parameters.AddWithValue("@Nnom", m.getToerental());
+                    updateCommand.Parameters.AddWithValue("@MachineID", m.getId());
+
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException e)
+            {
+                // Messagebox fzo eh
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 }
