@@ -32,9 +32,6 @@
             this.kiesExcelButton = new System.Windows.Forms.Button();
             this.fileTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnProductiemachines = new System.Windows.Forms.Button();
             this.ColNaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +39,9 @@
             this.NomToer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NomKopp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductieMachineNaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnProductiemachines = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,35 +85,6 @@
             this.dataGridView.Size = new System.Drawing.Size(743, 309);
             this.dataGridView.TabIndex = 2;
             // 
-            // btnOK
-            // 
-            this.btnOK.Enabled = false;
-            this.btnOK.Location = new System.Drawing.Point(681, 354);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 3;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(600, 354);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Annuleren";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnProductiemachines
-            // 
-            this.btnProductiemachines.Location = new System.Drawing.Point(13, 353);
-            this.btnProductiemachines.Name = "btnProductiemachines";
-            this.btnProductiemachines.Size = new System.Drawing.Size(128, 23);
-            this.btnProductiemachines.TabIndex = 5;
-            this.btnProductiemachines.Text = "Productiemachines";
-            this.btnProductiemachines.UseVisualStyleBackColor = true;
-            // 
             // ColNaam
             // 
             this.ColNaam.HeaderText = "Naam";
@@ -149,6 +120,36 @@
             // 
             this.ProductieMachineNaam.HeaderText = "Productiemachine";
             this.ProductieMachineNaam.Name = "ProductieMachineNaam";
+            // 
+            // btnOK
+            // 
+            this.btnOK.Enabled = false;
+            this.btnOK.Location = new System.Drawing.Point(681, 354);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 3;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(600, 354);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Annuleren";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnProductiemachines
+            // 
+            this.btnProductiemachines.Location = new System.Drawing.Point(13, 353);
+            this.btnProductiemachines.Name = "btnProductiemachines";
+            this.btnProductiemachines.Size = new System.Drawing.Size(128, 23);
+            this.btnProductiemachines.TabIndex = 5;
+            this.btnProductiemachines.Text = "Productiemachines";
+            this.btnProductiemachines.UseVisualStyleBackColor = true;
             // 
             // ExcelToSqlForm
             // 

@@ -43,8 +43,8 @@
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.bestandenListBox = new System.Windows.Forms.ListBox();
+            this.machinesListBox = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,29 +157,30 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // listBox1
+            // bestandenListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(13, 28);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(201, 368);
-            this.listBox1.TabIndex = 4;
+            this.bestandenListBox.FormattingEnabled = true;
+            this.bestandenListBox.Location = new System.Drawing.Point(13, 28);
+            this.bestandenListBox.Name = "bestandenListBox";
+            this.bestandenListBox.Size = new System.Drawing.Size(201, 368);
+            this.bestandenListBox.TabIndex = 4;
+            this.bestandenListBox.SelectedIndexChanged += new System.EventHandler(this.bestandenListBox_SelectedIndexChanged);
             // 
-            // listBox2
+            // machinesListBox
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(221, 28);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(281, 368);
-            this.listBox2.TabIndex = 5;
+            this.machinesListBox.FormattingEnabled = true;
+            this.machinesListBox.Location = new System.Drawing.Point(221, 28);
+            this.machinesListBox.Name = "machinesListBox";
+            this.machinesListBox.Size = new System.Drawing.Size(281, 368);
+            this.machinesListBox.TabIndex = 5;
             // 
             // HoofdScherm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 416);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(640, 409);
+            this.Controls.Add(this.machinesListBox);
+            this.Controls.Add(this.bestandenListBox);
             this.Controls.Add(this.knopExporteren);
             this.Controls.Add(this.knopVisualizeren);
             this.Controls.Add(this.knopImporteren);
@@ -187,6 +188,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "HoofdScherm";
             this.Text = "Motorozoid";
+            this.Load += new System.EventHandler(this.HoofdScherm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -210,8 +212,8 @@
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox bestandenListBox;
+        private System.Windows.Forms.ListBox machinesListBox;
 
 
     }
