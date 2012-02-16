@@ -95,6 +95,13 @@ namespace TestProject
             }
 
             TestDB1.writeMachineData(machines);
+
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }

@@ -125,8 +125,6 @@ C:\Users\student\Desktop\Folder\TestProject3\TestProject\bin\Debug\EPPlus.dll
 C:\Users\student\Desktop\Folder\TestProject3\TestProject\bin\Debug\System.Threading.dll
 C:\Users\student\Desktop\Folder\TestProject3\TestProject\bin\Debug\IntensityChart.pdb
 C:\Users\student\Desktop\Folder\TestProject3\TestProject\bin\Debug\TestDB.pdb
-C:\Users\student\Desktop\Folder\TestProject3\TestProject\bin\Debug\DynamicDataDisplay.Coastline.xml
-C:\Users\student\Desktop\Folder\TestProject3\TestProject\bin\Debug\DynamicDataDisplay.Controls.xml
 C:\Users\student\Desktop\Folder\TestProject3\TestProject\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\student\Desktop\Folder\TestProject3\TestProject\obj\x86\Debug\TestProject.ExcelToSqlForm.resources
 C:\Users\student\Desktop\Folder\TestProject3\TestProject\obj\x86\Debug\TestProject.Graph.resources

@@ -26,20 +26,24 @@ namespace IntensityChart
 	/// </summary>
 	public partial class Window1 : Window
 	{
-		public Window1()
+        private double[,] data;
+        /*
+        public void setData(double[,] data)
+        {
+            this.data = data;
+        }*/
+
+        public Window1(double[,] data)
 		{
-			InitializeComponent();
+            InitializeComponent();
+            this.data = data;
 
 			Loaded += new RoutedEventHandler(Window1_Loaded);
 		}
 
-		private double[,] data;
 		const int imageSize = 400;
 		private void Window1_Loaded(object sender, RoutedEventArgs e)
 		{
-			data = BuildSampleData(imageSize);
-           
-
 			NaiveColorMap map = new NaiveColorMap { Data = data, Palette = LinearPalettes.RedGreenBluePalette};
 			var bmp = map.BuildImage();
 			image.Source = bmp;
@@ -69,13 +73,13 @@ namespace IntensityChart
             Rect visible = dataSource.GetGridBounds();
             plotter.Viewport.Visible = visible;
 		}
-
+        /*
 		private double[,] BuildSampleData(int size)
 		{
             double[,] d = new double[42, 42];
             d = TestDB1.getData();           
             return d;
-        }
+        }*/
 
 		EnumerableDataSource<double> dimensionDataSource = Enumerable.Range(0, imageSize).Select(i => (double)i).AsXDataSource();
 	}

@@ -30,7 +30,7 @@ namespace TestProject
             ctrlHost = new ElementHost();
             ctrlHost.Dock = DockStyle.Fill;
             panel1.Controls.Add(ctrlHost);
-            wpfAddressCtrl = new IntensityChart.Window1();
+            //wpfAddressCtrl = new IntensityChart.Window1();
             wpfAddressCtrl.InitializeComponent();
             ctrlHost.Child = wpfAddressCtrl;
 

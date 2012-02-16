@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bestand.cs" />
     <Compile Include="DataTestDB.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="Points.cs" />

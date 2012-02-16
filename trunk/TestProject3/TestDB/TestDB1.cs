@@ -17,7 +17,7 @@ namespace TestDB
         {
             Machine[] machines;
 
-            FileInfo newFile = new FileInfo(file);
+             FileInfo newFile = new FileInfo(file);
             using (ExcelPackage package = new ExcelPackage(newFile))
             {         
                 int i = 1;
@@ -31,7 +31,7 @@ namespace TestDB
 
                 try
                 {                    
-                    int length = package.Workbook.Worksheets.Count;
+                    int length = (int) package.Workbook.Worksheets.Count;
                     ExcelWorksheet[] worksheets = new ExcelWorksheet[length];
                     string naam;
                     int id;
@@ -40,6 +40,9 @@ namespace TestDB
 
                     for (int k = 4; k <= length; k++)
                     {
+                        leeg = false;
+                        i = 1;
+                        j = 1;
                         ExcelWorksheet worksheet = package.Workbook.Worksheets[k];
 
                         naam = worksheet.Name;
@@ -94,7 +97,7 @@ namespace TestDB
                                     item = Convert.ToDouble(worksheet.Cells[i, j].Value);
                                 }
                                 insertStatement = "INSERT INTO DataGegevens " +
-                                "(GegevensID,Rendament) " +
+                                "(GegevensID, Rendament) " +
                                 "VALUES (@GegevensID, @Rendament)";
 
                                 insertCommand = new SqlCommand(insertStatement, conn);
@@ -106,9 +109,9 @@ namespace TestDB
                         }
                     }
                 }
-                catch (SqlException ex)
+                catch (SqlException e)
                 {
-                    throw ex;
+                    throw e;
                 }
                 finally
                 {
@@ -188,7 +191,7 @@ namespace TestDB
             return list;
         }
 
-        public static double[,] getData()
+        public static double[,] getData(String pad, int machineID)
         {
             double[,] d = new double[42, 42];
 
@@ -196,11 +199,14 @@ namespace TestDB
 
             string selectStatement = "SELECT GegevenID " +
                 "FROM Gegevens " +
-                "WHERE BestandID=@BestandID";
+                "WHERE BestandPad=@BestandPad " +
+                "AND MachineID=@MachineID";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@BestandID", 20); // Bestand aanpassen hier!!!!
+            selectCommand.Parameters.AddWithValue("@BestandPad", pad);
+            selectCommand.Parameters.AddWithValue("@MachineID", machineID);
             SqlDataReader reader;
+
             try
             {
                 conn.Open();
@@ -231,7 +237,6 @@ namespace TestDB
             }
             catch (Exception e)
             {
-
                 throw;
             }
             finally
@@ -376,6 +381,68 @@ namespace TestDB
             {
                 conn.Close();
             }
+        }
+
+        public static List<Bestand> getBestandNamen()
+        {
+            List<Bestand> bestanden = new List<Bestand>();
+
+            SqlConnection conn = DataTestDB.getConnection();
+            String selectStatement;
+            SqlCommand selectCommand;
+
+            selectStatement = "SELECT DISTINCT BestandPad " +
+                            "FROM Gegevens";
+            selectCommand = new SqlCommand(selectStatement, conn);
+
+            try
+            {
+                conn.Open();
+
+                SqlDataReader reader = selectCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    bestanden.Add(new Bestand(reader["BestandPad"].ToString()));
+                }
+            } catch (SqlException e) {
+                // FFFFFFFFFFFUUUUUUUUUUUUUU
+            }
+
+            return bestanden;
+        }
+
+        public static List<Machine> getMachineNamen(String pad)
+        {
+            List<Machine> machines = new List<Machine>();
+
+            SqlConnection conn = DataTestDB.getConnection();
+            String selectStatement;
+            SqlCommand selectCommand;
+
+            selectStatement = "SELECT Machine.MachineID, Machine.Naam " +
+                            "FROM Machine INNER JOIN Gegevens ON Gegevens.MachineID=Machine.MachineID " +
+                            "WHERE Gegevens.BestandPad=@BestandPad";
+            selectCommand = new SqlCommand(selectStatement, conn);
+            selectCommand.Parameters.AddWithValue("@BestandPad", pad);
+
+            try
+            {
+                conn.Open();
+
+                SqlDataReader reader = selectCommand.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    machines.Add(new Machine(reader["Naam"].ToString(), Convert.ToInt32(reader["MachineID"])));
+                }
+            }
+            catch (SqlException e)
+            {
+                // FFFFFFFFFFFUUUUUUUUUUUUUU
+            }
+
+            return machines;
         }
     }
 }
