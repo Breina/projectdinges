@@ -42,6 +42,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnProductiemachines = new System.Windows.Forms.Button();
+            this.laadDataProgressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,11 +152,19 @@
             this.btnProductiemachines.Text = "Productiemachines";
             this.btnProductiemachines.UseVisualStyleBackColor = true;
             // 
+            // laadDataProgressBar
+            // 
+            this.laadDataProgressBar.Location = new System.Drawing.Point(147, 353);
+            this.laadDataProgressBar.Name = "laadDataProgressBar";
+            this.laadDataProgressBar.Size = new System.Drawing.Size(447, 23);
+            this.laadDataProgressBar.TabIndex = 6;
+            // 
             // ExcelToSqlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(765, 389);
+            this.Controls.Add(this.laadDataProgressBar);
             this.Controls.Add(this.btnProductiemachines);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -186,5 +195,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NomToer;
         private System.Windows.Forms.DataGridViewTextBoxColumn NomKopp;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductieMachineNaam;
+        private System.Windows.Forms.ProgressBar laadDataProgressBar;
     }
 }

@@ -22,7 +22,7 @@ namespace TestProject
         {
             try
             {
-                TestDB1.inloggen(loginTextBox.Text, passwordTextBox.Text);
+                LoginDB.inloggen(loginTextBox.Text, passwordTextBox.Text);
                 HoofdScherm form = new HoofdScherm();
                 form.Show();
             }

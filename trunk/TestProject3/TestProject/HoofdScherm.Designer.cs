@@ -106,42 +106,46 @@
             // importerenToolStripMenuItem
             // 
             this.importerenToolStripMenuItem.Name = "importerenToolStripMenuItem";
-            this.importerenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.importerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.importerenToolStripMenuItem.Text = "&Importeren...";
+            this.importerenToolStripMenuItem.Click += new System.EventHandler(this.importerenToolStripMenuItem_Click);
             // 
             // visualizerenToolStripMenuItem
             // 
             this.visualizerenToolStripMenuItem.Name = "visualizerenToolStripMenuItem";
-            this.visualizerenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.visualizerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.visualizerenToolStripMenuItem.Text = "&Visualizeren";
+            this.visualizerenToolStripMenuItem.Click += new System.EventHandler(this.visualizerenToolStripMenuItem_Click);
             // 
             // exporterenToolStripMenuItem
             // 
             this.exporterenToolStripMenuItem.Name = "exporterenToolStripMenuItem";
-            this.exporterenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.exporterenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exporterenToolStripMenuItem.Text = "&Exporteren...";
+            this.exporterenToolStripMenuItem.Click += new System.EventHandler(this.exporterenToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // uitloggenToolStripMenuItem
             // 
             this.uitloggenToolStripMenuItem.Name = "uitloggenToolStripMenuItem";
-            this.uitloggenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.uitloggenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.uitloggenToolStripMenuItem.Text = "&Uitloggen";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // afsluitenToolStripMenuItem
             // 
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.afsluitenToolStripMenuItem.Text = "&Afsluiten";
+            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 

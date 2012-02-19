@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using TestDB;
 using System.IO;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace TestProject
 {
@@ -16,17 +17,18 @@ namespace TestProject
     {
         private string fileName;
         private Machine[] machines;
+        private HoofdScherm hoofdscherm;
 
-        public ExcelToSqlForm()
+        public ExcelToSqlForm(HoofdScherm hoofdscherm)
         {
             InitializeComponent();
-            //zetOmButton.Enabled = false;
+            this.hoofdscherm = hoofdscherm;
         }
 
         private void kiesExcelButton_Click(object sender, EventArgs e)
         {
             loadExcel();
-        }        
+        }
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
@@ -45,15 +47,28 @@ namespace TestProject
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 fileName = openFileDialog1.FileName;
-                fileTextBox.Text = openFileDialog1.FileName;
+                fileTextBox.Text = fileName;
+                if (BestandDB.controleerPad(fileName))
+                {
 
-                machines = TestDB1.excelToSql(openFileDialog1.FileName);
-                fillGridView(machines);
+                    machines = TestDB1.excelToSql(openFileDialog1.FileName);
 
-                btnOK.Enabled = true;
-                btnOK.Focus();
+
+                    fillGridView(machines);
+
+                    btnOK.Enabled = true;
+                    btnOK.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Excel bestand bestaat al. Lees een ander bestand in.");
+                }
             }
         }
+
+
+
+
 
         private void fillGridView(Machine[] m)
         {
@@ -61,8 +76,9 @@ namespace TestProject
             int l = machines.Length;
             String naam;
 
-            for (int i = 0; i < l; i++) {
-                naam = m[i].getNaam();
+            for (int i = 0; i < l; i++)
+            {
+                naam = m[i].MachineNaam;
 
                 String[] s = naam.Split(' ');
                 String label = s[1];
@@ -74,7 +90,7 @@ namespace TestProject
                 double d = Convert.ToDouble(vermogenString);
                 d *= 1000;
                 int vermogen = Convert.ToInt32(d);
-                int nomKoppel = (int) (vermogen / (2 * Math.PI * 25));
+                int nomKoppel = (int)(vermogen / (2 * Math.PI * 25));
 
                 dataGridView.Rows.Add(naam, "", label, vermogen, 1500, nomKoppel);
             }
@@ -86,16 +102,16 @@ namespace TestProject
 
             for (int i = 0; i < l; i++)
             {
-                machines[i].setType(Convert.ToInt32(dataGridView["Type", i].Value));
-                machines[i].setVermogen(Convert.ToInt32(dataGridView["Vermogen", i].Value));
-                machines[i].setToerental(Convert.ToDouble(dataGridView["NomToer", i].Value));
-                machines[i].setKoppel(Convert.ToInt32(dataGridView["NomKopp", i].Value));
-                machines[i].setLabel(dataGridView["Label", i].Value.ToString());
+                machines[i].TypeId = Convert.ToInt32(dataGridView["Type", i].Value);
+                machines[i].Vermogen = Convert.ToInt32(dataGridView["Vermogen", i].Value);
+                machines[i].NominaalToerental = Convert.ToDouble(dataGridView["NomToer", i].Value);
+                machines[i].NominaalKoppel = Convert.ToInt32(dataGridView["NomKopp", i].Value);
+                machines[i].Label = dataGridView["Label", i].Value.ToString();
                 // Add productiemachine
             }
 
-            TestDB1.writeMachineData(machines);
-
+            MachineDB.writeMachineData(machines);
+            hoofdscherm.refresh();
             this.Close();
         }
 

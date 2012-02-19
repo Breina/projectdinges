@@ -93,7 +93,6 @@ C:\Users\student\Desktop\ProjectBeter\TestProject\TestProject\obj\x86\Debug\Test
 C:\Users\student\Desktop\ProjectBeter\TestProject\TestProject\obj\x86\Debug\TestProject.SqlToExcelForm.resources
 C:\Users\student\Desktop\ProjectBeter\TestProject\TestProject\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\student\Desktop\ProjectBeter\TestProject\TestProject\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\TestProject.exe.config
 C:\Users\student\Desktop\Project\TestProject3\TestProject\obj\x86\Debug\TestProject.exe
 C:\Users\student\Desktop\Project\TestProject3\TestProject\obj\x86\Debug\TestProject.pdb
 C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\TestProject.exe
@@ -135,9 +134,6 @@ C:\Users\student\Desktop\Folder\TestProject3\TestProject\obj\x86\Debug\GenerateR
 C:\Users\student\Desktop\Folder\TestProject3\TestProject\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\DataTEST.mdf
 C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\DataTEST_log.ldf
-C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\System.Threading.dll
-C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\DynamicDataDisplay.Coastline.xml
-C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\DynamicDataDisplay.Controls.xml
 C:\Users\student\Desktop\Project\TestProject3\TestProject\obj\x86\Debug\TestProject.Inloggen.resources
 C:\Users\student\Desktop\Folder\TestProject3\TestProject\obj\x86\Debug\TestProject.Inloggen.resources
 C:\Users\student\Documents\projectdinges\TestProject3\TestProject\bin\Debug\TestProject.exe.config
@@ -165,3 +161,4 @@ C:\Users\student\Documents\projectdinges\TestProject3\TestProject\bin\Debug\Test
 C:\Users\student\Documents\projectdinges\TestProject3\TestProject\bin\Debug\DynamicDataDisplay.Coastline.xml
 C:\Users\student\Documents\projectdinges\TestProject3\TestProject\bin\Debug\DynamicDataDisplay.Controls.xml
 C:\Users\student\Documents\projectdinges\TestProject3\TestProject\obj\x86\Debug\TestProject.frmProductieMachines.resources
+C:\Users\student\Desktop\Project\TestProject3\TestProject\bin\Debug\TestProject.exe.config
