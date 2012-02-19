@@ -50,7 +50,7 @@ namespace IntensityChart
 
             Point[,] gridData = new Point[42, 42];
 
-            Points[,] pts = TestDB1.getValues();
+            Points[,] pts = TekenDB.getValues();
 
             for (int y = 0; y < 42; y++)
             {

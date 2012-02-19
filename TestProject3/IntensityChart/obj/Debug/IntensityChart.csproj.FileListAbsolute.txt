@@ -93,8 +93,6 @@ C:\Users\student\Desktop\Folder\TestProject3\IntensityChart\obj\Debug\IntensityC
 C:\Users\student\Desktop\Folder\TestProject3\IntensityChart\obj\Debug\IntensityChart.pdb
 C:\Users\student\Desktop\Project\TestProject3\IntensityChart\bin\Debug\DataTEST.mdf
 C:\Users\student\Desktop\Project\TestProject3\IntensityChart\bin\Debug\DataTEST_log.ldf
-C:\Users\student\Desktop\Project\TestProject3\IntensityChart\obj\Debug\GenerateResource-ResGen.read.1.tlog
-C:\Users\student\Desktop\Project\TestProject3\IntensityChart\obj\Debug\GenerateResource-ResGen.write.1.tlog
 C:\Users\student\Documents\projectdinges\TestProject3\IntensityChart\bin\Debug\DataTEST.mdf
 C:\Users\student\Documents\projectdinges\TestProject3\IntensityChart\bin\Debug\DataTEST_log.ldf
 C:\Users\student\Documents\projectdinges\TestProject3\IntensityChart\bin\Debug\IntensityChart.exe.config

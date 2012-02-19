@@ -26,13 +26,13 @@ namespace TestProject
 
         private void knopImporteren_Click(object sender, EventArgs e)
         {
-            ExcelToSqlForm form = new ExcelToSqlForm();
+            ExcelToSqlForm form = new ExcelToSqlForm(this);
             form.Show();
         }
 
         private void knopVisualizeren_Click(object sender, EventArgs e)
         {
-            double[,] d = TestDB1.getData(getGeselecteerdPad(), getGeselecteerdeMachine());
+            double[,] d = TekenDB.getData(getGeselecteerdPad(), getGeselecteerdeMachine());
             Window1 g = new IntensityChart.Window1(d);
             d = null;
 
@@ -58,31 +58,71 @@ namespace TestProject
 
         private void refreshMachines()
         {   
-            machines = TestDB1.getMachineNamen(getGeselecteerdPad());
+            machines = MachineDB.getMachineNamen(getGeselecteerdPad());
             machinesListBox.DataSource = machines;
             machinesListBox.DisplayMember = "getNaam";
         }
 
         private void refreshBestanden()
         {
-            bestanden = TestDB1.getBestandNamen();
+            bestanden = BestandDB.getBestandNamen();
             bestandenListBox.DataSource = bestanden;
             bestandenListBox.DisplayMember = "getNaam";
         }
 
         private String getGeselecteerdPad()
         {
-            return bestanden[bestandenListBox.SelectedIndex].getPad();
+            try
+            {
+                return bestanden[bestandenListBox.SelectedIndex].Pad;
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                MessageBox.Show("Geen bestanden in de database! Voeg eerst bestanden toe.");
+                return null;
+            }
         }
 
         private int getGeselecteerdeMachine()
         {
-            return machines[machinesListBox.SelectedIndex].getId();
+           
+            return machines[machinesListBox.SelectedIndex].MachineId;
         }
 
         private void bestandenListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             refreshMachines();
+        }
+
+        public void refresh()
+        {
+            refreshLists();
+        }
+
+        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void importerenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcelToSqlForm form = new ExcelToSqlForm(this);
+            form.Show();
+        }
+
+        private void visualizerenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            double[,] d = TekenDB.getData(getGeselecteerdPad(), getGeselecteerdeMachine());
+            Window1 g = new IntensityChart.Window1(d);
+            d = null;
+
+            g.Show();
+        }
+
+        private void exporterenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SqlToExcelForm form = new SqlToExcelForm();
+            form.Show();
         }
     }
 }
