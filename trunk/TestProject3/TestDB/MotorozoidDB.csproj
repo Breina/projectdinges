@@ -63,6 +63,7 @@
     <Compile Include="BestandDB.cs" />
     <Compile Include="ConnectionDB.cs" />
     <Compile Include="LoginDB.cs" />
+    <Compile Include="LoginException.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="MachineDB.cs" />
     <Compile Include="Points.cs" />
@@ -74,6 +75,8 @@
     </Compile>
     <Compile Include="ExcelDB.cs" />
     <Compile Include="TekenDB.cs" />
+    <Compile Include="TypeMachine.cs" />
+    <Compile Include="TypeMachineDB.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">

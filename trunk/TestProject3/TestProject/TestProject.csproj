@@ -79,29 +79,35 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditForm.Designer.cs">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExcelToSqlForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ExcelToSqlForm.Designer.cs">
       <DependentUpon>ExcelToSqlForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HoofdScherm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HoofdScherm.Designer.cs">
-      <DependentUpon>HoofdScherm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Graph.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Graph.Designer.cs">
+    <Compile Include="Graph.designer.cs">
       <DependentUpon>Graph.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inloggen.cs">
+    <Compile Include="HoofdSchermForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inloggen.Designer.cs">
-      <DependentUpon>Inloggen.cs</DependentUpon>
+    <Compile Include="HoofdSchermForm.Designer.cs">
+      <DependentUpon>HoofdSchermForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InlogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InlogForm.Designer.cs">
+      <DependentUpon>InlogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,17 +117,20 @@
     <Compile Include="SqlToExcelForm.Designer.cs">
       <DependentUpon>SqlToExcelForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EditForm.resx">
+      <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExcelToSqlForm.resx">
       <DependentUpon>ExcelToSqlForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Graph.resx">
       <DependentUpon>Graph.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HoofdScherm.resx">
-      <DependentUpon>HoofdScherm.cs</DependentUpon>
+    <EmbeddedResource Include="HoofdSchermForm.resx">
+      <DependentUpon>HoofdSchermForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inloggen.resx">
-      <DependentUpon>Inloggen.cs</DependentUpon>
+    <EmbeddedResource Include="InlogForm.resx">
+      <DependentUpon>InlogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -152,9 +161,9 @@
       <Project>{7075FE76-99CF-4B5F-88DD-D61539827CB6}</Project>
       <Name>IntensityChart</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TestDB\TestDB.csproj">
+    <ProjectReference Include="..\TestDB\MotorozoidDB.csproj">
       <Project>{CA4D1041-AC6E-4AD9-B6D0-209C77E11B66}</Project>
-      <Name>TestDB</Name>
+      <Name>MotorozoidDB</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

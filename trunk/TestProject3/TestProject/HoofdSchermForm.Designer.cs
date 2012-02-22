@@ -1,6 +1,6 @@
 ﻿namespace TestProject
 {
-    partial class HoofdScherm
+    partial class HoofdSchermForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoofdScherm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoofdSchermForm));
             this.knopImporteren = new System.Windows.Forms.Button();
             this.knopVisualizeren = new System.Windows.Forms.Button();
             this.knopExporteren = new System.Windows.Forms.Button();
@@ -43,8 +43,12 @@
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bestandToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bestandenListBox = new System.Windows.Forms.ListBox();
             this.machinesListBox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +86,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bestandToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.editToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(640, 24);
@@ -134,6 +139,7 @@
             this.uitloggenToolStripMenuItem.Name = "uitloggenToolStripMenuItem";
             this.uitloggenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.uitloggenToolStripMenuItem.Text = "&Uitloggen";
+            this.uitloggenToolStripMenuItem.Click += new System.EventHandler(this.uitloggenToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -153,7 +159,7 @@
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Text = "&Help";
             // 
             // aboutToolStripMenuItem
             // 
@@ -161,28 +167,63 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bestandToolStripMenuItem1});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "E&dit";
+            // 
+            // bestandToolStripMenuItem1
+            // 
+            this.bestandToolStripMenuItem1.Name = "bestandToolStripMenuItem1";
+            this.bestandToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.bestandToolStripMenuItem1.Text = "Bestand";
+            this.bestandToolStripMenuItem1.Click += new System.EventHandler(this.bestandToolStripMenuItem_Click);
+            // 
             // bestandenListBox
             // 
             this.bestandenListBox.FormattingEnabled = true;
-            this.bestandenListBox.Location = new System.Drawing.Point(13, 28);
+            this.bestandenListBox.Location = new System.Drawing.Point(13, 54);
             this.bestandenListBox.Name = "bestandenListBox";
-            this.bestandenListBox.Size = new System.Drawing.Size(201, 368);
+            this.bestandenListBox.Size = new System.Drawing.Size(317, 342);
             this.bestandenListBox.TabIndex = 4;
             this.bestandenListBox.SelectedIndexChanged += new System.EventHandler(this.bestandenListBox_SelectedIndexChanged);
             // 
             // machinesListBox
             // 
             this.machinesListBox.FormattingEnabled = true;
-            this.machinesListBox.Location = new System.Drawing.Point(221, 28);
+            this.machinesListBox.Location = new System.Drawing.Point(336, 54);
             this.machinesListBox.Name = "machinesListBox";
-            this.machinesListBox.Size = new System.Drawing.Size(281, 368);
+            this.machinesListBox.Size = new System.Drawing.Size(166, 342);
             this.machinesListBox.TabIndex = 5;
             // 
-            // HoofdScherm
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Bestanden:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(333, 35);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Machines:";
+            // 
+            // HoofdSchermForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(640, 409);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.machinesListBox);
             this.Controls.Add(this.bestandenListBox);
             this.Controls.Add(this.knopExporteren);
@@ -190,9 +231,10 @@
             this.Controls.Add(this.knopImporteren);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "HoofdScherm";
+            this.Name = "HoofdSchermForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Motorozoid";
-            this.Load += new System.EventHandler(this.HoofdScherm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HoofdSchermForm_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -218,6 +260,10 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ListBox bestandenListBox;
         private System.Windows.Forms.ListBox machinesListBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bestandToolStripMenuItem1;
 
 
     }

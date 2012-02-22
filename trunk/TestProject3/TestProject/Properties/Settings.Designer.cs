@@ -22,5 +22,17 @@ namespace TestProject.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;AttachDbFilename=C:\\Users\\student\\Desktop\\Project-juist\\" +
+            "TestProject3\\TestDB\\DataTEST.mdf;Integrated Security=True;Connect Timeout=30;Use" +
+            "r Instance=True")]
+        public string DataTESTConnectionString {
+            get {
+                return ((string)(this["DataTESTConnectionString"]));
+            }
+        }
     }
 }

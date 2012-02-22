@@ -114,8 +114,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "SqlToExcelForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SqlToExcelForm";
-            this.Load += new System.EventHandler(this.SqlToExcelForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

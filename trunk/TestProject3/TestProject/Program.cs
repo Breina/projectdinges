@@ -15,7 +15,7 @@ namespace TestProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HoofdScherm());
+            Application.Run(new InlogForm());
         }
     }
 }

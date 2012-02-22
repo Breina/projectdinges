@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.kiesExcelButton = new System.Windows.Forms.Button();
             this.fileTextBox = new System.Windows.Forms.TextBox();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.ColNaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.opslaanButton = new System.Windows.Forms.Button();
+            this.annuleerButton = new System.Windows.Forms.Button();
+            this.btnProductiemachines = new System.Windows.Forms.Button();
+            this.machinesDataGridView = new System.Windows.Forms.DataGridView();
+            this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.Label = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vermogen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomToer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomKopp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductieMachineNaam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnProductiemachines = new System.Windows.Forms.Button();
-            this.laadDataProgressBar = new System.Windows.Forms.ProgressBar();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.NominaalToerental = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NominaalKoppel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.machinesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -52,7 +53,7 @@
             // 
             // kiesExcelButton
             // 
-            this.kiesExcelButton.Location = new System.Drawing.Point(681, 11);
+            this.kiesExcelButton.Location = new System.Drawing.Point(621, 11);
             this.kiesExcelButton.Name = "kiesExcelButton";
             this.kiesExcelButton.Size = new System.Drawing.Size(75, 23);
             this.kiesExcelButton.TabIndex = 1;
@@ -62,35 +63,65 @@
             // 
             // fileTextBox
             // 
-            this.fileTextBox.Location = new System.Drawing.Point(13, 13);
+            this.fileTextBox.Location = new System.Drawing.Point(12, 13);
             this.fileTextBox.Name = "fileTextBox";
-            this.fileTextBox.Size = new System.Drawing.Size(662, 20);
+            this.fileTextBox.Size = new System.Drawing.Size(603, 20);
             this.fileTextBox.TabIndex = 0;
             this.fileTextBox.TabStop = false;
-            this.fileTextBox.Click += new System.EventHandler(this.textBox1_Click);
+            this.fileTextBox.Click += new System.EventHandler(this.fileTextBox_Click);
             // 
-            // dataGridView
+            // opslaanButton
             // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColNaam,
+            this.opslaanButton.Enabled = false;
+            this.opslaanButton.Location = new System.Drawing.Point(621, 353);
+            this.opslaanButton.Name = "opslaanButton";
+            this.opslaanButton.Size = new System.Drawing.Size(75, 23);
+            this.opslaanButton.TabIndex = 3;
+            this.opslaanButton.Text = "Opslaan";
+            this.opslaanButton.UseVisualStyleBackColor = true;
+            this.opslaanButton.Click += new System.EventHandler(this.opslaanButton_Click);
+            // 
+            // annuleerButton
+            // 
+            this.annuleerButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.annuleerButton.Location = new System.Drawing.Point(540, 353);
+            this.annuleerButton.Name = "annuleerButton";
+            this.annuleerButton.Size = new System.Drawing.Size(75, 23);
+            this.annuleerButton.TabIndex = 4;
+            this.annuleerButton.Text = "Annuleren";
+            this.annuleerButton.UseVisualStyleBackColor = true;
+            this.annuleerButton.Click += new System.EventHandler(this.annuleerButton_Click);
+            // 
+            // btnProductiemachines
+            // 
+            this.btnProductiemachines.Location = new System.Drawing.Point(13, 353);
+            this.btnProductiemachines.Name = "btnProductiemachines";
+            this.btnProductiemachines.Size = new System.Drawing.Size(128, 23);
+            this.btnProductiemachines.TabIndex = 5;
+            this.btnProductiemachines.Text = "Productiemachines";
+            this.btnProductiemachines.UseVisualStyleBackColor = true;
+            // 
+            // machinesDataGridView
+            // 
+            this.machinesDataGridView.AllowUserToAddRows = false;
+            this.machinesDataGridView.AllowUserToDeleteRows = false;
+            this.machinesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.machinesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Naam,
             this.Type,
             this.Label,
             this.Vermogen,
-            this.NomToer,
-            this.NomKopp,
-            this.ProductieMachineNaam});
-            this.dataGridView.Location = new System.Drawing.Point(13, 39);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(743, 309);
-            this.dataGridView.TabIndex = 2;
+            this.NominaalToerental,
+            this.NominaalKoppel});
+            this.machinesDataGridView.Location = new System.Drawing.Point(13, 39);
+            this.machinesDataGridView.Name = "machinesDataGridView";
+            this.machinesDataGridView.Size = new System.Drawing.Size(683, 308);
+            this.machinesDataGridView.TabIndex = 5;
             // 
-            // ColNaam
+            // Naam
             // 
-            this.ColNaam.HeaderText = "Naam";
-            this.ColNaam.Name = "ColNaam";
-            this.ColNaam.ReadOnly = true;
+            this.Naam.HeaderText = "Naam";
+            this.Naam.Name = "Naam";
             // 
             // Type
             // 
@@ -104,76 +135,46 @@
             // 
             // Vermogen
             // 
-            this.Vermogen.HeaderText = "Vermogen";
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Vermogen.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Vermogen.HeaderText = "Vermogen(kW)";
             this.Vermogen.Name = "Vermogen";
             // 
-            // NomToer
+            // NominaalToerental
             // 
-            this.NomToer.HeaderText = "Toerental";
-            this.NomToer.Name = "NomToer";
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.NominaalToerental.DefaultCellStyle = dataGridViewCellStyle2;
+            this.NominaalToerental.HeaderText = "Nominaal-Toerental";
+            this.NominaalToerental.Name = "NominaalToerental";
             // 
-            // NomKopp
+            // NominaalKoppel
             // 
-            this.NomKopp.HeaderText = "Koppel";
-            this.NomKopp.Name = "NomKopp";
-            // 
-            // ProductieMachineNaam
-            // 
-            this.ProductieMachineNaam.HeaderText = "Productiemachine";
-            this.ProductieMachineNaam.Name = "ProductieMachineNaam";
-            // 
-            // btnOK
-            // 
-            this.btnOK.Enabled = false;
-            this.btnOK.Location = new System.Drawing.Point(681, 354);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 3;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(600, 354);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Annuleren";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnProductiemachines
-            // 
-            this.btnProductiemachines.Location = new System.Drawing.Point(13, 353);
-            this.btnProductiemachines.Name = "btnProductiemachines";
-            this.btnProductiemachines.Size = new System.Drawing.Size(128, 23);
-            this.btnProductiemachines.TabIndex = 5;
-            this.btnProductiemachines.Text = "Productiemachines";
-            this.btnProductiemachines.UseVisualStyleBackColor = true;
-            // 
-            // laadDataProgressBar
-            // 
-            this.laadDataProgressBar.Location = new System.Drawing.Point(147, 353);
-            this.laadDataProgressBar.Name = "laadDataProgressBar";
-            this.laadDataProgressBar.Size = new System.Drawing.Size(447, 23);
-            this.laadDataProgressBar.TabIndex = 6;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.NominaalKoppel.DefaultCellStyle = dataGridViewCellStyle3;
+            this.NominaalKoppel.HeaderText = "Nominaal-Koppel";
+            this.NominaalKoppel.Name = "NominaalKoppel";
             // 
             // ExcelToSqlForm
             // 
+            this.AcceptButton = this.opslaanButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 389);
-            this.Controls.Add(this.laadDataProgressBar);
+            this.CancelButton = this.annuleerButton;
+            this.ClientSize = new System.Drawing.Size(707, 398);
+            this.Controls.Add(this.machinesDataGridView);
             this.Controls.Add(this.btnProductiemachines);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.annuleerButton);
+            this.Controls.Add(this.opslaanButton);
             this.Controls.Add(this.fileTextBox);
             this.Controls.Add(this.kiesExcelButton);
             this.Name = "ExcelToSqlForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExcelToSqlForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ExcelToSqlForm_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.machinesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,17 +185,16 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button kiesExcelButton;
         private System.Windows.Forms.TextBox fileTextBox;
-        private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button btnOK;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button opslaanButton;
+        private System.Windows.Forms.Button annuleerButton;
         private System.Windows.Forms.Button btnProductiemachines;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColNaam;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridView machinesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
+        private System.Windows.Forms.DataGridViewComboBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Label;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vermogen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomToer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomKopp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductieMachineNaam;
-        private System.Windows.Forms.ProgressBar laadDataProgressBar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NominaalToerental;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NominaalKoppel;
+       
     }
 }

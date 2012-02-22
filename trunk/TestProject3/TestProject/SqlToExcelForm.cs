@@ -26,7 +26,7 @@ namespace TestProject
         {
             try
             {
-                listBox1.DataSource = TestDB1.sqlToExcel(textBox1.Text, map);
+                listBox1.DataSource = ExcelDB.sqlToExcel(textBox1.Text, map);
             }
             catch (SqlException ex)
             {

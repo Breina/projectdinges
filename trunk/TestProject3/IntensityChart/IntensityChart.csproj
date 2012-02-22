@@ -129,9 +129,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TestDB\TestDB.csproj">
+    <ProjectReference Include="..\TestDB\MotorozoidDB.csproj">
       <Project>{CA4D1041-AC6E-4AD9-B6D0-209C77E11B66}</Project>
-      <Name>TestDB</Name>
+      <Name>MotorozoidDB</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
