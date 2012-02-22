@@ -1,6 +1,6 @@
 ﻿namespace TestProject
 {
-    partial class Inloggen
+    partial class InlogForm
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +40,7 @@
             this.loginButton.Location = new System.Drawing.Point(132, 79);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(75, 23);
-            this.loginButton.TabIndex = 0;
+            this.loginButton.TabIndex = 3;
             this.loginButton.Text = "Log in";
             this.loginButton.UseVisualStyleBackColor = true;
             this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
@@ -51,7 +51,7 @@
             this.loginLabel.Location = new System.Drawing.Point(27, 26);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(65, 13);
-            this.loginLabel.TabIndex = 1;
+            this.loginLabel.TabIndex = 0;
             this.loginLabel.Text = "Login naam:";
             // 
             // passwordLabel
@@ -60,7 +60,7 @@
             this.passwordLabel.Location = new System.Drawing.Point(27, 56);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(71, 13);
-            this.passwordLabel.TabIndex = 2;
+            this.passwordLabel.TabIndex = 0;
             this.passwordLabel.Text = "Wachtwoord:";
             // 
             // loginTextBox
@@ -68,7 +68,7 @@
             this.loginTextBox.Location = new System.Drawing.Point(107, 23);
             this.loginTextBox.Name = "loginTextBox";
             this.loginTextBox.Size = new System.Drawing.Size(100, 20);
-            this.loginTextBox.TabIndex = 3;
+            this.loginTextBox.TabIndex = 1;
             // 
             // passwordTextBox
             // 
@@ -76,10 +76,11 @@
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(100, 20);
-            this.passwordTextBox.TabIndex = 4;
+            this.passwordTextBox.TabIndex = 2;
             // 
-            // Inloggen
+            // InlogForm
             // 
+            this.AcceptButton = this.loginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(239, 112);
@@ -88,7 +89,8 @@
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.loginButton);
-            this.Name = "Inloggen";
+            this.Name = "InlogForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inloggen";
             this.ResumeLayout(false);
             this.PerformLayout();

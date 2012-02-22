@@ -26,25 +26,19 @@ namespace IntensityChart
 	/// </summary>
 	public partial class Window1 : Window
 	{
-        private double[,] data;
-        /*
-        public void setData(double[,] data)
-        {
-            this.data = data;
-        }*/
+        private double[,] data;  
+        const int imageSize = 400;	     
 
-        public Window1(double[,] data)
+        public Window1(string pad, int machine)
 		{
             InitializeComponent();
-            this.data = data;
-
-			Loaded += new RoutedEventHandler(Window1_Loaded);
+            this.data = TekenDB.getData(pad,machine);
+            drawImage();
 		}
 
-		const int imageSize = 400;
-		private void Window1_Loaded(object sender, RoutedEventArgs e)
-		{
-			NaiveColorMap map = new NaiveColorMap { Data = data, Palette = LinearPalettes.RedGreenBluePalette};
+        private void drawImage()
+        {
+          NaiveColorMap map = new NaiveColorMap { Data = data, Palette = LinearPalettes.RedGreenBluePalette};
 			var bmp = map.BuildImage();
 			image.Source = bmp;
 
@@ -64,6 +58,7 @@ namespace IntensityChart
 
             WarpedDataSource2D<double> dataSource = new WarpedDataSource2D<double>(data, gridData);
 
+            
             isolineGraph.Palette = new LinearPalette(Colors.Black, Colors.Black);
             isolineGraph.DataSource = dataSource;
             
@@ -72,15 +67,8 @@ namespace IntensityChart
 
             Rect visible = dataSource.GetGridBounds();
             plotter.Viewport.Visible = visible;
-		}
-        /*
-		private double[,] BuildSampleData(int size)
-		{
-            double[,] d = new double[42, 42];
-            d = TestDB1.getData();           
-            return d;
-        }*/
+		} 
 
-		EnumerableDataSource<double> dimensionDataSource = Enumerable.Range(0, imageSize).Select(i => (double)i).AsXDataSource();
+		//EnumerableDataSource<double> dimensionDataSource = Enumerable.Range(0, imageSize).Select(i => (double)i).AsXDataSource();
 	}
 }
