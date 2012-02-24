@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TestDB
+namespace MotoroziodDB
 {
     /// <summary> 
     /// Klasse om een Bestand object voor te stellen 

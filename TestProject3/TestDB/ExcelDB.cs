@@ -8,7 +8,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace TestDB
+namespace MotoroziodDB
 {
     /// <summary>
     /// Klasse voor excelbestanden in te lezen en uit te lezen
@@ -171,80 +171,77 @@ namespace TestDB
         /// <summary> 
         /// haalt gegevens op uit de database en schrijft deze in een excel
         /// </summary>
-        /// <param name="pad">string pad file</param> 
-        /// <returns>false als het mislukt, true als het lukt</returns>
+        /// <param name="bestandPad">tekst</param> 
+        /// <param name="file">object van het type FileInfo</param> 
         /// <author>Wim Baens</author> 
-        public static bool sqlToExcel(string nummer, string adres)
+        public static void sqlToExcel(string bestandPad, FileInfo file)
         {
-            List<string> list = new List<string>();
-            bool gelukt = false;
+            List<Machine> machines = new List<Machine>();
+            List<int> machineBestandIds = new List<int>();         
+            int tellerId = 0;
+            FileInfo newFile = file;
+
+            ExcelPackage package = new ExcelPackage(newFile);
 
             SqlConnection conn = ConnectionDB.getConnection();
 
-            string selectStatement = "SELECT Gegevens " +
-                "FROM DataGegevens " +
-                "WHERE BestandID=@BestandID ";
-            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@BestandID", nummer);
+            string selectMachinesStatement = "SELECT Machines.Naam, Machines.MachineID,MachineBestand.MachineBestandID " +
+                "FROM Machines INNER JOIN MachineBestand ON Machines.MachineID=MachineBestand.MachineID " +
+                "WHERE BestandPad=@BestandPad";
+            SqlCommand selectMachinesCommand = new SqlCommand(selectMachinesStatement, conn);
+            selectMachinesCommand.Parameters.AddWithValue("@BestandPad", bestandPad);
 
-            string selectStatement2 = "SELECT Bestand " +
-                "FROM Bestanden " +
-                "WHERE ID = @ID";
-            SqlCommand selectCommand2 = new SqlCommand(selectStatement2, conn);
-            selectCommand2.Parameters.AddWithValue("@ID", nummer);
+            string selectRendamentStatement = "SELECT Rendament " +
+                "FROM Rendamenten " +
+                "WHERE MachineBestandID = @MachineBestandID";
+            SqlCommand selectRendamentCommand = new SqlCommand(selectRendamentStatement, conn);
+            selectRendamentCommand.Parameters.Add("@MachineBestandID", SqlDbType.Int);
+
             SqlDataReader reader;
+
             try
             {
                 conn.Open();
-                reader = selectCommand2.ExecuteReader();
-                reader.Read();
-                if (reader.HasRows)
+                reader = selectMachinesCommand.ExecuteReader();
+                while (reader.Read())
                 {
-                    string bestand = reader["Bestand"].ToString();
-                    FileInfo newFile = new FileInfo(adres + "\\" + bestand + ".xlsx");
-                    reader.Close();
-                    reader = selectCommand.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        list.Add(reader["Gegevens"].ToString());
-                    }
-                    reader.Close();
-                    ExcelPackage package = new ExcelPackage(newFile);
-                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("gegevens");
-                    int i = 1;
-                    int j = 1;
-                    foreach (var item in list)
-                    {
-                        if (item != "NaN")
-                        {
-                            worksheet.Cells[i, j].Value = Convert.ToDouble(item);
-                        }
-                        else
-                        {
-                            worksheet.Cells[i, j].Value = item;
-
-                        }
-                        j++;
-                    }
-                    package.Save();
-                    gelukt = true;
-
+                    Machine machine = new Machine(reader["Naam"].ToString(), Convert.ToInt32(reader["MachineID"]));
+                    machines.Add(machine);
+                    machineBestandIds.Add(Convert.ToInt32(reader["MachineBestandID"].ToString()));
                 }
+                reader.Close();
 
+                foreach (Machine machine in machines)
+                {
+                    string machineNaam = machine.MachineNaam;
+                    ExcelWorksheet worksheet = package.Workbook.Worksheets.Add(machineNaam);
+                    selectRendamentCommand.Parameters["@MachineBestandID"].Value = machineBestandIds[tellerId];
+                    reader = selectRendamentCommand.ExecuteReader();
+
+                    for (int y = 1; y < 43; y++)
+                    {
+                        for (int x = 1; x < 43; x++)
+                        {
+                            reader.Read();
+                            double s = Convert.ToDouble(reader["Rendament"]);
+                            worksheet.Cells[x, y].Value = s;
+                        }
+                    }
+                    reader.Close();
+                    tellerId++;
+                }
+                reader.Close();
+                package.Save();               
             }
+
             catch (SqlException ex)
             {
                 throw ex;
             }
             finally
             {
-
                 conn.Close();
-            }
-            return gelukt;
-
+            }            
         }
-
-
     }
 }

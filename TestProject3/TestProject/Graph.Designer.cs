@@ -1,4 +1,4 @@
-﻿namespace TestProject
+﻿namespace Motorozoid
 {
     partial class Graph
     {

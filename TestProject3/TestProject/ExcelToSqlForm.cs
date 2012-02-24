@@ -6,12 +6,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TestDB;
+using MotoroziodDB;
 using System.IO;
 using System.Data.SqlClient;
 using System.Threading;
 
-namespace TestProject
+namespace Motorozoid
 {
     /// <summary>
     /// Gui klasse omzetten van excel naar database
@@ -57,11 +57,11 @@ namespace TestProject
         /// <author>Wim Baens</author>       
         private void loadExcel()
         {
-            openFileDialog1.Filter = "Excelbestanden(*.xlsx)|*.xlsx";
+            excelOpenFileDialog.Filter = "Excelbestanden(*.xlsx)|*.xlsx";
 
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (excelOpenFileDialog.ShowDialog() == DialogResult.OK)
             {
-                fileName = openFileDialog1.FileName;
+                fileName = excelOpenFileDialog.FileName;
                 fileTextBox.Text = fileName;
                 if (MessageBox.Show(this, "Bent u zeker dat het bestand mag ingelezen worden?", "Inlezen excel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
@@ -69,7 +69,7 @@ namespace TestProject
                     {
                         try
                         {
-                            machines = ExcelDB.excelToSql(openFileDialog1.FileName);
+                            machines = ExcelDB.excelToSql(excelOpenFileDialog.FileName);
                             fillGridView(machines);
                             opslaanButton.Enabled = true;
                             opslaanButton.Focus();
@@ -77,6 +77,10 @@ namespace TestProject
                         catch (SqlException ex)
                         {
                             MessageBox.Show(this, ex.Message, ex.GetType().ToString());
+                        }
+                        catch (IOException)
+                        {
+                            MessageBox.Show(this, "Gelieve eerst het excelbestand te sluiten! Probeer daarna opnieuw.", "Excelbestand Sluiten", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         catch (Exception)
                         {

@@ -7,26 +7,62 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using TestDB;
+using MotoroziodDB;
+using System.IO;
 
-namespace TestProject
+namespace Motorozoid
 {
+    /// <summary> 
+    /// Klasse om een bestand uit de database te kiezen dat wordt weggeschreven in een excelbestand
+    /// </summary>
+    /// <author>Wim Baens</author>
     public partial class SqlToExcelForm : Form
     {
+        private HoofdSchermForm hoofdscherm;
 
-        private string map;
-        public SqlToExcelForm()
+        /// <summary> 
+        /// Constructor van de klasse SqlToExcelForm
+        /// </summary>
+        /// <param name="hoofdscherm">object van het type HoofdSchermForm</param>          
+        /// <author>Wim Baens</author> 
+        public SqlToExcelForm(HoofdSchermForm hoofdscherm)
         {
             InitializeComponent();
-            sqlToExcelButton.Enabled = false;
+            this.hoofdscherm = hoofdscherm;
+            hoofdscherm.Enabled = false;
+            bestandenListBox.DataSource = BestandDB.getBestandNamen();
+            controleerListBox();
         }
 
-
-        private void sqlToExcel_Click(object sender, EventArgs e)
+        private void naarExcelButton_Click(object sender, EventArgs e)
         {
+            string bestandsNaam = bestandsNaamTextBox.Text;
             try
             {
-                listBox1.DataSource = ExcelDB.sqlToExcel(textBox1.Text, map);
+
+                if (bestandsNaam.Equals("") || bestandsNaam.Contains('.') || bestandsNaam.Contains('/') || bestandsNaam.Contains('\\'))
+                {
+                    MessageBox.Show(this, "Vul een correcte bestandsnaam in!", "Foute bestandsnaam", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
+                else
+                {
+
+                    if (excelFolderBrowserDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string opslaanPad = excelFolderBrowserDialog.SelectedPath;
+                        FileInfo file = new FileInfo(opslaanPad + "\\"+bestandsNaam + ".xlsx");
+                        if (file.Exists)
+                        {
+                            MessageBox.Show(this, "Bestand bestaat al in de gekozen map, verander de bestandsnaam of map!", "Bestand Bestaat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            ExcelDB.sqlToExcel(bestandenListBox.SelectedValue.ToString(),file);
+                            this.Close();
+                        }
+                    }
+                }
             }
             catch (SqlException ex)
             {
@@ -34,21 +70,52 @@ namespace TestProject
             }
         }
 
-        private void saveMap_Click(object sender, EventArgs e)
+        private void anulleerButton_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
-
-            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+        /// <summary> 
+        /// Controleert of er objecten in de bestandenListBox zitten
+        /// </summary>   
+        /// <author>Wim Baens</author> 
+        private void controleerListBox()
+        {
+            int aantal = bestandenListBox.Items.Count;
+            if (aantal < 1)
             {
-                sqlToExcelButton.Enabled = true;
-                map = folderBrowserDialog1.SelectedPath;
-                mapTextBox.Text = folderBrowserDialog1.SelectedPath;
+                naarExcelButton.Enabled = false;
+                leegLabel.Text = "Geen bestanden in de database!";
+            }
+            else
+            {
+                bestandsNaamTextBox.Text = getBestandsNaam();
             }
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void SqlToExcelForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Close();
+            hoofdscherm.Enabled = true;
+        }
+
+        /// <summary> 
+        /// Haalt de bestandsnaam uit het object van type FileInfo
+        /// </summary> 
+        /// <returns>een string</returns>
+        /// <author>Wim Baens</author> 
+        private string getBestandsNaam()
+        {
+            string bestandsNaam = bestandenListBox.SelectedValue.ToString();
+            FileInfo file = new FileInfo(bestandsNaam);
+            int index = file.Name.IndexOf('.');
+            bestandsNaam = file.Name.Remove(index);
+
+            return bestandsNaam;
+        }
+
+        private void bestandenListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            controleerListBox();
         }
     }
 }

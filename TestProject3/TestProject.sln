@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{DC30BDA0-7031-4151-9983-CE8F43ECA6EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Motorozoid", "TestProject\Motorozoid.csproj", "{DC30BDA0-7031-4151-9983-CE8F43ECA6EB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MotorozoidDB", "TestDB\MotorozoidDB.csproj", "{CA4D1041-AC6E-4AD9-B6D0-209C77E11B66}"
 EndProject

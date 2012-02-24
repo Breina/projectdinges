@@ -1,4 +1,4 @@
-﻿namespace TestProject
+﻿namespace Motorozoid
 {
     partial class SqlToExcelForm
     {
@@ -28,94 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.sqlToExcelButton = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.saveMapButton = new System.Windows.Forms.Button();
-            this.mapTextBox = new System.Windows.Forms.TextBox();
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.bestandLabel = new System.Windows.Forms.Label();
+            this.naarExcelButton = new System.Windows.Forms.Button();
+            this.bestandenListBox = new System.Windows.Forms.ListBox();
+            this.annuleerButton = new System.Windows.Forms.Button();
+            this.leegLabel = new System.Windows.Forms.Label();
+            this.bestandsNaamTextBox = new System.Windows.Forms.TextBox();
+            this.excelFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.bestandsNaamLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // bestandLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(177, 130);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(201, 20);
-            this.textBox1.TabIndex = 0;
+            this.bestandLabel.AutoSize = true;
+            this.bestandLabel.Location = new System.Drawing.Point(9, 15);
+            this.bestandLabel.Name = "bestandLabel";
+            this.bestandLabel.Size = new System.Drawing.Size(92, 13);
+            this.bestandLabel.TabIndex = 1;
+            this.bestandLabel.Text = "Kies een bestand:";
             // 
-            // label1
+            // naarExcelButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 133);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Geef het nummer van de data in:";
+            this.naarExcelButton.Location = new System.Drawing.Point(409, 152);
+            this.naarExcelButton.Name = "naarExcelButton";
+            this.naarExcelButton.Size = new System.Drawing.Size(75, 23);
+            this.naarExcelButton.TabIndex = 2;
+            this.naarExcelButton.Text = "Zet om";
+            this.naarExcelButton.UseVisualStyleBackColor = true;
+            this.naarExcelButton.Click += new System.EventHandler(this.naarExcelButton_Click);
             // 
-            // sqlToExcelButton
+            // bestandenListBox
             // 
-            this.sqlToExcelButton.Location = new System.Drawing.Point(172, 203);
-            this.sqlToExcelButton.Name = "sqlToExcelButton";
-            this.sqlToExcelButton.Size = new System.Drawing.Size(80, 37);
-            this.sqlToExcelButton.TabIndex = 2;
-            this.sqlToExcelButton.Text = "Zet om naar excel";
-            this.sqlToExcelButton.UseVisualStyleBackColor = true;
-            this.sqlToExcelButton.Click += new System.EventHandler(this.sqlToExcel_Click);
+            this.bestandenListBox.FormattingEnabled = true;
+            this.bestandenListBox.Location = new System.Drawing.Point(12, 38);
+            this.bestandenListBox.Name = "bestandenListBox";
+            this.bestandenListBox.Size = new System.Drawing.Size(472, 108);
+            this.bestandenListBox.TabIndex = 3;
+            this.bestandenListBox.SelectedIndexChanged += new System.EventHandler(this.bestandenListBox_SelectedIndexChanged);
             // 
-            // listBox1
+            // annuleerButton
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(258, 175);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 95);
-            this.listBox1.TabIndex = 3;
+            this.annuleerButton.Location = new System.Drawing.Point(328, 153);
+            this.annuleerButton.Name = "annuleerButton";
+            this.annuleerButton.Size = new System.Drawing.Size(75, 23);
+            this.annuleerButton.TabIndex = 6;
+            this.annuleerButton.Text = "Annuleren";
+            this.annuleerButton.UseVisualStyleBackColor = true;
+            this.annuleerButton.Click += new System.EventHandler(this.anulleerButton_Click);
             // 
-            // saveMapButton
+            // leegLabel
             // 
-            this.saveMapButton.Location = new System.Drawing.Point(12, 38);
-            this.saveMapButton.Name = "saveMapButton";
-            this.saveMapButton.Size = new System.Drawing.Size(75, 56);
-            this.saveMapButton.TabIndex = 4;
-            this.saveMapButton.Text = "Map waar je wil saven:";
-            this.saveMapButton.UseVisualStyleBackColor = true;
-            this.saveMapButton.Click += new System.EventHandler(this.saveMap_Click);
+            this.leegLabel.AutoSize = true;
+            this.leegLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leegLabel.Location = new System.Drawing.Point(9, 158);
+            this.leegLabel.Name = "leegLabel";
+            this.leegLabel.Size = new System.Drawing.Size(0, 18);
+            this.leegLabel.TabIndex = 11;
             // 
-            // mapTextBox
+            // bestandsNaamTextBox
             // 
-            this.mapTextBox.Location = new System.Drawing.Point(93, 25);
-            this.mapTextBox.Multiline = true;
-            this.mapTextBox.Name = "mapTextBox";
-            this.mapTextBox.ReadOnly = true;
-            this.mapTextBox.Size = new System.Drawing.Size(285, 80);
-            this.mapTextBox.TabIndex = 5;
+            this.bestandsNaamTextBox.Location = new System.Drawing.Point(316, 12);
+            this.bestandsNaamTextBox.Name = "bestandsNaamTextBox";
+            this.bestandsNaamTextBox.Size = new System.Drawing.Size(168, 20);
+            this.bestandsNaamTextBox.TabIndex = 12;
             // 
-            // cancelButton
+            // bestandsNaamLabel
             // 
-            this.cancelButton.Location = new System.Drawing.Point(38, 203);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 37);
-            this.cancelButton.TabIndex = 6;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.bestandsNaamLabel.AutoSize = true;
+            this.bestandsNaamLabel.Location = new System.Drawing.Point(216, 15);
+            this.bestandsNaamLabel.Name = "bestandsNaamLabel";
+            this.bestandsNaamLabel.Size = new System.Drawing.Size(94, 13);
+            this.bestandsNaamLabel.TabIndex = 13;
+            this.bestandsNaamLabel.Text = "Geef een naam in:";
             // 
             // SqlToExcelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(391, 282);
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.mapTextBox);
-            this.Controls.Add(this.saveMapButton);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.sqlToExcelButton);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(496, 188);
+            this.Controls.Add(this.bestandsNaamLabel);
+            this.Controls.Add(this.bestandsNaamTextBox);
+            this.Controls.Add(this.leegLabel);
+            this.Controls.Add(this.annuleerButton);
+            this.Controls.Add(this.bestandenListBox);
+            this.Controls.Add(this.naarExcelButton);
+            this.Controls.Add(this.bestandLabel);
             this.Name = "SqlToExcelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SqlToExcelForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SqlToExcelForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -123,14 +124,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button sqlToExcelButton;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Button saveMapButton;
-        private System.Windows.Forms.TextBox mapTextBox;
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Label bestandLabel;
+        private System.Windows.Forms.Button naarExcelButton;
+        private System.Windows.Forms.ListBox bestandenListBox;
+        private System.Windows.Forms.Button annuleerButton;
+        private System.Windows.Forms.Label leegLabel;
+        private System.Windows.Forms.TextBox bestandsNaamTextBox;
+        private System.Windows.Forms.FolderBrowserDialog excelFolderBrowserDialog;
+        private System.Windows.Forms.Label bestandsNaamLabel;
 
         public System.EventHandler SqlToExcelForm_Load { get; set; }
     }

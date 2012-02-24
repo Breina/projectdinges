@@ -1,4 +1,4 @@
-﻿namespace TestProject
+﻿namespace Motorozoid
 {
     partial class ExcelToSqlForm
     {
@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.excelOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.kiesExcelButton = new System.Windows.Forms.Button();
             this.fileTextBox = new System.Windows.Forms.TextBox();
             this.opslaanButton = new System.Windows.Forms.Button();
@@ -47,9 +47,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.machinesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // openFileDialog1
+            // excelOpenFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.excelOpenFileDialog.FileName = "excelOpenFileDialog";
             // 
             // kiesExcelButton
             // 
@@ -65,6 +65,7 @@
             // 
             this.fileTextBox.Location = new System.Drawing.Point(12, 13);
             this.fileTextBox.Name = "fileTextBox";
+            this.fileTextBox.ReadOnly = true;
             this.fileTextBox.Size = new System.Drawing.Size(603, 20);
             this.fileTextBox.TabIndex = 0;
             this.fileTextBox.TabStop = false;
@@ -182,7 +183,7 @@
 
         #endregion
 
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.OpenFileDialog excelOpenFileDialog;
         private System.Windows.Forms.Button kiesExcelButton;
         private System.Windows.Forms.TextBox fileTextBox;
         private System.Windows.Forms.Button opslaanButton;
