@@ -17,7 +17,7 @@ using Microsoft.Research.DynamicDataDisplay.DataSources;
 using Microsoft.Research.DynamicDataDisplay.DataSources.MultiDimensional;
 using Microsoft.Research.DynamicDataDisplay.Common.Auxiliary;
 using System.IO;
-using TestDB;
+using MotoroziodDB;
 
 namespace IntensityChart
 {

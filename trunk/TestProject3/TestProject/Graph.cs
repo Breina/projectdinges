@@ -12,7 +12,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 
-namespace TestProject
+namespace Motorozoid
 {
 
     public partial class Graph : Form

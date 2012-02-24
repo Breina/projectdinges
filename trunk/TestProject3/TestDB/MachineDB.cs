@@ -5,7 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 
 
-namespace TestDB
+namespace MotoroziodDB
 {
     /// <summary>
     /// Klasse om de Machine objecten weg te schrijven in de database of de database te halen

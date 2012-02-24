@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TestDB
+namespace MotoroziodDB
 {
     /// <summary>
     /// Klasse om een Points object voor te stellen

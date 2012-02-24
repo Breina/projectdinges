@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace TestDB
+namespace MotoroziodDB
 {
     /// <summary> 
     /// Klasse om connectie te maken met de database

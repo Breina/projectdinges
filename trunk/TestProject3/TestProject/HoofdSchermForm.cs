@@ -9,11 +9,11 @@ using System.Windows.Forms;
 using Microsoft.Research.DynamicDataDisplay.DataSources.MultiDimensional;
 using Microsoft.Research.DynamicDataDisplay.Common.Auxiliary;
 using Microsoft.Research.DynamicDataDisplay.Charts;
-using TestDB;
+using MotoroziodDB;
 using IntensityChart;
 using System.Data.SqlClient;
 
-namespace TestProject
+namespace Motorozoid
 {
     /// <summary>
     /// Klasse van het hoofdscherm
@@ -48,12 +48,12 @@ namespace TestProject
         {
             Graph graph = new Graph(getGeselecteerdPad(), getGeselecteerdeMachine());
             Window1 g = new IntensityChart.Window1(getGeselecteerdPad(), getGeselecteerdeMachine());
-            graph.Show();
+            g.Show();
         }
 
         private void knopExporteren_Click(object sender, EventArgs e)
         {
-            SqlToExcelForm form = new SqlToExcelForm();
+            SqlToExcelForm form = new SqlToExcelForm(this);
             form.Show();
         }
 
@@ -145,13 +145,16 @@ namespace TestProject
 
         private void visualizerenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Window1 g = new IntensityChart.Window1(getGeselecteerdPad(), getGeselecteerdeMachine());
-            g.Show();
+            if (bestandenListBox.SelectedIndex != -1)
+            {
+                Window1 g = new IntensityChart.Window1(getGeselecteerdPad(), getGeselecteerdeMachine());
+                g.Show();
+            }
         }
 
         private void exporterenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SqlToExcelForm form = new SqlToExcelForm();
+            SqlToExcelForm form = new SqlToExcelForm(this);
             form.Show();
         }
 

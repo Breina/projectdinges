@@ -1,4 +1,4 @@
-﻿namespace TestProject
+﻿namespace Motorozoid
 {
     partial class EditForm
     {
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label bestandPadLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bestandPadComboBox = new System.Windows.Forms.ComboBox();
             this.machinesDataGridView = new System.Windows.Forms.DataGridView();
             this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,7 +43,7 @@
             this.verwijderButton = new System.Windows.Forms.Button();
             this.opslaanButton = new System.Windows.Forms.Button();
             this.annuleerButton = new System.Windows.Forms.Button();
-            this.bestandLabel = new System.Windows.Forms.Label();
+            this.leegLabel = new System.Windows.Forms.Label();
             bestandPadLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.machinesDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             // 
             // bestandPadComboBox
             // 
+            this.bestandPadComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.bestandPadComboBox.FormattingEnabled = true;
             this.bestandPadComboBox.Location = new System.Drawing.Point(86, 9);
             this.bestandPadComboBox.Name = "bestandPadComboBox";
@@ -100,25 +101,25 @@
             // 
             // Vermogen
             // 
-            dataGridViewCellStyle10.Format = "N2";
-            dataGridViewCellStyle10.NullValue = "0";
-            this.Vermogen.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = "0";
+            this.Vermogen.DefaultCellStyle = dataGridViewCellStyle4;
             this.Vermogen.HeaderText = "Vermogen(kW)";
             this.Vermogen.Name = "Vermogen";
             // 
             // NominaalToerental
             // 
-            dataGridViewCellStyle11.Format = "N2";
-            dataGridViewCellStyle11.NullValue = "0";
-            this.NominaalToerental.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Format = "N2";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.NominaalToerental.DefaultCellStyle = dataGridViewCellStyle5;
             this.NominaalToerental.HeaderText = "Nominaal-Toerental";
             this.NominaalToerental.Name = "NominaalToerental";
             // 
             // NominaalKoppel
             // 
-            dataGridViewCellStyle12.Format = "N2";
-            dataGridViewCellStyle12.NullValue = "0";
-            this.NominaalKoppel.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.NominaalKoppel.DefaultCellStyle = dataGridViewCellStyle6;
             this.NominaalKoppel.HeaderText = "Nominaal-Koppel";
             this.NominaalKoppel.Name = "NominaalKoppel";
             // 
@@ -144,6 +145,7 @@
             // 
             // annuleerButton
             // 
+            this.annuleerButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.annuleerButton.Location = new System.Drawing.Point(524, 315);
             this.annuleerButton.Name = "annuleerButton";
             this.annuleerButton.Size = new System.Drawing.Size(75, 23);
@@ -152,14 +154,14 @@
             this.annuleerButton.UseVisualStyleBackColor = true;
             this.annuleerButton.Click += new System.EventHandler(this.annuleerButton_Click);
             // 
-            // bestandLabel
+            // leegLabel
             // 
-            this.bestandLabel.AutoSize = true;
-            this.bestandLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bestandLabel.Location = new System.Drawing.Point(12, 320);
-            this.bestandLabel.Name = "bestandLabel";
-            this.bestandLabel.Size = new System.Drawing.Size(0, 18);
-            this.bestandLabel.TabIndex = 10;
+            this.leegLabel.AutoSize = true;
+            this.leegLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leegLabel.Location = new System.Drawing.Point(12, 320);
+            this.leegLabel.Name = "leegLabel";
+            this.leegLabel.Size = new System.Drawing.Size(0, 18);
+            this.leegLabel.TabIndex = 10;
             // 
             // EditForm
             // 
@@ -168,7 +170,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.annuleerButton;
             this.ClientSize = new System.Drawing.Size(692, 347);
-            this.Controls.Add(this.bestandLabel);
+            this.Controls.Add(this.leegLabel);
             this.Controls.Add(this.annuleerButton);
             this.Controls.Add(this.opslaanButton);
             this.Controls.Add(this.verwijderButton);
@@ -198,7 +200,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Vermogen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NominaalToerental;
         private System.Windows.Forms.DataGridViewTextBoxColumn NominaalKoppel;
-        private System.Windows.Forms.Label bestandLabel;
+        private System.Windows.Forms.Label leegLabel;
 
     }
 }

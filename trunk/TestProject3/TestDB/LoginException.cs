@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace TestDB
+namespace MotoroziodDB
 {
     /// <summary>
     /// Exceptionklasse voor als het inloggen mislukt

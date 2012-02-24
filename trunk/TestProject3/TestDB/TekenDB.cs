@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace TestDB
+namespace MotoroziodDB
 {
     /// <summary>
     /// Klasse alle data op te halen die nodig is om de grafiek te tekenen
@@ -55,18 +55,19 @@ namespace TestDB
                 {
                     for (int x = 41; x >= 0; x--)
                     {
+                        double s;
                         reader.Read();
-                        double s = Convert.ToDouble(reader["Rendament"]);
+                        
+                            s = Convert.ToDouble(reader["Rendament"]);                       
 
                         d[x, y] = s;
-
                     }
                 }
                 reader.Close();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
             finally
             {
@@ -84,7 +85,7 @@ namespace TestDB
         public static Points[,] getValues()
         {
             Points[,] d = new Points[42, 42];
-
+         
             SqlConnection conn = ConnectionDB.getConnection();
 
             string selectStatement = "SELECT Toerental, Koppel " +
@@ -112,10 +113,10 @@ namespace TestDB
                 }
                 reader.Close();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
 
-                throw;
+                throw ex;
             }
             finally
             {
