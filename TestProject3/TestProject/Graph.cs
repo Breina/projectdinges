@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using IntensityChart;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
 
@@ -18,22 +19,19 @@ namespace Motorozoid
     public partial class Graph : Form
     {
         private ElementHost ctrlHost;
-        private IntensityChart.Window1 wpfAddressCtrl;
+        private Grafiek wpfAddressCtrl;
         
         public Graph(string pad, int machine)
         {
             InitializeComponent();
-            wpfAddressCtrl = new IntensityChart.Window1(pad, machine);
-        }
+            wpfAddressCtrl = new Grafiek(pad, machine);
+            ctrlHost = new ElementHost();
+            elementHost1.Size = new System.Drawing.Size(400,300);
 
-        private void Graph_Load(object sender, EventArgs e)
-        {
-             ctrlHost = new ElementHost();
-            ctrlHost.Dock = DockStyle.Fill;
-            panel1.Controls.Add(ctrlHost);           
-            wpfAddressCtrl.InitializeComponent();
-            ctrlHost.Child = wpfAddressCtrl;
-
+            elementHost1.Child = wpfAddressCtrl;
+            this.Controls.Add(elementHost1);
         }
+      
+            
     }
 }

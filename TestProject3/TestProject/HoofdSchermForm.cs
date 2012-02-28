@@ -47,8 +47,9 @@ namespace Motorozoid
         private void knopVisualizeren_Click(object sender, EventArgs e)
         {
             Graph graph = new Graph(getGeselecteerdPad(), getGeselecteerdeMachine());
-            Window1 g = new IntensityChart.Window1(getGeselecteerdPad(), getGeselecteerdeMachine());
-            g.Show();
+            //Window1 g = new IntensityChart.Window1(getGeselecteerdPad(), getGeselecteerdeMachine());
+            graph.Show();
+            //g.Show();
         }
 
         private void knopExporteren_Click(object sender, EventArgs e)
