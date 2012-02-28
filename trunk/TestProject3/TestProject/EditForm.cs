@@ -11,11 +11,21 @@ using System.Data.SqlClient;
 
 namespace Motorozoid
 {
+    /// <summary>
+    /// GUI Klasse om een machine aan te kunnen passen of een bestand te verwijderen
+    /// </summary>
+    /// <author>Wim Baens</author>
     public partial class EditForm : Form
     {
         private List<Bestand> bestanden;
         private List<Machine> machines;
         private HoofdSchermForm hoofdscherm;
+
+        /// <summary> 
+        /// Constructor van de klasse EditForm
+        /// </summary>
+        /// <param name="hoofdscherm">object van het type HoofdSchermForm</param>          
+        /// <author>Wim Baens</author> 
         public EditForm(HoofdSchermForm hoofdscherm)
         {
             InitializeComponent();
@@ -27,6 +37,11 @@ namespace Motorozoid
 
         }
 
+        /// <summary> 
+        /// Vult de gridview
+        /// </summary> 
+        /// <param name="m">een lijst van Machine Objecten</param>          
+        /// <author>Wim Baens</author> 
         private void fillGridView(List<Machine> m)
         {
             string naam;
@@ -78,6 +93,10 @@ namespace Motorozoid
             }
         }
 
+        /// <summary> 
+        /// Vult een lijst met Machine objecten en geeft deze mee aan een update method
+        /// </summary>                
+        /// <author>Wim Baens</author>
         private void updateMachine()
         {
             int l = machinesDataGridView.RowCount;
