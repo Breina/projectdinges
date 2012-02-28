@@ -28,31 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.grafiek1 = new IntensityChart.Grafiek();
             this.SuspendLayout();
             // 
-            // panel1
+            // elementHost1
             // 
-            this.panel1.Location = new System.Drawing.Point(13, 13);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(443, 366);
-            this.panel1.TabIndex = 0;
+            this.elementHost1.Location = new System.Drawing.Point(12, 24);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(423, 268);
+            this.elementHost1.TabIndex = 1;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = this.grafiek1;
             // 
             // Graph
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 391);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(519, 480);
+            this.Controls.Add(this.elementHost1);
             this.Name = "Graph";
             this.Text = "Graph";
-            this.Load += new System.EventHandler(this.Graph_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private IntensityChart.Grafiek grafiek1;
+
     }
 }

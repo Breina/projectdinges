@@ -152,3 +152,5 @@ C:\Users\student\Desktop\TestProject3\IntensityChart\obj\Debug\GenerateResource.
 C:\Users\student\Desktop\TestProject3\IntensityChart\obj\Debug\GenerateResource.write.1.tlog
 C:\Users\student\Desktop\TestProject3\IntensityChart\obj\Debug\IntensityChart.exe
 C:\Users\student\Desktop\TestProject3\IntensityChart\obj\Debug\IntensityChart.pdb
+C:\Users\student\Desktop\Folder\TestProject3\IntensityChart\obj\Debug\Grafiek.baml
+C:\Users\student\Desktop\Folder\TestProject3\IntensityChart\obj\Debug\Grafiek.g.cs
