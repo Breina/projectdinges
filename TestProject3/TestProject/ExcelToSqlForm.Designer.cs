@@ -173,7 +173,7 @@
             this.Controls.Add(this.kiesExcelButton);
             this.Name = "ExcelToSqlForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ExcelToSqlForm";
+            this.Text = "Excel naar database";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ExcelToSqlForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.machinesDataGridView)).EndInit();
             this.ResumeLayout(false);

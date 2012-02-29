@@ -42,5 +42,10 @@ namespace Motorozoid
                 MessageBox.Show(this, ex.Message, ex.GetType().ToString(), MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void annuleerButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -154,3 +154,5 @@ C:\Users\student\Desktop\TestProject3\IntensityChart\obj\Debug\IntensityChart.ex
 C:\Users\student\Desktop\TestProject3\IntensityChart\obj\Debug\IntensityChart.pdb
 C:\Users\student\Desktop\Folder\TestProject3\IntensityChart\obj\Debug\Grafiek.baml
 C:\Users\student\Desktop\Folder\TestProject3\IntensityChart\obj\Debug\Grafiek.g.cs
+C:\Users\student\Desktop\Project\TestProject3\IntensityChart\obj\Debug\Grafiek.baml
+C:\Users\student\Desktop\Project\TestProject3\IntensityChart\obj\Debug\Grafiek.g.cs

@@ -59,45 +59,7 @@ namespace MotoroziodDB
                 conn.Close();
             }
         }
-        /// <summary> 
-        /// Haalt Machine objecten volgens bestandpad op met enkel de id en naam ingevuld
-        /// </summary>
-        /// <param name="pad">tekst</param> 
-        /// <returns>Lijst met Machine objecten</returns>
-        /// <author>Brecht Derwael en Wim Baens</author>  
-        public static List<Machine> getMachinesNaam(String pad)
-        {
-            List<Machine> machines = new List<Machine>();
 
-            SqlConnection conn = ConnectionDB.getConnection();
-            string selectStatement;
-            SqlCommand selectCommand;
-
-            selectStatement = "SELECT Machines.MachineID, Machines.Naam " +
-                            "FROM Machines INNER JOIN MachineBestand ON MachineBestand.MachineID=Machines.MachineID " +
-                            "WHERE MachineBestand.BestandPad=@BestandPad";
-            selectCommand = new SqlCommand(selectStatement, conn);
-            selectCommand.Parameters.AddWithValue("@BestandPad", pad);
-
-            try
-            {
-                conn.Open();
-
-                SqlDataReader reader = selectCommand.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    Machine machine = new Machine(reader["Naam"].ToString(), Convert.ToInt32(reader["MachineID"]));
-                    machines.Add(machine);
-                }
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-
-            return machines;
-        }
 
         /// <summary> 
         /// Haalt Machine objecten volgens bestandpad op met alles ingevuld
@@ -113,7 +75,7 @@ namespace MotoroziodDB
             string selectStatement;
             SqlCommand selectCommand;
 
-            selectStatement = "SELECT Machines.MachineID, Machines.Naam,Machines.TypeID,Machines.Label,Machines.Vermogen,Machines.Tnom,Machines.Nnom " +
+            selectStatement = "SELECT Machines.MachineID, Machines.BesteNominaalID, Machines.Naam,Machines.TypeID,Machines.Label,Machines.Vermogen,Machines.Tnom,Machines.Nnom " +
                             "FROM Machines INNER JOIN MachineBestand ON MachineBestand.MachineID=Machines.MachineID " +
                             "WHERE MachineBestand.BestandPad=@BestandPad";
             selectCommand = new SqlCommand(selectStatement, conn);
@@ -133,6 +95,7 @@ namespace MotoroziodDB
                     machine.Vermogen = Convert.ToDouble(reader["Vermogen"]);
                     machine.NominaalKoppel = Convert.ToDouble(reader["Tnom"]);
                     machine.NominaalToerental = Convert.ToDouble(reader["Nnom"]);
+                    machine.BesteNominaalID = Convert.ToInt32(reader["BesteNominaalID"]);
                     machines.Add(machine);
                 }
             }

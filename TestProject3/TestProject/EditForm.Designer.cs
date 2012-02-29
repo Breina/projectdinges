@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label bestandPadLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bestandPadComboBox = new System.Windows.Forms.ComboBox();
             this.machinesDataGridView = new System.Windows.Forms.DataGridView();
             this.Naam = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,25 +101,25 @@
             // 
             // Vermogen
             // 
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = "0";
-            this.Vermogen.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.Vermogen.DefaultCellStyle = dataGridViewCellStyle1;
             this.Vermogen.HeaderText = "Vermogen(kW)";
             this.Vermogen.Name = "Vermogen";
             // 
             // NominaalToerental
             // 
-            dataGridViewCellStyle5.Format = "N2";
-            dataGridViewCellStyle5.NullValue = "0";
-            this.NominaalToerental.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.NominaalToerental.DefaultCellStyle = dataGridViewCellStyle2;
             this.NominaalToerental.HeaderText = "Nominaal-Toerental";
             this.NominaalToerental.Name = "NominaalToerental";
             // 
             // NominaalKoppel
             // 
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.NominaalKoppel.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.NominaalKoppel.DefaultCellStyle = dataGridViewCellStyle3;
             this.NominaalKoppel.HeaderText = "Nominaal-Koppel";
             this.NominaalKoppel.Name = "NominaalKoppel";
             // 
@@ -179,7 +179,7 @@
             this.Controls.Add(this.bestandPadComboBox);
             this.Name = "EditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EditBestand";
+            this.Text = "Bestanden aanpassen";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditBestand_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.machinesDataGridView)).EndInit();
             this.ResumeLayout(false);

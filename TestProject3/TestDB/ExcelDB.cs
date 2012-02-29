@@ -38,11 +38,14 @@ namespace MotoroziodDB
                 SqlTransaction excelTransaction = null;
                 string insertStatement;
                 SqlConnection conn = ConnectionDB.getConnection();
+                SqlDataReader reader;
 
                 SqlCommand selectCommand = new SqlCommand();
+                SqlCommand selectMaxRendamentIDCommand = new SqlCommand();
                 SqlCommand insertInMachinesCommand = new SqlCommand();
                 SqlCommand insertInMachineBestandCommand = new SqlCommand();
                 SqlCommand insertInRendamentCommand = new SqlCommand();
+                SqlCommand insertMaximumRendamentIdCommand = new SqlCommand();
 
                 try
                 {
@@ -51,23 +54,32 @@ namespace MotoroziodDB
                     ExcelWorksheet[] worksheets = new ExcelWorksheet[length];
                     string naam;
                     int id;
+                    int machineId;
+                    int nominaalId;
                     conn.Open();
                     excelTransaction = conn.BeginTransaction();
                     machines = new List<Machine>();
                     insertInMachinesCommand.Connection = conn;
                     insertInMachineBestandCommand.Connection = conn;
                     insertInRendamentCommand.Connection = conn;
+                    insertMaximumRendamentIdCommand.Connection = conn;
                     insertInMachinesCommand.Transaction = excelTransaction;
                     insertInMachineBestandCommand.Transaction = excelTransaction;
                     insertInRendamentCommand.Transaction = excelTransaction;
+                    insertMaximumRendamentIdCommand.Transaction = excelTransaction;
                     selectCommand.Connection = conn;
+                    selectMaxRendamentIDCommand.Connection = conn;
                     selectCommand.Transaction = excelTransaction;
+                    selectMaxRendamentIDCommand.Transaction = excelTransaction;
                     insertInMachinesCommand.Parameters.Add("@Naam", SqlDbType.NVarChar);
                     insertInMachineBestandCommand.Parameters.Add("@BestandPad", SqlDbType.NVarChar);
                     insertInMachineBestandCommand.Parameters.Add("@MachineID", SqlDbType.Int);
                     insertInRendamentCommand.Parameters.Add("@MachineBestandID", SqlDbType.Int);
                     insertInRendamentCommand.Parameters.Add("@Rendament", SqlDbType.Decimal);
                     insertInRendamentCommand.Parameters.Add("@NominaalID", SqlDbType.Int);
+                    insertMaximumRendamentIdCommand.Parameters.Add("@MachineID", SqlDbType.Int);
+                    insertMaximumRendamentIdCommand.Parameters.Add("@BesteNominaalID", SqlDbType.Int);
+                    selectMaxRendamentIDCommand.Parameters.Add("@MachineBestandID", SqlDbType.Int);
 
                     for (int k = 1; k <= length; k++)
                     {
@@ -91,15 +103,15 @@ namespace MotoroziodDB
 
                             selectStatement = "SELECT IDENT_CURRENT('Machines') FROM Machines";
                             selectCommand.CommandText = selectStatement;
-                            id = Convert.ToInt32(selectCommand.ExecuteScalar());
-                            machines.Add(new Machine(naam, id));
+                            machineId = Convert.ToInt32(selectCommand.ExecuteScalar());
+                            machines.Add(new Machine(naam, machineId));
 
                             insertStatement = "INSERT INTO MachineBestand " +
                                 "(BestandPad, MachineID) " +
                                 "VALUES (@BestandPad, @MachineID)";
                             insertInMachineBestandCommand.CommandText = insertStatement;
                             insertInMachineBestandCommand.Parameters["@BestandPad"].Value = file;
-                            insertInMachineBestandCommand.Parameters["@MachineID"].Value = id;
+                            insertInMachineBestandCommand.Parameters["@MachineID"].Value = machineId;
                             insertInMachineBestandCommand.ExecuteNonQuery();
 
                             selectStatement = "SELECT IDENT_CURRENT('MachineBestand') FROM MachineBestand";
@@ -147,6 +159,28 @@ namespace MotoroziodDB
                             {
                                 throw new Exception();
                             }
+                            selectStatement = 
+                            "SELECT NominaalID,Rendament,MachineBestandID FROM Rendamenten "+                               
+                                "WHERE MachineBestandID=@MachineBestandID "+
+                                "AND Rendament=(SELECT MAX(Rendament) FROM Rendamenten "+
+                                "WHERE MachineBestandID=@MachineBestandID)";
+
+
+                            selectMaxRendamentIDCommand.CommandText = selectStatement;
+                            selectMaxRendamentIDCommand.Parameters["@MachineBestandID"].Value = id;
+                            reader = selectMaxRendamentIDCommand.ExecuteReader();
+                            reader.Read();
+                            nominaalId = Convert.ToInt32(reader["NominaalID"]);                           
+                            reader.Close();
+
+                           
+                            insertStatement = "UPDATE Machines " +
+                                "SET BesteNominaalID=@BesteNominaalID " +
+                                "WHERE MachineID = @MachineID";
+                            insertMaximumRendamentIdCommand.CommandText = insertStatement;
+                            insertMaximumRendamentIdCommand.Parameters["@BesteNominaalID"].Value = nominaalId;
+                            insertMaximumRendamentIdCommand.Parameters["@MachineID"].Value=machineId;
+                            insertMaximumRendamentIdCommand.ExecuteNonQuery();
                         }
                     }
                     excelTransaction.Commit();

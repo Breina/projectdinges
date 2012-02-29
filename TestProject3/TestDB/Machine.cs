@@ -18,6 +18,7 @@ namespace MotoroziodDB
         private double vermogen;
         private double nominaalToerental;
         private double nominaalKoppel;
+        private int besteNominaalID;        
 
         /// <summary> 
         /// Constructor van de klasse Machine
@@ -70,6 +71,12 @@ namespace MotoroziodDB
         public int MachineId
         {
             get { return machineId; }
+        }
+
+        public int BesteNominaalID
+        {
+            get { return besteNominaalID; }
+            set { besteNominaalID = value; }
         }
 
         /// <summary> 

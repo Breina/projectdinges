@@ -115,7 +115,7 @@
             this.Controls.Add(this.bestandLabel);
             this.Name = "SqlToExcelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SqlToExcelForm";
+            this.Text = "Database naar excel";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SqlToExcelForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
