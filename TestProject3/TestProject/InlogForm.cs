@@ -17,7 +17,7 @@ namespace Motorozoid
     /// <author>Wim Baens</author>
     public partial class InlogForm : Form
     {
-
+       
         public InlogForm()
         {
             InitializeComponent();
@@ -47,5 +47,7 @@ namespace Motorozoid
         {
             this.Close();
         }
+
+       
     }
 }

@@ -40,9 +40,9 @@ namespace Motorozoid
             besteRendament = TekenDB.geefBesteRendament(machine);
             besteNominaleWaarden = TekenDB.geefBesteNominaleWaarden(machine.BesteNominaalID);
             rendamentLabel.Text = "Beste rendament: " +Math.Round(besteRendament,4);
-            toerentalLabel.Text = "Toerental: " + machine.NominaalToerental*besteNominaleWaarden.getToerental();
-            koppelLabel.Text = "Koppel: " + machine.NominaalKoppel * besteNominaleWaarden.getKoppel() ;
-        }        
+            toerentalLabel.Text = "Bij Toerental: " + machine.NominaalToerental*besteNominaleWaarden.getToerental();
+            koppelLabel.Text = "En Koppel: " + machine.NominaalKoppel * besteNominaleWaarden.getKoppel() ;
+        }            
             
     }
 }

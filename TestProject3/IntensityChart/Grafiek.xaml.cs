@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
 using Microsoft.Research.DynamicDataDisplay.Charts;
 using Microsoft.Research.DynamicDataDisplay.Common.Palettes;
 using Microsoft.Research.DynamicDataDisplay.DataSources;
@@ -28,7 +29,7 @@ namespace IntensityChart
     {
 
         private double[,] data;
-        const int imageSize = 400;
+       
 
         public Grafiek(string pad, int machine)
         {
@@ -39,34 +40,44 @@ namespace IntensityChart
 
         private void drawImage()
         {
-            NaiveColorMap map = new NaiveColorMap { Data = data, Palette = LinearPalettes.RedGreenBluePalette };
-            var bmp = map.BuildImage();
-            image.Source = bmp;
+            
 
-            Point[,] gridData = new Point[42, 42];
+            System.Windows.Point[,] gridData = new System.Windows.Point[42, 42];
+
+            Bitmap Bmp = new Bitmap(400, 300);
 
             Points[,] pts = TekenDB.getValues();
-
+            int i = 0;
             for (int y = 0; y < 42; y++)
             {
                 for (int x = 0; x < 42; x++)
                 {
                     Points p = pts[x, y];
-                    gridData[x, y] = new Point(p.getToerental(), p.getKoppel());
+                    gridData[x, y] = new System.Windows.Point(p.getToerental(), p.getKoppel());
+                    Bmp.SetPixel(1, 2,System.Drawing.Color.Red);
+                    i++;
                 }
             }
-
+        
             WarpedDataSource2D<double> dataSource = new WarpedDataSource2D<double>(data, gridData);
+            NaiveColorMap map = new NaiveColorMap { Data = data, Palette = LinearPalettes.RedGreenBluePalette };
 
 
-            isolineGraph.Palette = new LinearPalette(Colors.Black, Colors.Black);
+
+            var bmp = map.BuildImage();
+            //image.Source = bmp;
+
+            
+            isolineGraph.Palette = new LinearPalette(Colors.Blue, Colors.Red,Colors.Green);
             isolineGraph.DataSource = dataSource;
 
-            trackingGraph.Palette = new LinearPalette(Colors.Black, Colors.Black);
+            trackingGraph.Palette = new LinearPalette(Colors.Black,Colors.Black);
             trackingGraph.DataSource = dataSource;
-
+           
             Rect visible = dataSource.GetGridBounds();
-            plotter.Viewport.Visible = visible;
+            plotter.Viewport.Visible = visible;            
         }
+
+        
     }
 }

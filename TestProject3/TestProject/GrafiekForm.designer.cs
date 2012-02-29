@@ -41,7 +41,7 @@
             this.grafiekHost.Name = "grafiekHost";
             this.grafiekHost.Size = new System.Drawing.Size(519, 268);
             this.grafiekHost.TabIndex = 1;
-            this.grafiekHost.Text = "elementHost1";
+            this.grafiekHost.Text = "elementHost1";           
             this.grafiekHost.Child = null;
             // 
             // rendamentLabel

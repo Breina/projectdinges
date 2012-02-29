@@ -49,6 +49,7 @@
             this.machinesListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.productiemachineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -170,15 +171,16 @@
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bestandToolStripMenuItem1});
+            this.bestandToolStripMenuItem1,
+            this.productiemachineToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.editToolStripMenuItem.Text = "E&dit";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
+            this.editToolStripMenuItem.Text = "Aanpassen";
             // 
             // bestandToolStripMenuItem1
             // 
             this.bestandToolStripMenuItem1.Name = "bestandToolStripMenuItem1";
-            this.bestandToolStripMenuItem1.Size = new System.Drawing.Size(116, 22);
+            this.bestandToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
             this.bestandToolStripMenuItem1.Text = "Bestand";
             this.bestandToolStripMenuItem1.Click += new System.EventHandler(this.bestandToolStripMenuItem_Click);
             // 
@@ -216,6 +218,12 @@
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Machines:";
+            // 
+            // productiemachineToolStripMenuItem
+            // 
+            this.productiemachineToolStripMenuItem.Name = "productiemachineToolStripMenuItem";
+            this.productiemachineToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.productiemachineToolStripMenuItem.Text = "Productiemachine";
             // 
             // HoofdSchermForm
             // 
@@ -264,6 +272,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bestandToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem productiemachineToolStripMenuItem;
 
 
     }
