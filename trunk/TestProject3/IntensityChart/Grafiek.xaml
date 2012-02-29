@@ -14,19 +14,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-
-        <d3:ChartPlotter Name="plotter" Grid.Row="0" Grid.Column="1">
-            <d3:ViewportHostPanel>
-                <Image Name="image" d3:ViewportPanel.ViewportBounds="0,0,2,1.5" Stretch="Fill"/>
-            </d3:ViewportHostPanel>
-
+        </Grid.RowDefinitions>      
+            <d3:ChartPlotter Name="plotter" Grid.Column="1" Grid.Row="0">
+            <d3:VerticalAxisTitle Content="Relatieve Koppel"/>
+            <d3:HorizontalAxisTitle Content="Relatieve Toerental"/>
             <d3:IsolineGraph Name="isolineGraph"/>
             <d3:IsolineTrackingGraph Name="trackingGraph"/>
-            <d3:CursorCoordinateGraph/>
-
-            <d3:CursorCoordinateGraph/>
-            <d3:AxisCursorGraph/>
+            <d3:CursorCoordinateGraph Name="cursorGraph" />
+            <d3:AxisCursorGraph />
         </d3:ChartPlotter>
     </Grid>
 </UserControl>

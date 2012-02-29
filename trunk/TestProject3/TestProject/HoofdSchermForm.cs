@@ -24,6 +24,7 @@ namespace Motorozoid
         private List<Bestand> bestanden;
         private List<Machine> machines;
         private InlogForm inlogForm;
+        private char uitloggen;
 
         /// <summary> 
         /// Constructor van de klasse HoofdSchermForm
@@ -167,12 +168,21 @@ namespace Motorozoid
 
         private void uitloggenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            uitloggen = 'u';
             this.Close();
         }
 
         private void HoofdSchermForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            inlogForm.Visible = true;
+            if (!uitloggen.Equals('u'))
+            {
+                inlogForm.Close();
+            }
+            else
+            {
+                inlogForm.Controls["loginTextBox"].Select();
+                inlogForm.Visible = true;
+            }
         }
 
     }
