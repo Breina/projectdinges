@@ -10,7 +10,7 @@ namespace MotoroziodDB
     /// Klasse alle data op te halen die nodig is om de grafiek te tekenen
     /// </summary>
     /// <author>Wim Baens</author>
-  public class TekenDB
+    public class TekenDB
     {
         /// <summary> 
         /// Haalt de rendamenten op van het geselecteerde bestand en de machine
@@ -57,8 +57,8 @@ namespace MotoroziodDB
                     {
                         double s;
                         reader.Read();
-                        
-                            s = Convert.ToDouble(reader["Rendament"]);                       
+
+                        s = Convert.ToDouble(reader["Rendament"]);
 
                         d[x, y] = s;
                     }
@@ -77,6 +77,7 @@ namespace MotoroziodDB
             return d;
 
         }
+
         /// <summary> 
         /// Haalt Points Objecten op uit de NominaleWaarden tabel van de database
         /// </summary>       
@@ -85,7 +86,7 @@ namespace MotoroziodDB
         public static Points[,] getValues()
         {
             Points[,] d = new Points[42, 42];
-         
+
             SqlConnection conn = ConnectionDB.getConnection();
 
             string selectStatement = "SELECT Toerental, Koppel " +
@@ -125,6 +126,91 @@ namespace MotoroziodDB
 
             return d;
 
-        }     
+        }
+
+        public static double geefBesteRendament(Machine machine)
+        {
+            double rendament;
+            SqlConnection conn = ConnectionDB.getConnection();
+
+            string selectStatement = "SELECT Rendament " +
+                "FROM Rendamenten INNER JOIN MachineBestand " +
+                "ON Rendamenten.MachineBestandID=MachineBestand.MachineBestandID " +
+                "WHERE NominaalID = @NominaalID "+
+                "AND MachineID=@MachineID";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            selectCommand.Parameters.AddWithValue("@NominaalID", machine.BesteNominaalID);
+            selectCommand.Parameters.AddWithValue("@MachineID", machine.MachineId);
+            SqlDataReader reader;
+            try
+            {
+                conn.Open();
+
+                reader = selectCommand.ExecuteReader();
+                reader.Read();
+                rendament = Convert.ToDouble(reader["Rendament"]);
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+
+            return rendament;
+        }
+
+        /// <summary> 
+        /// Haalt Points Objecten op uit de NominaleWaarden tabel van de database
+        /// </summary>       
+        /// <returns>een array van Points objecten</returns>
+        /// <author>Brecht Derwael en Wim Baens</author> 
+        public static Points geefBesteNominaleWaarden(int nominaalID)
+        {
+            Points d;
+
+            SqlConnection conn = ConnectionDB.getConnection();
+
+            string selectStatement = "SELECT Toerental, Koppel " +
+                "FROM NominaleWaarden " +
+                "WHERE NominaalID=@NominaalID";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, conn);
+            selectCommand.Parameters.AddWithValue("@NominaalID", nominaalID);
+            SqlDataReader reader;
+            try
+            {
+                conn.Open();
+
+                reader = selectCommand.ExecuteReader();
+
+               
+                        reader.Read();
+                        double t = Convert.ToDouble(reader["Toerental"]);
+                        double k = Convert.ToDouble(reader["Koppel"]);
+
+                        d = new Points(t, k);
+               
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return d;
+
+        }
     }
 }

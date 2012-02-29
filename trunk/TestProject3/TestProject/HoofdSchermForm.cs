@@ -46,10 +46,11 @@ namespace Motorozoid
 
         private void knopVisualizeren_Click(object sender, EventArgs e)
         {
-            Graph graph = new Graph(getGeselecteerdPad(), getGeselecteerdeMachine());
-            //Window1 g = new IntensityChart.Window1(getGeselecteerdPad(), getGeselecteerdeMachine());
-            graph.Show();
-            //g.Show();
+            if (bestandenListBox.SelectedIndex != -1)
+            {
+                GrafiekForm graph = new GrafiekForm(getGeselecteerdPad(), getGeselecteerdeMachine());
+                graph.Show();
+            }
         }
 
         private void knopExporteren_Click(object sender, EventArgs e)
@@ -79,7 +80,7 @@ namespace Motorozoid
             string pad = getGeselecteerdPad();
             if (pad != null)
             {
-                machines = MachineDB.getMachinesNaam(pad);
+                machines = MachineDB.getMachines(pad);
                 machinesListBox.DataSource = machines;
             }
         }
@@ -113,14 +114,13 @@ namespace Motorozoid
         }
 
         /// <summary> 
-        /// geeft de machineId terug van de geselecteerde machine
+        /// Geeft het geselecteerde MachineObject terug
         /// </summary>        
-        /// <returns>positief geheel getal</returns>
+        /// <returns>Machine Object</returns>
         /// <author>Brecht Derwael</author>        
-        private int getGeselecteerdeMachine()
+        private Machine getGeselecteerdeMachine()
         {
-
-            return machines[machinesListBox.SelectedIndex].MachineId;
+            return machines[machinesListBox.SelectedIndex];
         }
 
         public void refresh()
@@ -148,8 +148,8 @@ namespace Motorozoid
         {
             if (bestandenListBox.SelectedIndex != -1)
             {
-                Window1 g = new IntensityChart.Window1(getGeselecteerdPad(), getGeselecteerdeMachine());
-                g.Show();
+                GrafiekForm graph = new GrafiekForm(getGeselecteerdPad(), getGeselecteerdeMachine());
+                graph.Show();
             }
         }
 
