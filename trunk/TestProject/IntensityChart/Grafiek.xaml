@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:d3="http://research.microsoft.com/DynamicDataDisplay/1.0"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="400">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -22,6 +22,9 @@
             <d3:IsolineTrackingGraph Name="trackingGraph"/>
             <d3:CursorCoordinateGraph Name="cursorGraph" />
             <d3:AxisCursorGraph />
-        </d3:ChartPlotter>
+        </d3:ChartPlotter>       
+        <TextBlock FontWeight="Bold" FontSize="12" Name="optimalePunt" Grid.Column="1" Grid.Row="1"></TextBlock>
+        
     </Grid>
+    
 </UserControl>

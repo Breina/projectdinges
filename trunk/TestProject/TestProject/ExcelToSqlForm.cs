@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MotoroziodDB;
+using MotorozoidDB;
 using System.IO;
 using System.Data.SqlClient;
 using System.Threading;
@@ -105,13 +105,19 @@ namespace Motorozoid
         {
             string naam;
             List<TypeMachine> types = TypeMachineDB.getTypes();
+            List<ProductieMachine> prodMach = ProductieMachineDB.getProductieMachines();
             Type.DataSource = types;
             Type.DisplayMember = "TypeNaam";
             Type.ValueMember = "TypeId";
+            ProductieMachine.DataSource = prodMach;
+            ProductieMachine.DisplayMember = "ProductieMachineNaam";
+            ProductieMachine.ValueMember = "ProductieMachineID";
             foreach (Machine mach in m)
             {
                 naam = mach.MachineNaam;
                 mach.NominaalToerental = 1500;
+                naam.Replace('-', ' ');
+                
                 try
                 {
                     string[] s = naam.Split(' ');
@@ -124,7 +130,7 @@ namespace Motorozoid
                 {
                     MessageBox.Show(this,"Geen bruikbare data in de machinenaam. Vul alles zelf in!", "Format fout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                machinesDataGridView.Rows.Add(naam, mach.TypeId, mach.Label, mach.Vermogen, mach.NominaalToerental, mach.NominaalKoppel);
+                machinesDataGridView.Rows.Add(naam, mach.TypeId, mach.Label, mach.Vermogen, mach.NominaalToerental, mach.NominaalKoppel,mach.ProductieMachineID);
             }
         }
 
@@ -177,7 +183,7 @@ namespace Motorozoid
                         machines[i].NominaalToerental = Convert.ToDouble(machinesDataGridView["NominaalToerental", i].Value);
                         machines[i].NominaalKoppel = Convert.ToInt32(machinesDataGridView["NominaalKoppel", i].Value);
                         machines[i].Label = machinesDataGridView["Label", i].Value.ToString();
-                        // Add productiemachine
+                        machines[i].ProductieMachineID = Convert.ToInt32(machinesDataGridView["ProductieMachine",i].Value)+1;                       
                     }
                     break;
                 case 'c':
@@ -188,17 +194,16 @@ namespace Motorozoid
                         machines[i].Vermogen = 0;
                         machines[i].NominaalToerental = 0;
                         machines[i].NominaalKoppel = 0;
-                        machines[i].Label = "";
-                        // Add productiemachine
+                        machines[i].Label = "";                       
                     }
                     break;
             } if (l > 0)
             {
-                MachineDB.updateMachineData(machines);
+                MachineDB.updateMachineData(machines,fileName);
             }
             hoofdscherm.refresh();
             this.Close();
-        }
+        }       
     }
 }
 

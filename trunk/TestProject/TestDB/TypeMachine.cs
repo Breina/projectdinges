@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MotoroziodDB
+namespace MotorozoidDB
 {
     /// <summary> 
     /// Klasse om een TypeMachine object voor te stellen 
@@ -14,6 +14,12 @@ namespace MotoroziodDB
         private int typeId;
         private string typeNaam;
 
+        /// <summary> 
+        /// Constructor van de klasse TypeMachine
+        /// </summary>
+        /// <param name="naam">tekst naam</param>  
+        /// <param name="typeId">een positief geheel getal</param>  
+        /// <author>Wim Baens</author> 
         public TypeMachine(string naam,int typeId)
         {
             this.typeNaam = naam;

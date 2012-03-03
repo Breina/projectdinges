@@ -40,6 +40,7 @@
             this.Vermogen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NominaalToerental = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NominaalKoppel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductieMachine = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.verwijderButton = new System.Windows.Forms.Button();
             this.opslaanButton = new System.Windows.Forms.Button();
             this.annuleerButton = new System.Windows.Forms.Button();
@@ -78,15 +79,17 @@
             this.Label,
             this.Vermogen,
             this.NominaalToerental,
-            this.NominaalKoppel});
+            this.NominaalKoppel,
+            this.ProductieMachine});
             this.machinesDataGridView.Location = new System.Drawing.Point(12, 36);
             this.machinesDataGridView.Name = "machinesDataGridView";
-            this.machinesDataGridView.Size = new System.Drawing.Size(668, 273);
+            this.machinesDataGridView.Size = new System.Drawing.Size(748, 273);
             this.machinesDataGridView.TabIndex = 6;
             // 
             // Naam
             // 
             this.Naam.HeaderText = "Naam";
+            this.Naam.MaxInputLength = 15;
             this.Naam.Name = "Naam";
             // 
             // Type
@@ -97,6 +100,7 @@
             // Label
             // 
             this.Label.HeaderText = "Label";
+            this.Label.MaxInputLength = 10;
             this.Label.Name = "Label";
             // 
             // Vermogen
@@ -113,6 +117,7 @@
             dataGridViewCellStyle2.NullValue = "0";
             this.NominaalToerental.DefaultCellStyle = dataGridViewCellStyle2;
             this.NominaalToerental.HeaderText = "Nominaal-Toerental";
+            this.NominaalToerental.MaxInputLength = 18;
             this.NominaalToerental.Name = "NominaalToerental";
             // 
             // NominaalKoppel
@@ -121,7 +126,13 @@
             dataGridViewCellStyle3.NullValue = "0";
             this.NominaalKoppel.DefaultCellStyle = dataGridViewCellStyle3;
             this.NominaalKoppel.HeaderText = "Nominaal-Koppel";
+            this.NominaalKoppel.MaxInputLength = 18;
             this.NominaalKoppel.Name = "NominaalKoppel";
+            // 
+            // ProductieMachine
+            // 
+            this.ProductieMachine.HeaderText = "ProductieMachine";
+            this.ProductieMachine.Name = "ProductieMachine";
             // 
             // verwijderButton
             // 
@@ -146,7 +157,7 @@
             // annuleerButton
             // 
             this.annuleerButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.annuleerButton.Location = new System.Drawing.Point(524, 315);
+            this.annuleerButton.Location = new System.Drawing.Point(686, 315);
             this.annuleerButton.Name = "annuleerButton";
             this.annuleerButton.Size = new System.Drawing.Size(75, 23);
             this.annuleerButton.TabIndex = 9;
@@ -169,7 +180,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.annuleerButton;
-            this.ClientSize = new System.Drawing.Size(692, 347);
+            this.ClientSize = new System.Drawing.Size(772, 347);
             this.Controls.Add(this.leegLabel);
             this.Controls.Add(this.annuleerButton);
             this.Controls.Add(this.opslaanButton);
@@ -177,6 +188,8 @@
             this.Controls.Add(this.machinesDataGridView);
             this.Controls.Add(bestandPadLabel);
             this.Controls.Add(this.bestandPadComboBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "EditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bestanden aanpassen";
@@ -194,13 +207,14 @@
         private System.Windows.Forms.Button verwijderButton;
         private System.Windows.Forms.Button opslaanButton;
         private System.Windows.Forms.Button annuleerButton;
+        private System.Windows.Forms.Label leegLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naam;
         private System.Windows.Forms.DataGridViewComboBoxColumn Type;
         private System.Windows.Forms.DataGridViewTextBoxColumn Label;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vermogen;
         private System.Windows.Forms.DataGridViewTextBoxColumn NominaalToerental;
         private System.Windows.Forms.DataGridViewTextBoxColumn NominaalKoppel;
-        private System.Windows.Forms.Label leegLabel;
+        private System.Windows.Forms.DataGridViewComboBoxColumn ProductieMachine;
 
     }
 }

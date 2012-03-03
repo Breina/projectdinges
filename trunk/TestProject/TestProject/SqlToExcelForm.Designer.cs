@@ -113,6 +113,8 @@
             this.Controls.Add(this.bestandenListBox);
             this.Controls.Add(this.naarExcelButton);
             this.Controls.Add(this.bestandLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "SqlToExcelForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database naar excel";

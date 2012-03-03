@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data.SqlClient;
 
-namespace MotoroziodDB
+namespace MotorozoidDB
 {
     /// <summary> 
     /// Klasse voor controle en ophalen van bestanden uit de database

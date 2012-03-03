@@ -11,8 +11,7 @@
     <RootNamespace>Motorozoid</RootNamespace>
     <AssemblyName>TestProject</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -62,10 +61,13 @@
     <Reference Include="DynamicDataDisplay.Maps">
       <HintPath>..\..\..\IntensityChart\bin\Debug\DynamicDataDisplay.Maps.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -84,6 +86,12 @@
     </Compile>
     <Compile Include="EditForm.Designer.cs">
       <DependentUpon>EditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditProductieMachineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditProductieMachineForm.Designer.cs">
+      <DependentUpon>EditProductieMachineForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ExcelToSqlForm.cs">
       <SubType>Form</SubType>
@@ -117,8 +125,17 @@
     <Compile Include="SqlToExcelForm.Designer.cs">
       <DependentUpon>SqlToExcelForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TekenProductieMachineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TekenProductieMachineForm.Designer.cs">
+      <DependentUpon>TekenProductieMachineForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EditForm.resx">
       <DependentUpon>EditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditProductieMachineForm.resx">
+      <DependentUpon>EditProductieMachineForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExcelToSqlForm.resx">
       <DependentUpon>ExcelToSqlForm.cs</DependentUpon>
@@ -144,6 +161,9 @@
     </Compile>
     <EmbeddedResource Include="SqlToExcelForm.resx">
       <DependentUpon>SqlToExcelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TekenProductieMachineForm.resx">
+      <DependentUpon>TekenProductieMachineForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

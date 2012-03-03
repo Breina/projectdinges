@@ -45,11 +45,13 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestandToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.productiemachineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tekenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productiemachineToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.bestandenListBox = new System.Windows.Forms.ListBox();
             this.machinesListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.productiemachineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +90,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bestandToolStripMenuItem,
             this.helpToolStripMenuItem,
-            this.editToolStripMenuItem});
+            this.editToolStripMenuItem,
+            this.tekenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(640, 24);
@@ -112,45 +115,45 @@
             // importerenToolStripMenuItem
             // 
             this.importerenToolStripMenuItem.Name = "importerenToolStripMenuItem";
-            this.importerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.importerenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.importerenToolStripMenuItem.Text = "&Importeren...";
             this.importerenToolStripMenuItem.Click += new System.EventHandler(this.importerenToolStripMenuItem_Click);
             // 
             // visualizerenToolStripMenuItem
             // 
             this.visualizerenToolStripMenuItem.Name = "visualizerenToolStripMenuItem";
-            this.visualizerenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.visualizerenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.visualizerenToolStripMenuItem.Text = "&Visualizeren";
             this.visualizerenToolStripMenuItem.Click += new System.EventHandler(this.visualizerenToolStripMenuItem_Click);
             // 
             // exporterenToolStripMenuItem
             // 
             this.exporterenToolStripMenuItem.Name = "exporterenToolStripMenuItem";
-            this.exporterenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exporterenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.exporterenToolStripMenuItem.Text = "&Exporteren...";
             this.exporterenToolStripMenuItem.Click += new System.EventHandler(this.exporterenToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
             // 
             // uitloggenToolStripMenuItem
             // 
             this.uitloggenToolStripMenuItem.Name = "uitloggenToolStripMenuItem";
-            this.uitloggenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.uitloggenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.uitloggenToolStripMenuItem.Text = "&Uitloggen";
             this.uitloggenToolStripMenuItem.Click += new System.EventHandler(this.uitloggenToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(139, 6);
             // 
             // afsluitenToolStripMenuItem
             // 
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.afsluitenToolStripMenuItem.Text = "&Afsluiten";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
@@ -180,9 +183,31 @@
             // bestandToolStripMenuItem1
             // 
             this.bestandToolStripMenuItem1.Name = "bestandToolStripMenuItem1";
-            this.bestandToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
-            this.bestandToolStripMenuItem1.Text = "Bestand";
-            this.bestandToolStripMenuItem1.Click += new System.EventHandler(this.bestandToolStripMenuItem_Click);
+            this.bestandToolStripMenuItem1.Size = new System.Drawing.Size(176, 22);
+            this.bestandToolStripMenuItem1.Text = "Bestanden";
+            this.bestandToolStripMenuItem1.Click += new System.EventHandler(this.bestandenToolStripMenuItem_Click);
+            // 
+            // productiemachineToolStripMenuItem
+            // 
+            this.productiemachineToolStripMenuItem.Name = "productiemachineToolStripMenuItem";
+            this.productiemachineToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.productiemachineToolStripMenuItem.Text = "Productiemachines";
+            this.productiemachineToolStripMenuItem.Click += new System.EventHandler(this.productiemachinesToolStripMenuItem_Click);
+            // 
+            // tekenToolStripMenuItem
+            // 
+            this.tekenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.productiemachineToolStripMenuItem1});
+            this.tekenToolStripMenuItem.Name = "tekenToolStripMenuItem";
+            this.tekenToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.tekenToolStripMenuItem.Text = "Teken";
+            // 
+            // productiemachineToolStripMenuItem1
+            // 
+            this.productiemachineToolStripMenuItem1.Name = "productiemachineToolStripMenuItem1";
+            this.productiemachineToolStripMenuItem1.Size = new System.Drawing.Size(171, 22);
+            this.productiemachineToolStripMenuItem1.Text = "Productiemachine";
+            this.productiemachineToolStripMenuItem1.Click += new System.EventHandler(this.productiemachineToolStripMenuItem_Click);
             // 
             // bestandenListBox
             // 
@@ -219,12 +244,6 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Machines:";
             // 
-            // productiemachineToolStripMenuItem
-            // 
-            this.productiemachineToolStripMenuItem.Name = "productiemachineToolStripMenuItem";
-            this.productiemachineToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.productiemachineToolStripMenuItem.Text = "Productiemachine";
-            // 
             // HoofdSchermForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,7 +257,9 @@
             this.Controls.Add(this.knopVisualizeren);
             this.Controls.Add(this.knopImporteren);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "HoofdSchermForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Motorozoid";
@@ -273,6 +294,8 @@
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bestandToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem productiemachineToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tekenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem productiemachineToolStripMenuItem1;
 
 
     }

@@ -12,17 +12,15 @@ using System.Text;
 using IntensityChart;
 using System.Windows.Forms;
 using System.Windows.Forms.Integration;
-using MotoroziodDB;
+using MotorozoidDB;
 
 namespace Motorozoid
 {
 
     public partial class GrafiekForm : Form
     {      
-        private Grafiek wpfAddressCtrl;
-        private Machine machine;
-        private double besteRendament;
-        private Points besteNominaleWaarden;
+        private Grafiek grafiek;
+        private Machine machine;    
        
         
         public GrafiekForm(string pad, Machine machine)
@@ -31,18 +29,28 @@ namespace Motorozoid
             
             this.machine = machine;
             this.Text = machine.MachineNaam;
-            wpfAddressCtrl = new Grafiek(pad, machine.MachineId);
+            grafiek = new Grafiek(pad, machine);
         
             grafiekHost.Size = new System.Drawing.Size(400,300);
 
-            grafiekHost.Child = wpfAddressCtrl;
-            this.Controls.Add(grafiekHost);
-            besteRendament = TekenDB.geefBesteRendament(machine);
-            besteNominaleWaarden = TekenDB.geefBesteNominaleWaarden(machine.BesteNominaalID);
-            rendamentLabel.Text = "Beste rendament: " +Math.Round(besteRendament,4);
-            toerentalLabel.Text = "Bij Toerental: " + machine.NominaalToerental*besteNominaleWaarden.getToerental();
-            koppelLabel.Text = "En Koppel: " + machine.NominaalKoppel * besteNominaleWaarden.getKoppel() ;
-        }            
+            grafiekHost.Child = grafiek;
+            this.Controls.Add(grafiekHost);       
+          
+        }
+
+        public GrafiekForm(Machine motor, Machine overbrenging, Machine belasting)
+        {
+            InitializeComponent();
+
+           
+            this.Text = "Totale Isorendamentscurve";
+            grafiek = new Grafiek(motor, overbrenging,belasting);
+
+            grafiekHost.Size = new System.Drawing.Size(400, 300);
+
+            grafiekHost.Child = grafiek;
+            this.Controls.Add(grafiekHost);   
+        }
             
     }
 }
