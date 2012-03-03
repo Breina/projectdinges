@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using Microsoft.Research.DynamicDataDisplay.DataSources.MultiDimensional;
 using Microsoft.Research.DynamicDataDisplay.Common.Auxiliary;
 using Microsoft.Research.DynamicDataDisplay.Charts;
-using MotoroziodDB;
+using MotorozoidDB;
 using IntensityChart;
 using System.Data.SqlClient;
 
@@ -160,7 +160,7 @@ namespace Motorozoid
             form.Show();
         }
 
-        private void bestandToolStripMenuItem_Click(object sender, EventArgs e)
+        private void bestandenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditForm form = new EditForm(this);
             form.Show();
@@ -185,5 +185,18 @@ namespace Motorozoid
             }
         }
 
+        private void productiemachineToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TekenProductieMachineForm form = new TekenProductieMachineForm(this);
+            form.Show();
+        }
+
+        private void productiemachinesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EditProductieMachineForm form = new EditProductieMachineForm(this);
+            form.Show();
+        }
+
+       
     }
 }

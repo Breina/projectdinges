@@ -8,7 +8,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 
-namespace MotoroziodDB
+namespace MotorozoidDB
 {
     /// <summary>
     /// Klasse voor excelbestanden in te lezen en uit te lezen
@@ -74,6 +74,7 @@ namespace MotoroziodDB
                     insertInMachinesCommand.Parameters.Add("@Naam", SqlDbType.NVarChar);
                     insertInMachineBestandCommand.Parameters.Add("@BestandPad", SqlDbType.NVarChar);
                     insertInMachineBestandCommand.Parameters.Add("@MachineID", SqlDbType.Int);
+                    insertInMachineBestandCommand.Parameters.Add("@ProductieMachineID", SqlDbType.Int);
                     insertInRendamentCommand.Parameters.Add("@MachineBestandID", SqlDbType.Int);
                     insertInRendamentCommand.Parameters.Add("@Rendament", SqlDbType.Decimal);
                     insertInRendamentCommand.Parameters.Add("@NominaalID", SqlDbType.Int);
@@ -107,11 +108,12 @@ namespace MotoroziodDB
                             machines.Add(new Machine(naam, machineId));
 
                             insertStatement = "INSERT INTO MachineBestand " +
-                                "(BestandPad, MachineID) " +
-                                "VALUES (@BestandPad, @MachineID)";
+                                "(BestandPad, MachineID,ProductieMachineID) " +
+                                "VALUES (@BestandPad, @MachineID,@ProductieMachineID)";
                             insertInMachineBestandCommand.CommandText = insertStatement;
                             insertInMachineBestandCommand.Parameters["@BestandPad"].Value = file;
                             insertInMachineBestandCommand.Parameters["@MachineID"].Value = machineId;
+                            insertInMachineBestandCommand.Parameters["@ProductieMachineID"].Value = 1;
                             insertInMachineBestandCommand.ExecuteNonQuery();
 
                             selectStatement = "SELECT IDENT_CURRENT('MachineBestand') FROM MachineBestand";

@@ -38,7 +38,7 @@
             // 
             // loginButton
             // 
-            this.loginButton.Location = new System.Drawing.Point(120, 77);
+            this.loginButton.Location = new System.Drawing.Point(33, 77);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(87, 23);
             this.loginButton.TabIndex = 3;
@@ -49,7 +49,7 @@
             // loginLabel
             // 
             this.loginLabel.AutoSize = true;
-            this.loginLabel.Location = new System.Drawing.Point(36, 26);
+            this.loginLabel.Location = new System.Drawing.Point(30, 26);
             this.loginLabel.Name = "loginLabel";
             this.loginLabel.Size = new System.Drawing.Size(65, 13);
             this.loginLabel.TabIndex = 0;
@@ -81,7 +81,7 @@
             // 
             // annuleerButton
             // 
-            this.annuleerButton.Location = new System.Drawing.Point(33, 77);
+            this.annuleerButton.Location = new System.Drawing.Point(126, 77);
             this.annuleerButton.Name = "annuleerButton";
             this.annuleerButton.Size = new System.Drawing.Size(81, 23);
             this.annuleerButton.TabIndex = 4;
@@ -101,6 +101,8 @@
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.loginLabel);
             this.Controls.Add(this.loginButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "InlogForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inloggen";

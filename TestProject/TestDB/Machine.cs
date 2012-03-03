@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MotoroziodDB
+namespace MotorozoidDB
 {
     /// <summary> 
     /// Klasse om een Machine object voor te stellen 
@@ -18,7 +18,8 @@ namespace MotoroziodDB
         private double vermogen;
         private double nominaalToerental;
         private double nominaalKoppel;
-        private int besteNominaalID;        
+        private int besteNominaalID;
+        private int productieMachineID;        
 
         /// <summary> 
         /// Constructor van de klasse Machine
@@ -77,6 +78,12 @@ namespace MotoroziodDB
         {
             get { return besteNominaalID; }
             set { besteNominaalID = value; }
+        }
+
+        public int ProductieMachineID
+        {
+            get { return productieMachineID; }
+            set { productieMachineID = value; }
         }
 
         /// <summary> 
