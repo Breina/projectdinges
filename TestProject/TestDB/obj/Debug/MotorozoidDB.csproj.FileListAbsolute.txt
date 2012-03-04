@@ -21,11 +21,7 @@ C:\Users\student\Desktop\Project\TestProject3\TestDB\obj\Debug\TestDB.dll
 C:\Users\student\Desktop\Project\TestProject3\TestDB\obj\Debug\TestDB.pdb
 C:\Users\student\Desktop\Folder\TestProject\TestDB\bin\Debug\DataTEST.mdf
 C:\Users\student\Desktop\Folder\TestProject\TestDB\bin\Debug\DataTEST_log.ldf
-C:\Users\student\Desktop\Folder\TestProject\TestDB\bin\Debug\TestDB.dll
-C:\Users\student\Desktop\Folder\TestProject\TestDB\bin\Debug\TestDB.pdb
 C:\Users\student\Desktop\Folder\TestProject\TestDB\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\student\Desktop\Folder\TestProject\TestDB\obj\Debug\TestDB.dll
-C:\Users\student\Desktop\Folder\TestProject\TestDB\obj\Debug\TestDB.pdb
 C:\Users\student\Desktop\Project\TestProject\TestDB\bin\Debug\DataTEST.mdf
 C:\Users\student\Desktop\Project\TestProject\TestDB\bin\Debug\DataTEST_log.ldf
 C:\Users\student\Desktop\Project\TestProject\TestDB\bin\Debug\MotorozoidDB.dll
@@ -33,3 +29,7 @@ C:\Users\student\Desktop\Project\TestProject\TestDB\bin\Debug\MotorozoidDB.pdb
 C:\Users\student\Desktop\Project\TestProject\TestDB\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\student\Desktop\Project\TestProject\TestDB\obj\Debug\MotorozoidDB.dll
 C:\Users\student\Desktop\Project\TestProject\TestDB\obj\Debug\MotorozoidDB.pdb
+C:\Users\student\Desktop\Folder\TestProject\TestDB\bin\Debug\MotorozoidDB.dll
+C:\Users\student\Desktop\Folder\TestProject\TestDB\bin\Debug\MotorozoidDB.pdb
+C:\Users\student\Desktop\Folder\TestProject\TestDB\obj\Debug\MotorozoidDB.dll
+C:\Users\student\Desktop\Folder\TestProject\TestDB\obj\Debug\MotorozoidDB.pdb

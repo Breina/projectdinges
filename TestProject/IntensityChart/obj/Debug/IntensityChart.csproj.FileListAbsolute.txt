@@ -161,14 +161,10 @@ C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\DataTEST_lo
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\IntensityChart.exe.config
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\IntensityChart.exe
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\IntensityChart.pdb
-C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\TestDB.dll
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\EPPlus.dll
-C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\TestDB.pdb
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\obj\Debug\Grafiek.baml
-C:\Users\student\Desktop\Folder\TestProject\IntensityChart\obj\Debug\Window1.baml
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\obj\Debug\Grafiek.g.cs
-C:\Users\student\Desktop\Folder\TestProject\IntensityChart\obj\Debug\Window1.g.cs
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\obj\Debug\App.g.cs
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\obj\Debug\IntensityChart_MarkupCompile.cache
 C:\Users\student\Desktop\Folder\TestProject\IntensityChart\obj\Debug\IntensityChart.g.resources
@@ -196,3 +192,5 @@ C:\Users\student\Desktop\Project\TestProject\IntensityChart\obj\Debug\IntensityC
 C:\Users\student\Desktop\Project\TestProject\IntensityChart\obj\Debug\IntensityChart.pdb
 C:\Users\student\Desktop\Project\TestProject\IntensityChart\bin\Debug\MotorozoidDB.dll
 C:\Users\student\Desktop\Project\TestProject\IntensityChart\bin\Debug\MotorozoidDB.pdb
+C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\MotorozoidDB.dll
+C:\Users\student\Desktop\Folder\TestProject\IntensityChart\bin\Debug\MotorozoidDB.pdb
