@@ -77,11 +77,9 @@ C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\TestProject.pd
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\DynamicDataDisplay.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\DynamicDataDisplay.Maps.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\IntensityChart.exe
-C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\TestDB.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\EPPlus.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\System.Threading.dll
 C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\IntensityChart.pdb
-C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\TestDB.pdb
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\ResolveAssemblyReference.cache
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\Motorozoid.EditForm.resources
 C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\Motorozoid.ExcelToSqlForm.resources
@@ -116,3 +114,7 @@ C:\Users\student\Desktop\Project\TestProject\TestProject\obj\x86\Debug\GenerateR
 C:\Users\student\Desktop\Project\TestProject\TestProject\bin\Debug\MotorozoidDB.dll
 C:\Users\student\Desktop\Project\TestProject\TestProject\bin\Debug\MotorozoidDB.pdb
 C:\Users\student\Desktop\Project\TestProject\TestProject\obj\x86\Debug\Motorozoid.EditProductieMachineForm.resources
+C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\MotorozoidDB.dll
+C:\Users\student\Desktop\Folder\TestProject\TestProject\bin\Debug\MotorozoidDB.pdb
+C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\Motorozoid.EditProductieMachineForm.resources
+C:\Users\student\Desktop\Folder\TestProject\TestProject\obj\x86\Debug\Motorozoid.TekenProductieMachineForm.resources
