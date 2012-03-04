@@ -59,5 +59,26 @@ namespace Motorozoid.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap export_icon {
+            get {
+                object obj = ResourceManager.GetObject("export-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap import_icon {
+            get {
+                object obj = ResourceManager.GetObject("import-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap ooo_draw_icon {
+            get {
+                object obj = ResourceManager.GetObject("ooo-draw-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

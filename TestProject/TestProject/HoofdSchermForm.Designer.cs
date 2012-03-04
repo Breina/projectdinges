@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HoofdSchermForm));
             this.knopImporteren = new System.Windows.Forms.Button();
             this.knopVisualizeren = new System.Windows.Forms.Button();
             this.knopExporteren = new System.Windows.Forms.Button();
@@ -57,8 +56,8 @@
             // 
             // knopImporteren
             // 
-            this.knopImporteren.Image = ((System.Drawing.Image)(resources.GetObject("knopImporteren.Image")));
-            this.knopImporteren.Location = new System.Drawing.Point(508, 28);
+            this.knopImporteren.Image = global::Motorozoid.Properties.Resources.import_icon;
+            this.knopImporteren.Location = new System.Drawing.Point(654, 28);
             this.knopImporteren.Name = "knopImporteren";
             this.knopImporteren.Size = new System.Drawing.Size(120, 120);
             this.knopImporteren.TabIndex = 0;
@@ -67,8 +66,8 @@
             // 
             // knopVisualizeren
             // 
-            this.knopVisualizeren.Image = ((System.Drawing.Image)(resources.GetObject("knopVisualizeren.Image")));
-            this.knopVisualizeren.Location = new System.Drawing.Point(508, 155);
+            this.knopVisualizeren.Image = global::Motorozoid.Properties.Resources.ooo_draw_icon;
+            this.knopVisualizeren.Location = new System.Drawing.Point(654, 155);
             this.knopVisualizeren.Name = "knopVisualizeren";
             this.knopVisualizeren.Size = new System.Drawing.Size(120, 120);
             this.knopVisualizeren.TabIndex = 1;
@@ -77,8 +76,8 @@
             // 
             // knopExporteren
             // 
-            this.knopExporteren.Image = ((System.Drawing.Image)(resources.GetObject("knopExporteren.Image")));
-            this.knopExporteren.Location = new System.Drawing.Point(508, 282);
+            this.knopExporteren.Image = global::Motorozoid.Properties.Resources.export_icon;
+            this.knopExporteren.Location = new System.Drawing.Point(654, 282);
             this.knopExporteren.Name = "knopExporteren";
             this.knopExporteren.Size = new System.Drawing.Size(120, 120);
             this.knopExporteren.TabIndex = 2;
@@ -94,7 +93,7 @@
             this.tekenToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(640, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -214,14 +213,14 @@
             this.bestandenListBox.FormattingEnabled = true;
             this.bestandenListBox.Location = new System.Drawing.Point(13, 54);
             this.bestandenListBox.Name = "bestandenListBox";
-            this.bestandenListBox.Size = new System.Drawing.Size(317, 342);
+            this.bestandenListBox.Size = new System.Drawing.Size(463, 342);
             this.bestandenListBox.TabIndex = 4;
             this.bestandenListBox.SelectedIndexChanged += new System.EventHandler(this.bestandenListBox_SelectedIndexChanged);
             // 
             // machinesListBox
             // 
             this.machinesListBox.FormattingEnabled = true;
-            this.machinesListBox.Location = new System.Drawing.Point(336, 54);
+            this.machinesListBox.Location = new System.Drawing.Point(482, 55);
             this.machinesListBox.Name = "machinesListBox";
             this.machinesListBox.Size = new System.Drawing.Size(166, 342);
             this.machinesListBox.TabIndex = 5;
@@ -238,7 +237,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(333, 35);
+            this.label2.Location = new System.Drawing.Point(479, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 7;
@@ -248,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 409);
+            this.ClientSize = new System.Drawing.Size(784, 409);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.machinesListBox);

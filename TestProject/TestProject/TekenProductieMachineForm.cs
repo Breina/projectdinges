@@ -11,6 +11,10 @@ using IntensityChart;
 
 namespace Motorozoid
 {
+    /// <summary> 
+    /// Klasse om grafieken weer te geven per productiemachine
+    /// </summary>
+    /// <author>Wim Baens</author>
     public partial class TekenProductieMachineForm : Form
     {
         private Grafiek grafiek;
@@ -25,6 +29,11 @@ namespace Motorozoid
         bool overbrengingGetekend = false;
         bool belastingGetekend= false;
 
+        /// <summary> 
+        /// Constructor van de klasse TekenProductieMachineForm
+        /// </summary>
+        /// <param name="hoofdscherm">object van het type HoofdSchermForm</param>          
+        /// <author>Wim Baens</author> 
         public TekenProductieMachineForm(HoofdSchermForm hoofdscherm)
         {
             InitializeComponent();
@@ -35,13 +44,21 @@ namespace Motorozoid
             laadGegevens();
         }
 
+        /// <summary> 
+        /// Geeft al de grafieken weer
+        /// </summary>               
+        /// <author>Wim Baens</author> 
         private void tekenGrafiek()
         {
             tekenMotor();
             tekenBelasting();
             tekenOverbrenging();    
         }
-       
+
+        /// <summary> 
+        /// Geeft de overbrenginggrafiek weer als er een overbrenging is geselecteerd in de lijst
+        /// </summary>               
+        /// <author>Wim Baens</author> 
         private void tekenOverbrenging()
         {
             if (overbrengingListBox.SelectedIndex != -1)
@@ -59,6 +76,10 @@ namespace Motorozoid
             }
         }
 
+        /// <summary> 
+        /// Geeft de belastinggrafiek weer als er een belasting is geselecteerd in de lijst
+        /// </summary>               
+        /// <author>Wim Baens</author> 
         private void tekenBelasting()
         {
             if (belastingListBox.SelectedIndex != -1)
@@ -77,6 +98,10 @@ namespace Motorozoid
             }
         }
 
+        /// <summary> 
+        /// Geeft de motorgrafiek weer als er een motor is geselecteerd in de lijst
+        /// </summary>               
+        /// <author>Wim Baens</author> 
         private void tekenMotor()
         {
             if (motorListBox.SelectedIndex != -1)
@@ -122,7 +147,10 @@ namespace Motorozoid
             this.Controls.Remove(overbrengingHost);
             laadGegevens();
         }
-
+        /// <summary> 
+        ///Laadt al de gegevens in voor de lijsten te vullen en grafieken weer te geven
+        /// </summary>               
+        /// <author>Wim Baens</author> 
         public void laadGegevens(){
              this.selectedProductieMachine = productieMachineComboBox.SelectedIndex + 1;
             motors = MachineDB.getMachinesPerType(0, selectedProductieMachine);
@@ -152,6 +180,10 @@ namespace Motorozoid
             form.Show();
         }
 
+        /// <summary> 
+        /// Controleert of alle grafieken getekend zijn
+        /// </summary>               
+        /// <author>Wim Baens</author> 
         private void controleerGetekend()
         {
             if (motorGetekend && overbrengingGetekend && belastingGetekend)

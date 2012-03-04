@@ -10,11 +10,21 @@ using MotorozoidDB;
 
 namespace Motorozoid
 {
+    /// <summary>
+    /// GUI Klasse om een productiemachine toe te voegen of aan te passen
+    /// </summary>
+    /// <author>Wim Baens</author>
     public partial class EditProductieMachineForm : Form
     {
 
         private HoofdSchermForm hoofdscherm;
         List<ProductieMachine> productieMachines;
+
+        /// <summary> 
+        /// Constructor van de klasse EditProductieMachineForm
+        /// </summary>
+        /// <param name="hoofdscherm">object van het type HoofdSchermForm</param>          
+        /// <author>Wim Baens</author> 
         public EditProductieMachineForm(HoofdSchermForm hoofdscherm)
         {
             InitializeComponent();
@@ -67,6 +77,11 @@ namespace Motorozoid
                 MessageBox.Show(this, "Gelieve een naam in te vullen!", "Input fout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        /// <summary> 
+        /// Controleert of 'Geen' is geselecteerd in de combobox
+        /// </summary>              
+        /// <author>Wim Baens</author> 
         private void controleerComboBox()
         {
             if (productieMachineComboBox.SelectedItem.ToString().Equals("Geen"))
