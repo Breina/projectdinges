@@ -124,6 +124,10 @@ namespace Motorozoid
             return machines[machinesListBox.SelectedIndex];
         }
 
+        /// <summary> 
+        /// refreshed alle lijsten
+        /// </summary>       
+        /// <author>Brecht Derwael</author> 
         public void refresh()
         {
             refreshLists();

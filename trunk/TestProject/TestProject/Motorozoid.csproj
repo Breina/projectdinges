@@ -9,9 +9,10 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Motorozoid</RootNamespace>
-    <AssemblyName>TestProject</AssemblyName>
+    <AssemblyName>Motorozoid</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
@@ -49,14 +50,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DynamicDataDisplay">
-      <HintPath>..\..\..\IntensityChart\bin\Debug\DynamicDataDisplay.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamicDataDisplay.Coastline">
-      <HintPath>..\DynamicDataDisplay v0.3 Binaries &amp; Samples\DynamicDataDisplay.Coastline\DynamicDataDisplay.Coastline.dll</HintPath>
-    </Reference>
-    <Reference Include="DynamicDataDisplay.Controls">
-      <HintPath>..\DynamicDataDisplay v0.3 Binaries &amp; Samples\DynamicDataDisplay.Controls\DynamicDataDisplay.Controls.dll</HintPath>
+    <Reference Include="DynamicDataDisplay, Version=0.3.0.0, Culture=neutral, PublicKeyToken=5b7d744a7263923f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IntensityChart\bin\Debug\DynamicDataDisplay.dll</HintPath>
     </Reference>
     <Reference Include="DynamicDataDisplay.Maps">
       <HintPath>..\..\..\IntensityChart\bin\Debug\DynamicDataDisplay.Maps.dll</HintPath>
@@ -165,7 +161,6 @@
     <EmbeddedResource Include="TekenProductieMachineForm.resx">
       <DependentUpon>TekenProductieMachineForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -217,6 +212,15 @@
       <ProductName>Windows Installer 4.5</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ooo-draw-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

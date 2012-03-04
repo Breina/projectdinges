@@ -100,7 +100,8 @@ namespace Motorozoid
         /// </summary>        
         /// <param name="m">lijst met Machine objecten</param>        
         /// <author>Brecht Derwael en Wim Baens</author> 
-        /// <author>Wim Baens: geeft null terug als er niks geselecteerd is</author>
+        /// <author>Wim Baens: Exception oproepen als parsen niet lijkt en je alles zelf moet invullen</author>
+        /// <author>Wim Baens: Types en ProductieMachines toegevoegd</author>
         private void fillGridView(List<Machine> m)
         {
             string naam;
@@ -165,7 +166,7 @@ namespace Motorozoid
         /// <summary> 
         /// de Machine objecten worden geupdated in de database
         /// </summary>
-        /// <param name="close">één enkele char</param>         
+        /// <param name="close">één char</param>         
         /// <author>Wim Baens en Brecht Derwael</author> 
         /// <author>Wim Baens: switch gemaakt om de method te kunnen herbruiken als er op annuleren wordt geklikt</author>
         private void updateMachine(char close)

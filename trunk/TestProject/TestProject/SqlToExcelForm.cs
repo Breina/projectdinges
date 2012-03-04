@@ -36,6 +36,15 @@ namespace Motorozoid
 
         private void naarExcelButton_Click(object sender, EventArgs e)
         {
+            zetOmNaarExcel();            
+        }
+
+        /// <summary> 
+        /// Zet een bestand uit de database om naar excel als er een correcte naam wordt ingegeven
+        /// </summary>             
+        /// <author>Wim Baens</author> 
+        private void zetOmNaarExcel()
+        {
             string bestandsNaam = bestandsNaamTextBox.Text;
             try
             {
@@ -51,14 +60,14 @@ namespace Motorozoid
                     if (excelFolderBrowserDialog.ShowDialog() == DialogResult.OK)
                     {
                         string opslaanPad = excelFolderBrowserDialog.SelectedPath;
-                        FileInfo file = new FileInfo(opslaanPad + "\\"+bestandsNaam + ".xlsx");
+                        FileInfo file = new FileInfo(opslaanPad + "\\" + bestandsNaam + ".xlsx");
                         if (file.Exists)
                         {
                             MessageBox.Show(this, "Bestand bestaat al in de gekozen map, verander de bestandsnaam of map!", "Bestand Bestaat", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
                         {
-                            ExcelDB.sqlToExcel(bestandenListBox.SelectedValue.ToString(),file);
+                            ExcelDB.sqlToExcel(bestandenListBox.SelectedValue.ToString(), file);
                             this.Close();
                         }
                     }

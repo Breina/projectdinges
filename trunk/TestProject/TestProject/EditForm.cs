@@ -58,7 +58,7 @@ namespace Motorozoid
                 naam = mach.MachineNaam;
                 mach.NominaalToerental = 1500;
                 naam.Replace('-', ' ');
-                
+
                 try
                 {
                     string[] s = naam.Split(' ');
@@ -71,7 +71,7 @@ namespace Motorozoid
                 {
                     MessageBox.Show(this, "Geen bruikbare data in de machinenaam. Vul alles zelf in!", "Format fout", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                machinesDataGridView.Rows.Add(naam, mach.TypeId, mach.Label, mach.Vermogen, mach.NominaalToerental, mach.NominaalKoppel, mach.ProductieMachineID-1);
+                machinesDataGridView.Rows.Add(naam, mach.TypeId, mach.Label, mach.Vermogen, mach.NominaalToerental, mach.NominaalKoppel, mach.ProductieMachineID - 1);
             }
         }
 
@@ -112,10 +112,10 @@ namespace Motorozoid
                 machines[i].NominaalToerental = Convert.ToDouble(machinesDataGridView["NominaalToerental", i].Value);
                 machines[i].NominaalKoppel = Convert.ToInt32(machinesDataGridView["NominaalKoppel", i].Value);
                 machines[i].Label = machinesDataGridView["Label", i].Value.ToString();
-                machines[i].ProductieMachineID = Convert.ToInt32(machinesDataGridView["ProductieMachine", i].Value)+1;                
+                machines[i].ProductieMachineID = Convert.ToInt32(machinesDataGridView["ProductieMachine", i].Value) + 1;
             }
 
-            MachineDB.updateMachineData(machines,bestandPadComboBox.SelectedValue.ToString());
+            MachineDB.updateMachineData(machines, bestandPadComboBox.SelectedValue.ToString());
 
 
             this.Close();
@@ -132,6 +132,7 @@ namespace Motorozoid
             hoofdscherm.Enabled = true;
         }
 
+       
         private void verwijderButton_Click(object sender, EventArgs e)
         {
             if (bestandPadComboBox.Items.Count > 0)
@@ -155,12 +156,15 @@ namespace Motorozoid
             }
         }
 
+        /// <summary> 
+        /// Vult de gridview
+        /// </summary>                
+        /// <author>Wim Baens</author>
         private void vulComboBoxEnGrid()
         {
-
             machinesDataGridView.Rows.Clear();
-            int aantal = bestandPadComboBox.Items.Count;
-            if (aantal > 0)
+            int selectedIndex = bestandPadComboBox.SelectedIndex;
+            if (selectedIndex != -1)
             {
                 opslaanButton.Enabled = true;
                 verwijderButton.Enabled = true;
